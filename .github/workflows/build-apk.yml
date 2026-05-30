@@ -25,30 +25,36 @@ jobs:
 
     - name: Cordova Projekt aufbauen
       run: |
+        # 1. Projekt erstellen
         cordova create app com.linuxcore.vokabeltrainer Vokabeltrainer
         cd app
-        rm -rf www/*
         
-        # Entferne die Standard-config.xml und erstelle eine minimalistische neue
+        # 2. Alle Abhängigkeiten installieren (wichtig!)
+        npm install
+        
+        # 3. Alte Dateien säubern
+        rm -rf www/*
         rm config.xml
+        
+        # 4. Saubere config.xml schreiben
         cat <<EOF > config.xml
           <?xml version='1.0' encoding='utf-8'?>
           <widget id="com.linuxcore.vokabeltrainer" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
               <name>VokalPro</name>
               <content src="index.html" />
               <access origin="*" />
-              <preference name="android-targetSdkVersion" value="36" />
               <platform name="android">
                   <allow-intent href="market:*" />
               </platform>
           </widget>
           EOF
-        
-        # Restliche Dateien kopieren
+                  
+        # 5. Deine App-Datei kopieren
         if [ -f "../index.html" ]; then
           cp ../index.html www/index.html
         fi
         
+        # 6. Plattform hinzufügen
         cordova platform add android
 
     - name: Java einrichten
