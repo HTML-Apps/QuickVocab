@@ -1,0 +1,46 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Startet automatisch, wenn du Dateien im 'main'-Branch änderst
+  push:
+    branches: ["main"]
+  # Lässt dich das Update der Webseite auch manuell starten
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code auschecken
+        uses: actions/checkout@v4
+
+      - name: HTML-Datei vorbereiten
+        run: |
+          # GitHub Pages braucht zwingend eine index.html. Hier wird ggf. umbenannt.
+          if [ -f "index (2).html" ]; then
+            mv "index (2).html" index.html
+          fi
+
+      - name: GitHub Pages einrichten
+        uses: actions/configure-pages@v5
+
+      - name: Dateien hochladen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Webseite online stellen
+        id: deployment
+        uses: actions/deploy-pages@v4
