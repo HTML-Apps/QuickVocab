@@ -1,4 +1,4 @@
-# VokalPro – Vokabeltrainer
+# QuicVocab – Vokabeltrainer
 
 Persönlicher Vokabeltrainer als Android-App (Cordova + HTML).
 
