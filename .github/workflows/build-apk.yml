@@ -7,36 +7,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    # Zwingt GitHub Actions auf das zukunftssichere Node 24 (behebt die Warnungen)
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
-
     steps:
     - name: Code auschecken
       uses: actions/checkout@v4
 
-    - name: Node.js einrichten
+    - name: Node.js einrichten (v18 empfohlen)
       uses: actions/setup-node@v4
       with:
-        node-version: '24'
+        node-version: '18'
 
     - name: Cordova installieren
       run: npm install -g cordova
 
-    - name: Cordova Projekt aufbauen
+    - name: Build-Prozess ausführen
       run: |
         # 1. Projekt erstellen
         cordova create app com.linuxcore.vokabeltrainer Vokabeltrainer
+        
+        # 2. In den Ordner wechseln
         cd app
         
-        # 2. Alle Abhängigkeiten installieren (wichtig!)
+        # 3. Projekt-Abhängigkeiten installieren
         npm install
         
-        # 3. Alte Dateien säubern
-        rm -rf www/*
+        # 4. Saubere Konfiguration schreiben
         rm config.xml
-        
-        # 4. Saubere config.xml schreiben
         cat <<EOF > config.xml
           <?xml version='1.0' encoding='utf-8'?>
           <widget id="com.linuxcore.vokabeltrainer" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
@@ -48,14 +43,15 @@ jobs:
               </platform>
           </widget>
           EOF
-                  
+        
         # 5. Deine App-Datei kopieren
         if [ -f "../index.html" ]; then
           cp ../index.html www/index.html
         fi
         
-        # 6. Plattform hinzufügen
+        # 6. Plattform hinzufügen und APK bauen
         cordova platform add android
+        cordova build android --debug
 
     - name: Java einrichten
       uses: actions/setup-java@v4
@@ -65,11 +61,6 @@ jobs:
 
     - name: Android SDK bereitstellen
       uses: android-actions/setup-android@v3
-
-    - name: APK kompilieren
-      run: |
-        cd app
-        cordova build android --debug
 
     - name: APK als Download bereitstellen
       uses: actions/upload-artifact@v4
