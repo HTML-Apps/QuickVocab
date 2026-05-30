@@ -1,11 +1,13 @@
 name: Build Android APK
 
 on:
-  workflow_dispatch: # Manueller Start per Button
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true' # Damit sind die Warnungen weg
     
     steps:
     - name: Code auschecken
@@ -19,16 +21,11 @@ jobs:
     - name: Cordova installieren
       run: npm install -g cordova
 
-    - name: Build-Prozess ausführen
+    - name: Build-Prozess
       run: |
-        # 1. Projekt erstellen
         cordova create app com.linuxcore.vokabeltrainer Vokabeltrainer
         cd app
-        
-        # 2. Abhängigkeiten installieren
         npm install
-        
-        # 3. Config.xml generieren
         rm config.xml
         cat <<EOF > config.xml
           <?xml version='1.0' encoding='utf-8'?>
@@ -41,33 +38,31 @@ jobs:
               </platform>
           </widget>
           EOF
+        if [ -f "../index.html" ]; then cp ../index.html www/index.html; fi
         
-        # 4. App-Content kopieren
-        if [ -f "../index.html" ]; then
-          cp ../index.html www/index.html
-        fi
-        
-        # 5. Plattform hinzufügen und Build starten
         cordova platform add android
-        cordova build android --debug
+        # Wir erzwingen hier einen Fehler, wenn der Build fehlschlägt
+        cordova build android --debug || { echo "BUILD FAILED"; exit 1; }
 
-    - name: Suche nach der APK (Detektiv-Modus)
+    - name: Wo ist die APK?
       run: |
-        echo "Suche im app-Verzeichnis nach APK-Dateien:"
+        echo "Suche im gesamten Verzeichnis:"
         find . -name "*.apk"
+        echo "Inhalt von platforms/android/app/build/outputs/apk/:"
+        ls -R platforms/android/app/build/outputs/apk/ || echo "Ordner nicht gefunden"
 
-    - name: Java einrichten
+    - name: Java & Android
       uses: actions/setup-java@v4
       with:
         distribution: 'zulu'
         java-version: '17'
 
-    - name: Android SDK bereitstellen
+    - name: Android SDK
       uses: android-actions/setup-android@v3
 
-    - name: APK als Download bereitstellen
+    - name: APK hochladen
       uses: actions/upload-artifact@v4
       with:
         name: Vokabeltrainer-APK
         path: |
-          **/*.apk
+          **/app-debug.apk
