@@ -7,8 +7,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true' # Damit sind die Warnungen weg
-    
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
     steps:
     - name: Code auschecken
       uses: actions/checkout@v4
@@ -21,48 +21,38 @@ jobs:
     - name: Cordova installieren
       run: npm install -g cordova
 
-    - name: Build-Prozess
+    - name: Cordova Projekt aufbauen
       run: |
+        # Wir nutzen den exakten Namen aus deiner funktionierenden App
         cordova create app com.linuxcore.vokabeltrainer Vokabeltrainer
         cd app
-        npm install
-        rm config.xml
-        cat <<EOF > config.xml
-          <?xml version='1.0' encoding='utf-8'?>
-          <widget id="com.linuxcore.vokabeltrainer" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-              <name>VokalPro</name>
-              <content src="index.html" />
-              <access origin="*" />
-              <platform name="android">
-                  <allow-intent href="market:*" />
-              </platform>
-          </widget>
-          EOF
-        if [ -f "../index.html" ]; then cp ../index.html www/index.html; fi
+        rm -rf www/*
+        
+        # WICHTIG: Kopiere deine EIGENEN Dateien
+        cp ../index.html www/
+        cp ../config.xml .
+        
+        # Falls das Icon nicht existiert, ignorieren wir es mit '|| true'
+        cp ../book.png . || true
         
         cordova platform add android
-        # Wir erzwingen hier einen Fehler, wenn der Build fehlschlägt
-        cordova build android --debug || { echo "BUILD FAILED"; exit 1; }
 
-    - name: Wo ist die APK?
-      run: |
-        echo "Suche im gesamten Verzeichnis:"
-        find . -name "*.apk"
-        echo "Inhalt von platforms/android/app/build/outputs/apk/:"
-        ls -R platforms/android/app/build/outputs/apk/ || echo "Ordner nicht gefunden"
-
-    - name: Java & Android
+    - name: Java einrichten
       uses: actions/setup-java@v4
       with:
         distribution: 'zulu'
         java-version: '17'
 
-    - name: Android SDK
+    - name: Android SDK bereitstellen
       uses: android-actions/setup-android@v3
 
-    - name: APK hochladen
+    - name: APK kompilieren
+      run: |
+        cd app
+        cordova build android --debug
+
+    - name: APK als Download bereitstellen
       uses: actions/upload-artifact@v4
       with:
         name: Vokabeltrainer-APK
-        path: |
-          **/app-debug.apk
+        path: app/platforms/android/app/build/outputs/apk/debug/app-debug.apk
