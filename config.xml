@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.yourname.vokalprо" version="1.0.0"
-    xmlns="http://www.w3.org/ns/widgets"
+<widget id="com.linuxcore.vokabeltrainer" version="1.0.0" 
+    xmlns="http://www.w3.org/ns/widgets" 
     xmlns:cdv="http://cordova.apache.org/ns/1.0">
 
   <name>QuickVocab</name>
@@ -16,7 +16,7 @@
 
   <preference name="Orientation" value="portrait" />
   <preference name="android-minSdkVersion" value="26" />
-  <preference name="android-targetSdkVersion" value="36 />
+  <preference name="android-targetSdkVersion" value="36" />
   <preference name="StatusBarOverlaysWebView" value="false" />
   <preference name="StatusBarBackgroundColor" value="#0B0918" />
   <preference name="StatusBarStyle" value="lightcontent" />
