@@ -1,0 +1,64 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch: # Manueller Start per Button
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    # Zwingt GitHub Actions auf das zukunftssichere Node 24 (behebt die Warnungen)
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+    steps:
+    - name: Code auschecken
+      uses: actions/checkout@v4
+
+    - name: Node.js einrichten
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Cordova installieren
+      run: npm install -g cordova
+
+    - name: Cordova Projekt aufbauen
+      run: |
+        cordova create app de.linuxcore.vokabeltrainer Vokabeltrainer
+        cd app
+        rm -rf www/*
+        
+        # Sicherheitscheck: Kopiert die HTML-Datei und benennt sie korrekt um, falls nötig
+        if [ -f "../index (2).html" ]; then
+          cp "../index (2).html" www/index.html
+        elif [ -f "../index.html" ]; then
+          cp ../index.html www/index.html
+        fi
+        
+        cp ../config.xml .
+        
+        # Ignoriert Fehler, falls das App-Icon (book.png) mal fehlen sollte
+        cp ../book.png . || true
+        
+        cordova platform add android
+
+    - name: Java einrichten
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'zulu'
+        java-version: '17'
+
+    - name: Android SDK bereitstellen
+      uses: android-actions/setup-android@v3
+
+    - name: APK kompilieren
+      run: |
+        cd app
+        cordova build android --debug
+
+    - name: APK als Download bereitstellen
+      uses: actions/upload-artifact@v4
+      with:
+        name: Vokabeltrainer-APK
+        path: app/platforms/android/app/build/outputs/apk/debug/app-debug.apk
