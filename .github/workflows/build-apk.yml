@@ -11,10 +11,10 @@ jobs:
     - name: Code auschecken
       uses: actions/checkout@v4
 
-    - name: Node.js einrichten (v18 empfohlen)
+    - name: Node.js einrichten
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '24'
 
     - name: Cordova installieren
       run: npm install -g cordova
@@ -23,14 +23,12 @@ jobs:
       run: |
         # 1. Projekt erstellen
         cordova create app com.linuxcore.vokabeltrainer Vokabeltrainer
-        
-        # 2. In den Ordner wechseln
         cd app
         
-        # 3. Projekt-Abhängigkeiten installieren
+        # 2. Abhängigkeiten installieren
         npm install
         
-        # 4. Saubere Konfiguration schreiben
+        # 3. Config.xml generieren
         rm config.xml
         cat <<EOF > config.xml
           <?xml version='1.0' encoding='utf-8'?>
@@ -44,14 +42,19 @@ jobs:
           </widget>
           EOF
         
-        # 5. Deine App-Datei kopieren
+        # 4. App-Content kopieren
         if [ -f "../index.html" ]; then
           cp ../index.html www/index.html
         fi
         
-        # 6. Plattform hinzufügen und APK bauen
+        # 5. Plattform hinzufügen und Build starten
         cordova platform add android
         cordova build android --debug
+
+    - name: Suche nach der APK (Detektiv-Modus)
+      run: |
+        echo "Suche im app-Verzeichnis nach APK-Dateien:"
+        find . -name "*.apk"
 
     - name: Java einrichten
       uses: actions/setup-java@v4
@@ -66,4 +69,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Vokabeltrainer-APK
-        path: app/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+        path: |
+          **/*.apk
