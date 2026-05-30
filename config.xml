@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.yourname.vokalprо" version="1.0.0"
+    xmlns="http://www.w3.org/ns/widgets"
+    xmlns:cdv="http://cordova.apache.org/ns/1.0">
+
+  <name>VokalPro</name>
+  <description>Dein persönlicher Vokabeltrainer – überall lernen</description>
+  <author email="you@example.com">Dein Name</author>
+
+  <content src="index.html" />
+  <allow-navigation href="https://fonts.googleapis.com/*" />
+  <allow-navigation href="https://fonts.gstatic.com/*" />
+  <allow-navigation href="https://vision.googleapis.com/*" />
+
+  <access origin="*" />
+
+  <preference name="Orientation" value="portrait" />
+  <preference name="android-minSdkVersion" value="26" />
+  <preference name="android-targetSdkVersion" value="33" />
+  <preference name="StatusBarOverlaysWebView" value="false" />
+  <preference name="StatusBarBackgroundColor" value="#0B0918" />
+  <preference name="StatusBarStyle" value="lightcontent" />
+  <preference name="BackgroundColor" value="0xff0b0918" />
+  <preference name="DisallowOverscroll" value="true" />
+  <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+  <preference name="SplashScreenDelay" value="0" />
+  <preference name="AutoHideSplashScreen" value="true" />
+  <preference name="WebViewBounce" value="false" />
+
+  <plugin name="cordova-plugin-local-notifications" spec="^0.9.0" />
+  <plugin name="cordova-plugin-camera" spec="^7.0.0" />
+  <plugin name="cordova-plugin-statusbar" spec="^4.0.0" />
+  <plugin name="cordova-plugin-keyboard" spec="^2.2.0" />
+  <plugin name="cordova-plugin-vibration" spec="^3.1.1" />
+
+  <platform name="android">
+    <allow-intent href="market:*" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+      <application android:usesCleartextTraffic="false" />
+    </edit-config>
+
+    <icon src="res/icon.png" />
+    <splash src="res/screen.png" />
+  </platform>
+
+</widget>
