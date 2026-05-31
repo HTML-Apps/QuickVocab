@@ -50492,7 +50492,7 @@
         const LONG_PRESS_DURATION = 500; // Dauer für einen "langen Klick" in Millisekunden
 
         // --- ADMIN MODUS LOGIK ---
-        let isAdmin = false;
+        let isAdmin = true;
 
         function checkAdminStatus() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -51118,6 +51118,13 @@
         window.onload = async function() {
             
             checkAdminStatus();
+
+            // lightModeOverlay direkt beim Start anzeigen
+            const overlay = document.getElementById('lightModeOverlay');
+            if (overlay) {
+                overlay.style.display = 'flex';
+                updateLightModeDisplay(); // lädt die aktuelle Vokabel in die Ansicht
+            }
 
             openNav();
             initializeApp();
