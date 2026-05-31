@@ -67,13 +67,51 @@ jobs:
           mkdir -p "$DEST"
           cp -v $GITHUB_WORKSPACE/native/src/main/java/com/yourname/vokalpro/*.java "$DEST/"
 
+      # ── KRITISCHER FIX ───────────────────────────────────────────────────
+      # Gradle 9.5 + appcompat-1.6.1 = "Invalid <color>" Fehler beim Merge.
+      # Lösung: AGP auf 8.3.2 pinnen (kompatibel mit Gradle 8.7 das Cordova nutzt)
+      # und appcompat explizit auf 1.7.0 hochziehen.
+      - name: Fix Gradle AGP + appcompat versions
+        working-directory: build_tmp
+        run: |
+          # 1. gradle-wrapper auf 8.7 fixieren (Cordova-Standard, vermeidet Gradle 9.x)
+          WRAPPER=platforms/android/gradle/wrapper/gradle-wrapper.properties
+          sed -i 's|distributionUrl=.*|distributionUrl=https\://services.gradle.org/distributions/gradle-8.7-bin.zip|' "$WRAPPER"
+          echo "gradle-wrapper.properties:"
+          cat "$WRAPPER"
+
+          # 2. AGP Version in build.gradle auf 8.3.2 setzen
+          BUILDGRADLE=platforms/android/build.gradle
+          sed -i "s|classpath 'com.android.tools.build:gradle:.*'|classpath 'com.android.tools.build:gradle:8.3.2'|g" "$BUILDGRADLE"
+          echo "build.gradle AGP Zeile:"
+          grep "com.android.tools.build" "$BUILDGRADLE"
+
+          # 3. appcompat auf 1.7.0 hochziehen (behebt Invalid <color> Bug)
+          APP_BUILDGRADLE=platforms/android/app/build.gradle
+          if grep -q "appcompat" "$APP_BUILDGRADLE"; then
+            sed -i "s|implementation 'androidx.appcompat:appcompat:.*'|implementation 'androidx.appcompat:appcompat:1.7.0'|g" "$APP_BUILDGRADLE"
+          else
+            # Appcompat-Dependency einfügen falls nicht vorhanden
+            sed -i "/dependencies {/a\\    implementation 'androidx.appcompat:appcompat:1.7.0'" "$APP_BUILDGRADLE"
+          fi
+          echo "app/build.gradle appcompat Zeile:"
+          grep "appcompat" "$APP_BUILDGRADLE" || echo "(nicht gefunden, wird von Cordova automatisch verwaltet)"
+
+          # 4. AAPT2 Resource-Compile-Fehler umgehen: nonTransitiveRClass deaktivieren
+          GRADLEPROPS=platforms/android/gradle.properties
+          echo "" >> "$GRADLEPROPS"
+          echo "android.nonTransitiveRClass=false" >> "$GRADLEPROPS"
+          echo "android.enableJetifier=true" >> "$GRADLEPROPS"
+          echo "android.useAndroidX=true" >> "$GRADLEPROPS"
+          echo "gradle.properties:"
+          cat "$GRADLEPROPS"
+
       - name: Fix Gradle permissions
         working-directory: build_tmp
         run: |
-          echo "Suche gradlew..."
-          find platforms/android -name "gradlew" -type f
           find platforms/android -name "gradlew" -type f -exec chmod +x {} \;
-          echo "chmod erledigt"
+          echo "gradlew:"
+          find platforms/android -name "gradlew" -type f
 
       - name: Build Debug APK
         working-directory: build_tmp
