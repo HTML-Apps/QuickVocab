@@ -1,4 +1,4 @@
-const CACHE_NAME = "vokabeltrainer-v2";
+const CACHE_NAME = "vokabeltrainer-v1";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -7,8 +7,6 @@ const ASSETS_TO_CACHE = [
 
 // 1. Installieren
 self.addEventListener("install", (event) => {
-  // KEIN skipWaiting() mehr – verhindert unerwartetes Neuladen
-  // während die App gerade offen ist
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(ASSETS_TO_CACHE);
@@ -29,7 +27,35 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// 3. Fetch: Cache First für App-Shell, Network First für Daten
+// 3. Fokus auf bestehende App-Instanz, statt neu laden
+async function focusOrOpenApp() {
+  const allClients = await self.clients.matchAll({
+    type: "window",
+    includeUncontrolled: true
+  });
+
+  for (const client of allClients) {
+    if (client.url.includes("index.html") || client.url.endsWith("/")) {
+      return client.focus();
+    }
+  }
+
+  return self.clients.openWindow("./index.html");
+}
+
+// Wenn ein Notification-Button geklickt wird
+self.addEventListener("notificationclick", (event) => {
+  event.waitUntil(focusOrOpenApp());
+});
+
+// Wenn die App per Message-Event angesprochen wird (z.B. vom Tile)
+self.addEventListener("message", (event) => {
+  if (event.data === "focus-app") {
+    event.waitUntil(focusOrOpenApp());
+  }
+});
+
+// 4. Fetch: Cache First für App-Shell, Network First für Daten
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
 
@@ -38,7 +64,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Externe Ressourcen (CDN, andere Domains): nur cachen, nie blockieren
+  // Externe Ressourcen (CDN, andere Domains): Cache First
   if (url.origin !== self.location.origin) {
     event.respondWith(
       caches.match(event.request).then((cached) => {
@@ -53,13 +79,10 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Eigene App-Dateien (index.html, book.png, etc.): Cache First
-  // → App startet sofort aus dem Cache, kein Warten aufs Netzwerk
+  // Eigene App-Dateien: Cache First + Stale-While-Revalidate
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
-        // Cache-Treffer: sofort zurückgeben UND im Hintergrund aktualisieren
-        // (Stale-While-Revalidate-Muster)
         event.waitUntil(
           fetch(event.request).then((networkResponse) => {
             if (networkResponse && networkResponse.status === 200) {
@@ -67,12 +90,11 @@ self.addEventListener("fetch", (event) => {
                 cache.put(event.request, networkResponse.clone());
               });
             }
-          }).catch(() => { /* offline – kein Problem */ })
+          }).catch(() => {})
         );
-        return cachedResponse; // ← sofort aus Cache, kein Warten
+        return cachedResponse;
       }
 
-      // Noch nicht im Cache: normal laden und dabei cachen
       return fetch(event.request).then((response) => {
         return caches.open(CACHE_NAME).then((cache) => {
           cache.put(event.request, response.clone());
