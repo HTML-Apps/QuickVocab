@@ -1358,6 +1358,7 @@ function setActiveLang(key) {
   renderVocabList();
   updateAddVocabLabels();
   initNotifBanner();
+  syncDataToNative(); // Native Notification aktualisieren
   showSnackbar('Sprache gewechselt ✓');
 }
 
@@ -1399,6 +1400,8 @@ function loadVocabs() {
 
 function saveVocabs() {
   localStorage.setItem(`vt_vocab_${currentLangKey}`, JSON.stringify(vocabs));
+  // Native SharedPreferences sofort aktualisieren → ForegroundService zeigt neue Vokabeln
+  syncDataToNative();
 }
 
 function renderVocabList(reset) {
@@ -1950,50 +1953,100 @@ function toggleNotifSetting() {
   settings.notifEnabled = t.classList.contains('on');
 }
 
-// ===== CORDOVA / NOTIFICATION =====
+// ===== CORDOVA / NATIVE FOREGROUND SERVICE BRIDGE =====
+let cordovaReady = false;
+
 function initCordova() {
-  if (typeof cordova === 'undefined') return;
-  document.addEventListener('deviceready', () => {
-    if (window.cordova?.plugins?.notification?.local) {
-      schedulePersistentNotification();
-    }
-  }, false);
+  // Browser-Modus: Banner-Fallback sofort verfügbar
+  if (typeof cordova === 'undefined') {
+    console.log('[VokalPro] Browser-Modus: Nutze In-App-Banner als Fallback');
+    return;
+  }
+  document.addEventListener('deviceready', onDeviceReady, false);
 }
 
-function schedulePersistentNotification() {
-  const all = getVocabsForLang(currentLangKey);
-  if (!all.length) return;
-  const idx = parseInt(localStorage.getItem('vt_nb_index') || '0') % all.length;
-  const v = all[idx];
-  const [src, tgt] = currentLangKey.split('_');
+function onDeviceReady() {
+  cordovaReady = true;
+  console.log('[VokalPro] deviceready – starte ForegroundService');
 
-  cordova.plugins.notification.local.schedule({
-    id: 1337,
-    title: `📚 Vokabeltrainer  ${LANGS[src]?.flag || ''}→${LANGS[tgt]?.flag || ''}`,
-    text: `${v.source} (${LANGS[src]?.name || src})`,
-    ongoing: true,
-    autoClear: false,
-    actions: [
-      { id: 'show', title: 'Lösung' },
-      { id: 'prev', title: '←' },
-      { id: 'next', title: '→' },
-      { id: 'knew', title: '✓' }
-    ]
+  // Android 13+: POST_NOTIFICATIONS Permission anfordern
+  if (window.cordova?.plugins?.diagnostic) {
+    cordova.plugins.diagnostic.requestRuntimePermission(
+      () => startNativeService(),
+      () => startNativeService(),  // Auch ohne Permission starten
+      cordova.plugins.diagnostic.permission.POST_NOTIFICATIONS
+    );
+  } else {
+    startNativeService();
+  }
+}
+
+/**
+ * Startet den nativen ForegroundService via JS-Bridge.
+ * Synchronisiert erst alle Daten in SharedPreferences,
+ * dann signalisiert er dem Service zu starten.
+ */
+function startNativeService() {
+  // 1. Aktuelle Vokabeln + Einstellungen in native SharedPreferences schreiben
+  syncDataToNative();
+
+  // 2. ForegroundService starten
+  cordova.exec(
+    (msg) => console.log('[VokalPro] Service gestartet:', msg),
+    (err) => console.warn('[VokalPro] Service-Fehler:', err),
+    'VocabBridge', 'startService', []
+  );
+}
+
+/**
+ * Synchronisiert localStorage → Android SharedPreferences.
+ * Wird bei jedem Vokabel-Hinzufügen / Sprachenwechsel aufgerufen.
+ */
+function syncDataToNative() {
+  if (!cordovaReady) return;
+
+  // Alle Sprachen + ihre Vokabeln übertragen
+  languages.forEach(lang => {
+    const vocabsForLang = getVocabsForLang(lang.key);
+    cordova.exec(
+      null, null,
+      'VocabBridge', 'updateVocabs',
+      [lang.key, JSON.stringify(vocabsForLang)]
+    );
   });
 
-  cordova.plugins.notification.local.on('show', () => {
-    const all2 = getVocabsForLang(currentLangKey);
-    const i2 = parseInt(localStorage.getItem('vt_nb_index') || '0') % all2.length;
-    const v2 = all2[i2];
-    const tgtLang = currentLangKey.split('_')[1];
-    cordova.plugins.notification.local.update({
-      id: 1337,
-      text: `${v2.target} (${LANGS[tgtLang]?.name || tgtLang})`
-    });
-  });
-  cordova.plugins.notification.local.on('next', () => { nbNext(1); schedulePersistentNotification(); });
-  cordova.plugins.notification.local.on('prev', () => { nbNext(-1); schedulePersistentNotification(); });
-  cordova.plugins.notification.local.on('knew', () => { nbKnew(true); schedulePersistentNotification(); });
+  // Einstellungen + aktuellen Index übertragen
+  const nbIdx = parseInt(localStorage.getItem('vt_nb_index') || '0');
+  cordova.exec(
+    null, null,
+    'VocabBridge', 'syncSettings',
+    [JSON.stringify({
+      activeLang: currentLangKey,
+      dailyGoal: settings.dailyGoal || 10,
+      nb_index: nbIdx
+    })]
+  );
+}
+
+/**
+ * Synchronisiert Statistiken vom nativen Layer zurück in JS.
+ * (Nützlich wenn Nutzer über Notification-Buttons Vokabeln bewertet hat
+ *  ohne die App zu öffnen.)
+ */
+function syncStatsFromNative() {
+  if (!cordovaReady) return;
+  cordova.exec(
+    (stats) => {
+      if (stats && stats.totalLearned > streakData.totalLearned) {
+        streakData.totalLearned = stats.totalLearned;
+        streakData.totalCorrect = stats.totalCorrect || streakData.totalCorrect;
+        saveStreak();
+        renderStreak();
+      }
+    },
+    null,
+    'VocabBridge', 'getStats', []
+  );
 }
 
 // ===== SETTINGS MODAL =====
@@ -2118,6 +2171,12 @@ function esc(s) {
 // ===== BOOT =====
 document.addEventListener('DOMContentLoaded', init);
 initCordova();
+
+// Statistiken aus Native zurückholen wenn App in Vordergrund kommt
+document.addEventListener('resume', () => {
+  syncStatsFromNative();
+  renderStreak();
+}, false);
 </script>
 </body>
 </html>
