@@ -1,73 +1,31 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.yourname.vokalpro" version="1.0.0"
-    xmlns="http://www.w3.org/ns/widgets"
-    xmlns:cdv="http://cordova.apache.org/ns/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<widget id="com.linuxcore.vokabeltrainer" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>QuickVocab</name>
+    <description>One UI 8 Vokabeltrainer mit persistenter Benachrichtigungsleiste.</description>
+    <author email="info@linuxcore.com" href="http://linuxcore.com">QuickVocab Team</author>
+    
+    <content src="index.html" />
+    
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    
+    <preference name="LogLevel" value="DEBUG" />
+    <!-- Verhindert Scrollen der App-Oberfläche für nativeres UI-Gefühl -->
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="BackgroundColor" value="0xff121212" />
 
-  <name>VokalPro</name>
-  <description>Dein persönlicher Vokabeltrainer</description>
-  <author email="you@example.com">Dein Name</author>
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <preference name="AndroidXEnabled" value="true" />
+        
+        <!-- Wichtig für moderne Android Versionen (SDK 33+), um Push-Rechte zu bekommen -->
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+        </config-file>
+    </platform>
 
-  <content src="index.html" />
-  <allow-navigation href="https://fonts.googleapis.com/*" />
-  <allow-navigation href="https://fonts.gstatic.com/*" />
-  <allow-navigation href="https://vision.googleapis.com/*" />
-  <access origin="*" />
-
-  <preference name="Orientation" value="portrait" />
-  <preference name="android-minSdkVersion" value="26" />
-  <preference name="android-targetSdkVersion" value="34" />
-  <preference name="android-compileSdkVersion" value="34" />
-  <preference name="StatusBarOverlaysWebView" value="false" />
-  <preference name="StatusBarBackgroundColor" value="#0B0918" />
-  <preference name="StatusBarStyle" value="lightcontent" />
-  <preference name="BackgroundColor" value="0xff0b0918" />
-  <preference name="DisallowOverscroll" value="true" />
-  <preference name="KeyboardDisplayRequiresUserAction" value="false" />
-  <preference name="WebViewBounce" value="false" />
-  <preference name="AndroidWindowSplashScreenAnimatedIcon" value="" />
-
-  <!--
-    KEINE <plugin> Tags hier – Plugins werden ausschliesslich
-    im Workflow per 'cordova plugin add' installiert.
-    So vermeiden wir doppelte Installation und Versions-Konflikte.
-  -->
-
-  <!-- VocabBridge: Native JS-Bridge fuer ForegroundService -->
-  <feature name="VocabBridge">
-    <param name="android-package" value="com.yourname.vokalpro.VocabBridgePlugin" />
-    <param name="onload" value="false" />
-  </feature>
-
-  <platform name="android">
-    <allow-intent href="market:*" />
-
-    <!-- Permissions -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
-    <!-- ForegroundService + BootReceiver ins AndroidManifest -->
-    <config-file target="AndroidManifest.xml" parent="/manifest/application">
-      <service
-        android:name="com.yourname.vokalpro.VocabForegroundService"
-        android:foregroundServiceType="dataSync"
-        android:exported="false"
-        android:stopWithTask="false" />
-      <receiver
-        android:name="com.yourname.vokalpro.BootReceiver"
-        android:enabled="true"
-        android:exported="true">
-        <intent-filter>
-          <action android:name="android.intent.action.BOOT_COMPLETED" />
-          <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-        </intent-filter>
-      </receiver>
-    </config-file>
-  </platform>
-
+    <!-- Plugins für Systemfeatures und Benachrichtigungen -->
+    <plugin name="cordova-plugin-local-notifications" spec="^1.3.0" />
+    <plugin name="cordova-plugin-device" spec="^3.0.0" />
 </widget>
