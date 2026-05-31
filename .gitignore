@@ -1,0 +1,23 @@
+# Cordova Build-Artefakte (werden von CI generiert, nicht einchecken)
+platforms/
+plugins/
+node_modules/
+build_tmp/
+
+# Android Studio
+*.iml
+.idea/
+local.properties
+
+# macOS
+.DS_Store
+
+# Signing (niemals einchecken!)
+*.keystore
+*.jks
+*.p12
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
