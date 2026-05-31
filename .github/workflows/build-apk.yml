@@ -3,7 +3,7 @@ name: Build Android APK
 on:
   push:
     branches: [ "main" ]
-  workflow_dispatch: # Erlaubt manuelles Starten über GitHub
+  workflow_dispatch:
 
 jobs:
   build:
@@ -36,9 +36,7 @@ jobs:
         run: cordova platform add android
 
       - name: Build APK
-        run: |
-          # Cordova erwartet die HTML-Dateien im www Ordner
-          cordova build android
+        run: cordova build android
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
