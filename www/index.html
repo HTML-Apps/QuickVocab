@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <title>QuickVocab - One UI 8 Compact Controller</title>
     <style>
         :root {
@@ -358,17 +359,37 @@
 
     // Cordova Brücke aktivieren sobald bereit
     document.addEventListener('deviceready', () => {
-        updateAndroidSystemNotification();
-        
-        // Fängt Klicks aus dem echten Android Notification-System ab
-        if (window.cordova && cordova.plugins && cordova.plugins.notification) {
-            cordova.plugins.notification.local.on('action', (notification, action) => {
-                if (action.id === 'next') navigate(1);
-                else if (action.id === 'prev') navigate(-1);
-                else if (action.id === 'solve') toggleSolve();
+        // 1. Hintergrundmodus aktivieren (hält die JS-Engine für die Buttons wach)
+        if (window.cordova && cordova.plugins.backgroundMode) {
+            cordova.plugins.backgroundMode.enable();
+            cordova.plugins.backgroundMode.overrideBackButton();
+            // Verhindert, dass die App im Hintergrund angehalten wird
+            cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
+        }
+
+        // 2. Berechtigung für Benachrichtigungen abfragen (Android 13+)
+        if (window.cordova && cordova.plugins.notification) {
+            cordova.plugins.notification.local.hasPermission(function (granted) {
+                if (!granted) {
+                    cordova.plugins.notification.local.requestPermission(function (granted) {
+                        if (granted) initializeNotifications();
+                    });
+                } else {
+                    initializeNotifications();
+                }
             });
         }
     }, false);
+
+  function initializeNotifications() {
+      updateAndroidSystemNotification();
+      
+      cordova.plugins.notification.local.on('action', (notification, action) => {
+          if (action.id === 'next') navigate(1);
+          else if (action.id === 'prev') navigate(-1);
+          else if (action.id === 'solve') toggleSolve();
+      });
+  }
 
     function toggleDrawer() {
         drawer.style.transform = drawerOpen ? 'translateY(0px)' : 'translateY(800px)';

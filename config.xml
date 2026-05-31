@@ -1,28 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.linuxcore.vokabeltrainer" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.quickvocab.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>QuickVocab</name>
-    <description>One UI 8 Vokabeltrainer mit persistenter Benachrichtigungsleiste.</description>
-    <author email="info@linuxcore.com" href="http://linuxcore.com">QuickVocab Team</author>
+    <description>Vokabeltrainer in der Benachrichtigungsleiste</description>
+    <author email="deine@email.com" href="http://deine-website.com">Dein Name</author>
     
     <content src="index.html" />
-    
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     
-    <preference name="LogLevel" value="DEBUG" />
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="BackgroundColor" value="0xff121212" />
-
+    <preference name="AndroidXEnabled" value="true" />
+    
     <platform name="android">
-        <allow-intent href="market:*" />
-        <preference name="AndroidXEnabled" value="true" />
-        
-        <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-        </config-file>
+        <preference name="android-minSdkVersion" value="24" />
+        <preference name="android-targetSdkVersion" value="33" />
     </platform>
 
-    <plugin name="cordova-plugin-local-notifications" />
-    <plugin name="cordova-plugin-device" />
+    <plugin name="cordova-plugin-local-notification-12" spec="^0.1.4" />
+    <plugin name="cordova-plugin-background-mode" spec="^0.7.3" />
+    <plugin name="cordova-plugin-device" spec="^2.1.0" />
 </widget>

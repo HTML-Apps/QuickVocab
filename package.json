@@ -1,0 +1,21 @@
+{
+  "name": "quickvocab",
+  "version": "1.0.0",
+  "displayName": "QuickVocab",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-local-notification-12": {},
+      "cordova-plugin-background-mode": {},
+      "cordova-plugin-device": {}
+    }
+  },
+  "dependencies": {
+    "cordova-android": "^12.0.0",
+    "cordova-plugin-background-mode": "^0.7.3",
+    "cordova-plugin-device": "^2.1.0",
+    "cordova-plugin-local-notification-12": "^0.1.4"
+  }
+}
