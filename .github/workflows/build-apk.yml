@@ -42,7 +42,6 @@ jobs:
       - name: Install Cordova CLI
         run: npm install -g cordova@12
 
-      # Cordova-Projekt anlegen und Dateien einspielen
       - name: Create Cordova Project
         run: |
           cordova create build_tmp com.yourname.vokalpro VokalPro
@@ -50,13 +49,10 @@ jobs:
           cp $GITHUB_WORKSPACE/index.html  build_tmp/www/index.html
           rm -f build_tmp/www/js/index.js build_tmp/www/css/index.css
 
-      # Android-Plattform hinzufügen (cordova-android@13, targetSdk 34)
       - name: Add Android Platform
         working-directory: build_tmp
         run: cordova platform add android --save
 
-      # Plugins mit exakten Versionen installieren (geprüft auf npm, Mai 2026)
-      # WICHTIG: Kein ^ oder ~ – exakte Versionen vermeiden "no matching version" Fehler
       - name: Add Cordova Plugins
         working-directory: build_tmp
         run: |
@@ -65,7 +61,6 @@ jobs:
           cordova plugin add cordova-plugin-keyboard@1.3.0 --save
           cordova plugin add cordova-plugin-vibration@3.1.1 --save
 
-      # Native Java-Dateien NACH platform add einkopieren
       - name: Copy Native Java Sources
         run: |
           DEST=build_tmp/platforms/android/app/src/main/java/com/yourname/vokalpro
@@ -74,7 +69,11 @@ jobs:
 
       - name: Fix Gradle permissions
         working-directory: build_tmp
-        run: chmod +x platforms/android/gradlew
+        run: |
+          echo "Suche gradlew..."
+          find platforms/android -name "gradlew" -type f
+          find platforms/android -name "gradlew" -type f -exec chmod +x {} \;
+          echo "chmod erledigt"
 
       - name: Build Debug APK
         working-directory: build_tmp
