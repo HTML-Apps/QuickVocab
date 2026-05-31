@@ -50492,7 +50492,7 @@
         const LONG_PRESS_DURATION = 500; // Dauer für einen "langen Klick" in Millisekunden
 
         // --- ADMIN MODUS LOGIK ---
-        let isAdmin = true;
+        let isAdmin = false;
 
         function checkAdminStatus() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -50536,6 +50536,84 @@
             if (euleBtnLight) euleBtnLight.style.display = displayStyle;
         }
         // --- ENDE ADMIN MODUS LOGIK ---
+
+        // --- ZUSTAND SPEICHERN / WIEDERHERSTELLEN ---
+        function saveState() {
+            try {
+                const state = {
+                    currentIndex:   currentIndex,
+                    isRandomMode:   isRandomMode,
+                    sprache:        document.getElementById("sprache")?.value,
+                    lernrichtung:   document.getElementById("lernrichtung")?.value,
+                    listeAuswahl:   document.getElementById("listeAuswahl")?.value,
+                    lightModeOpen:  document.getElementById("lightModeOverlay")?.style.display === "flex",
+                    timestamp:      Date.now()
+                };
+                localStorage.setItem("vokabeltrainer-state", JSON.stringify(state));
+            } catch(e) { console.warn("[State] Speichern fehlgeschlagen:", e); }
+        }
+
+        async function restoreState() {
+            try {
+                const raw = localStorage.getItem("vokabeltrainer-state");
+                if (!raw) return false;
+
+                const state = JSON.parse(raw);
+
+                // Nur wiederherstellen wenn jünger als 24 Stunden
+                if (Date.now() - state.timestamp > 24 * 60 * 60 * 1000) {
+                    localStorage.removeItem("vokabeltrainer-state");
+                    return false;
+                }
+
+                // Sprache setzen und Listen neu laden
+                if (state.sprache) {
+                    document.getElementById("sprache").value = state.sprache;
+                    await updateVokabellisten();
+                    await updateLernrichtung();
+                    updateMainImage();
+                    updateButtonColor();
+                }
+
+                // Lernrichtung setzen
+                if (state.lernrichtung) {
+                    const lr = document.getElementById("lernrichtung");
+                    if (lr) lr.value = state.lernrichtung;
+                }
+
+                // Liste setzen
+                if (state.listeAuswahl) {
+                    const la = document.getElementById("listeAuswahl");
+                    if (la) la.value = state.listeAuswahl;
+                }
+
+                // Index und Modus wiederherstellen
+                isRandomMode = state.isRandomMode ?? true;
+                currentIndex = state.currentIndex ?? -1;
+
+                // Modus-Buttons im Light-Mode aktualisieren
+                if (isRandomMode) {
+                    document.getElementById('random-mode-btn-light')?.classList.add('active');
+                    document.getElementById('list-mode-btn-light')?.classList.remove('active');
+                } else {
+                    document.getElementById('list-mode-btn-light')?.classList.add('active');
+                    document.getElementById('random-mode-btn-light')?.classList.remove('active');
+                }
+
+                // lightModeOverlay wieder öffnen falls es offen war
+                if (state.lightModeOpen) {
+                    const overlay = document.getElementById("lightModeOverlay");
+                    if (overlay) overlay.style.display = "flex";
+                }
+
+                console.log("[State] Wiederhergestellt:", state);
+                return true;
+            } catch(e) {
+                console.warn("[State] Wiederherstellen fehlgeschlagen:", e);
+                return false;
+            }
+        }
+        // --- ENDE ZUSTAND SPEICHERN / WIEDERHERSTELLEN ---
 
         // FIREBASE INITIALISIERUNG HINZUFÜGEN
         const firebaseConfig = {
@@ -51119,16 +51197,12 @@
             
             checkAdminStatus();
 
-            // lightModeOverlay direkt beim Start anzeigen
-            const overlay = document.getElementById('lightModeOverlay');
-            if (overlay) {
-                overlay.style.display = 'flex';
-                updateLightModeDisplay(); // lädt die aktuelle Vokabel in die Ansicht
-            }
-
             openNav();
             initializeApp();
             resetTimer();
+
+            // Zustand wiederherstellen (Index, Sprache, Liste, Modus, LightMode)
+            const stateRestored = await restoreState();
             
             const sprache = document.getElementById("sprache").value;
             
@@ -51149,6 +51223,12 @@
 
             updateButtonColor();
 
+            // Nach vollständigem Setup: Vokabel laden und LightMode-Anzeige aktualisieren
+            await loadNewVokabel();
+            if (stateRestored) {
+                updateLightModeDisplay();
+            }
+
 
 
             // --- KORREKTE UND FUNKTIONIERENDE LOGIK FÜR LIGHT-MODE ---
@@ -51157,12 +51237,14 @@
             document.getElementById('next-btn-light').addEventListener('click', () => {
                 loadNewVokabel();
                 incrementVokabelCount(); 
-                updateLightModeDisplay(); 
+                updateLightModeDisplay();
+                saveState();
             });
 
             document.getElementById('prev-btn-light').addEventListener('click', () => {
                 loadPreviousVokabel();
                 updateLightModeDisplay();
+                saveState();
             });
 
             document.getElementById('solution-btn-light').addEventListener('click', () => {
@@ -51173,12 +51255,14 @@
                 setRandomMode();
                 document.getElementById('random-mode-btn-light').classList.add('active');
                 document.getElementById('list-mode-btn-light').classList.remove('active');
+                saveState();
             });
 
             document.getElementById('list-mode-btn-light').addEventListener('click', () => {
                 setChronologicalMode(); // Stellt den Modus um, ohne den Index zu verändern
                 document.getElementById('list-mode-btn-light').classList.add('active');
                 document.getElementById('random-mode-btn-light').classList.remove('active');
+                saveState();
             });
             // --- ENDE LOGIK FÜR LIGHT-MODE ---
 
@@ -51210,6 +51294,12 @@
 
             // Eulen-Button Event
             document.querySelector(".owl-button").onclick = saveCurrentVokabelAsSchwierig;
+
+            // Zustand beim Verlassen der App automatisch sichern
+            window.addEventListener("pagehide", saveState);
+            window.addEventListener("visibilitychange", () => {
+                if (document.visibilityState === "hidden") saveState();
+            });
 
         };
 
@@ -52723,11 +52813,6 @@
             }
         }
 
-
-
-
-
-  
     </script>
 </body>
 </html>
