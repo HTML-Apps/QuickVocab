@@ -1,46 +1,57 @@
-name: Deploy to GitHub Pages
+name: 🌐 Deploy GitHub Pages (Browser-Preview)
 
 on:
-  # Startet automatisch, wenn du Dateien im 'main'-Branch änderst
   push:
-    branches: ["main"]
-  # Lässt dich das Update der Webseite auch manuell starten
+    branches: [ main, master ]
   workflow_dispatch:
 
+# Nötige Rechte für Pages-Deployment
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Nur ein gleichzeitiges Deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
   deploy:
+    name: Deploy to GitHub Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
-      - name: Code auschecken
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: HTML-Datei vorbereiten
+      # index.html liegt im Root → direkt deployen
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Prepare www/ folder
         run: |
-          # GitHub Pages braucht zwingend eine index.html. Hier wird ggf. umbenannt.
-          if [ -f "index (2).html" ]; then
-            mv "index (2).html" index.html
-          fi
+          mkdir -p www
+          cp index.html www/index.html
+          # Optionale Assets (Icons etc.) mitkopieren falls vorhanden
+          [ -d "res" ] && cp -r res www/res || true
 
-      - name: GitHub Pages einrichten
-        uses: actions/configure-pages@v5
-
-      - name: Dateien hochladen
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './www'
 
-      - name: Webseite online stellen
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Pages Summary
+        run: |
+          echo "## 🌐 GitHub Pages deployed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "App im Browser testen: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "> ⚠️ Kamera-Zugriff funktioniert nur über HTTPS (GitHub Pages liefert HTTPS ✓)" >> $GITHUB_STEP_SUMMARY
