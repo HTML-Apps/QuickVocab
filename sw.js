@@ -1,60 +1,84 @@
-const CACHE_NAME = "wochenplaner-v1";
+const CACHE_NAME = "vokabeltrainer-v2";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./book.png"
 ];
 
-// 1. Installieren: Dateien in den Cache laden
+// 1. Installieren
 self.addEventListener("install", (event) => {
-  // forceer das sofortige Übernehmen des neuen Workers
-  self.skipWaiting();
+  // KEIN skipWaiting() mehr – verhindert unerwartetes Neuladen
+  // während die App gerade offen ist
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("[Service Worker] Caching neue Version:", CACHE_NAME);
       return cache.addAll(ASSETS_TO_CACHE);
     })
   );
 });
 
-// 2. Aktivieren: Alte Caches (v1, etc.) löschen
+// 2. Aktivieren
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keyList) => {
-      return Promise.all(
+    caches.keys().then((keyList) =>
+      Promise.all(
         keyList.map((key) => {
-          if (key !== CACHE_NAME) {
-            console.log("[Service Worker] Lösche alten Cache:", key);
-            return caches.delete(key);
-          }
+          if (key !== CACHE_NAME) return caches.delete(key);
         })
-      );
-    })
+      )
+    ).then(() => self.clients.claim())
   );
-  // Übernimmt sofort die Kontrolle über alle offenen Tabs
-  return self.clients.claim();
 });
 
-// 3. Fetch: Netzwerk-Priorität (Network First, Falling Back to Cache)
+// 3. Fetch: Cache First für App-Shell, Network First für Daten
 self.addEventListener("fetch", (event) => {
-  // Firebase/Firestore Anfragen immer ignorieren (Live-Daten)
-  if (event.request.url.includes("firestore") || event.request.url.includes("googleapis")) {
+  const url = new URL(event.request.url);
+
+  // Firebase/Firestore: komplett ignorieren (immer live)
+  if (url.hostname.includes("googleapis") || url.hostname.includes("firestore")) {
     return;
   }
 
+  // Externe Ressourcen (CDN, andere Domains): nur cachen, nie blockieren
+  if (url.origin !== self.location.origin) {
+    event.respondWith(
+      caches.match(event.request).then((cached) => {
+        return cached || fetch(event.request).then((response) => {
+          return caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, response.clone());
+            return response;
+          });
+        });
+      })
+    );
+    return;
+  }
+
+  // Eigene App-Dateien (index.html, book.png, etc.): Cache First
+  // → App startet sofort aus dem Cache, kein Warten aufs Netzwerk
   event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        // Wenn Netzwerk-Antwort OK, Kopie in den Cache legen (optional)
-        // und die Antwort zurückgeben
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        // Cache-Treffer: sofort zurückgeben UND im Hintergrund aktualisieren
+        // (Stale-While-Revalidate-Muster)
+        event.waitUntil(
+          fetch(event.request).then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              return caches.open(CACHE_NAME).then((cache) => {
+                cache.put(event.request, networkResponse.clone());
+              });
+            }
+          }).catch(() => { /* offline – kein Problem */ })
+        );
+        return cachedResponse; // ← sofort aus Cache, kein Warten
+      }
+
+      // Noch nicht im Cache: normal laden und dabei cachen
+      return fetch(event.request).then((response) => {
         return caches.open(CACHE_NAME).then((cache) => {
           cache.put(event.request, response.clone());
           return response;
         });
-      })
-      .catch(() => {
-        // Wenn das Netzwerk fehlschlägt, nimm die Version aus dem Cache
-        return caches.match(event.request);
-      })
+      });
+    })
   );
 });
