@@ -1,58 +1,119 @@
-name: Build Android APK
+name: 🤖 Build Debug APK
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:   # Manuell auslösbar via GitHub UI
 
 jobs:
   build:
+    name: Build Android Debug APK
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
     steps:
-    - name: Code auschecken
-      uses: actions/checkout@v4
+      # ── 1. Code auschecken ──────────────────────────────────────────────
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    - name: Node.js einrichten
-      uses: actions/setup-node@v4
-      with:
-        node-version: '24'
+      # ── 2. Node.js & Java vorbereiten ───────────────────────────────────
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
 
-    - name: Cordova installieren
-      run: npm install -g cordova
+      - name: Setup Java 17 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
 
-    - name: Cordova Projekt aufbauen
-      run: |
-        # Wir nutzen den exakten Namen aus deiner funktionierenden App
-        cordova create app com.linuxcore.vokabeltrainer Vokabeltrainer
-        cd app
-        rm -rf www/*
-        
-        # WICHTIG: Kopiere deine EIGENEN Dateien
-        cp ../index.html www/
-        cp ../config.xml .
-        
-        # Falls das Icon nicht existiert, ignorieren wir es mit '|| true'
-        cp ../book.png . || true
-        
-        cordova platform add android
+      # ── 3. Android SDK ──────────────────────────────────────────────────
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
 
-    - name: Java einrichten
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'zulu'
-        java-version: '17'
+      - name: Install Android Build Tools & Platform
+        run: |
+          sdkmanager "platforms;android-33" "build-tools;33.0.2" "platform-tools"
+          echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
+          echo "$ANDROID_HOME/platform-tools" >> $GITHUB_PATH
+          echo "$ANDROID_HOME/build-tools/33.0.2" >> $GITHUB_PATH
 
-    - name: Android SDK bereitstellen
-      uses: android-actions/setup-android@v3
+      # ── 4. Cordova installieren ─────────────────────────────────────────
+      - name: Install Cordova CLI
+        run: npm install -g cordova@12
 
-    - name: APK kompilieren
-      run: |
-        cd app
-        cordova build android --debug
+      # ── 5. Cordova-Projekt aufsetzen ────────────────────────────────────
+      - name: Create Cordova Project
+        run: |
+          cordova create build_tmp com.yourname.vokalpro VokalPro
+          cd build_tmp
+          # config.xml aus Repo überschreiben
+          cp $GITHUB_WORKSPACE/config.xml ./config.xml
+          # www/ mit index.html befüllen
+          cp $GITHUB_WORKSPACE/index.html ./www/index.html
+          # Native Java-Dateien für ForegroundService einkopieren
+          mkdir -p platforms/android/app/src/main/java/com/yourname/vokalpro
+          cp -r $GITHUB_WORKSPACE/native/src/main/java/com/yourname/vokalpro/. \
+            platforms/android/app/src/main/java/com/yourname/vokalpro/ 2>/dev/null || true
 
-    - name: APK als Download bereitstellen
-      uses: actions/upload-artifact@v4
-      with:
-        name: Vokabeltrainer-APK
-        path: app/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+      # ── 6. Android-Plattform & Plugins ──────────────────────────────────
+      - name: Add Android Platform
+        working-directory: build_tmp
+        run: |
+          cordova platform add android@12 --save
+          cordova plugin add cordova-plugin-camera --save
+          cordova plugin add cordova-plugin-statusbar --save
+          cordova plugin add cordova-plugin-keyboard --save
+          cordova plugin add cordova-plugin-vibration --save
+
+      # ── 7. Native Java-Dateien kopieren (nach platform add) ─────────────
+      - name: Copy Native ForegroundService Files
+        working-directory: build_tmp
+        run: |
+          DEST=platforms/android/app/src/main/java/com/yourname/vokalpro
+          mkdir -p $DEST
+          SRC=$GITHUB_WORKSPACE/native/src/main/java/com/yourname/vokalpro
+          if [ -d "$SRC" ]; then
+            cp -v $SRC/*.java $DEST/ 2>/dev/null || echo "No Java files to copy"
+          fi
+
+      # ── 8. AndroidManifest.xml patchen ──────────────────────────────────
+      - name: Patch AndroidManifest.xml
+        working-directory: build_tmp
+        run: |
+          MANIFEST=platforms/android/app/src/main/AndroidManifest.xml
+          # ForegroundService + Receiver eintragen (vor </application>)
+          sed -i 's|</application>|        <service android:name="com.yourname.vokalpro.VocabForegroundService" android:foregroundServiceType="dataSync" android:exported="false" />\n        <receiver android:name="com.yourname.vokalpro.BootReceiver" android:enabled="true" android:exported="true">\n            <intent-filter>\n                <action android:name="android.intent.action.BOOT_COMPLETED" />\n                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />\n            </intent-filter>\n        </receiver>\n    </application>|' $MANIFEST
+          # Permissions eintragen (vor </manifest>)
+          sed -i 's|</manifest>|    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />\n    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />\n    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />\n    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />\n    <uses-permission android:name="android.permission.VIBRATE" />\n</manifest>|' $MANIFEST
+          echo "--- Patched Manifest ---"
+          cat $MANIFEST
+
+      # ── 9. Debug-Build ───────────────────────────────────────────────────
+      - name: Build Debug APK
+        working-directory: build_tmp
+        run: cordova build android --debug 2>&1
+
+      # ── 10. APK als Artifact hochladen ───────────────────────────────────
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: VokalPro-debug-${{ github.sha }}
+          path: build_tmp/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+
+      # ── 11. Build-Info ausgeben ──────────────────────────────────────────
+      - name: Build Summary
+        run: |
+          echo "## ✅ APK Build erfolgreich" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| | |" >> $GITHUB_STEP_SUMMARY
+          echo "|---|---|" >> $GITHUB_STEP_SUMMARY
+          echo "| **Commit** | \`${{ github.sha }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Branch** | \`${{ github.ref_name }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Typ** | Debug (unsigned) |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📥 APK unter **Actions → Artifacts** herunterladen" >> $GITHUB_STEP_SUMMARY
