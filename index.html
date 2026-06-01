@@ -51270,7 +51270,9 @@
             resetTimer();
 
             // Zustand wiederherstellen (Index, Sprache, Liste, Modus, LightMode)
+            console.log('[DEBUG] localStorage vor Restore:', localStorage.getItem("vokabeltrainer-state"));
             const stateRestored = await restoreState();
+            console.log('[DEBUG] stateRestored:', stateRestored);
             
             const sprache = document.getElementById("sprache").value;
             
