@@ -51254,6 +51254,12 @@
 
             // Zustand wiederherstellen (Index, Sprache, Liste, Modus, LightMode)
             const stateRestored = await restoreState();
+
+            if (!stateRestored) {
+                temporarilySwitchLanguage(sprache);  // Nur ohne gespeicherten State
+                await loadNewVokabel();
+                updateLightModeDisplay();
+            }
             
             const sprache = document.getElementById("sprache").value;
             
