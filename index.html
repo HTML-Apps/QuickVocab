@@ -50538,21 +50538,16 @@
         // --- ENDE ADMIN MODUS LOGIK ---
 
         // --- ZUSTAND SPEICHERN / WIEDERHERSTELLEN ---
-        // Flag: blockiert loadNewVokabel() während State-Restore
-        let isRestoringState = false;
-
         function saveState() {
             try {
-                if (!currentVokabel) return;
                 const state = {
-                    currentIndex:    currentIndex,
-                    isRandomMode:    isRandomMode,
-                    sprache:         document.getElementById("sprache")?.value,
-                    lernrichtung:    document.getElementById("lernrichtung")?.value,
-                    listeAuswahl:    document.getElementById("listeAuswahl")?.value,
-                    lightModeOpen:   document.getElementById("lightModeOverlay")?.style.display === "flex",
-                    currentVokabel:  { deutsch: currentVokabel.deutsch, fremdsprache: currentVokabel.fremdsprache },
-                    timestamp:       Date.now()
+                    currentIndex:   currentIndex,
+                    isRandomMode:   isRandomMode,
+                    sprache:        document.getElementById("sprache")?.value,
+                    lernrichtung:   document.getElementById("lernrichtung")?.value,
+                    listeAuswahl:   document.getElementById("listeAuswahl")?.value,
+                    lightModeOpen:  document.getElementById("lightModeOverlay")?.style.display === "flex",
+                    timestamp:      Date.now()
                 };
                 localStorage.setItem("vokabeltrainer-state", JSON.stringify(state));
             } catch(e) { console.warn("[State] Speichern fehlgeschlagen:", e); }
@@ -50571,10 +50566,7 @@
                     return false;
                 }
 
-                // Flag setzen: loadNewVokabel() in updateVokabellisten/updateLernrichtung blockieren
-                isRestoringState = true;
-
-                // Sprache setzen und Listen neu aufbauen (ohne loadNewVokabel auszulösen)
+                // Sprache setzen und Listen neu laden
                 if (state.sprache) {
                     document.getElementById("sprache").value = state.sprache;
                     await updateVokabellisten();
@@ -50597,7 +50589,7 @@
 
                 // Index und Modus wiederherstellen
                 isRandomMode = state.isRandomMode ?? true;
-                currentIndex  = state.currentIndex ?? -1;
+                currentIndex = state.currentIndex ?? -1;
 
                 // Modus-Buttons im Light-Mode aktualisieren
                 if (isRandomMode) {
@@ -50614,63 +50606,14 @@
                     if (overlay) overlay.style.display = "flex";
                 }
 
-                // Flag zurücksetzen
-                isRestoringState = false;
-
-                // currentVokabel direkt aus gespeichertem State setzen und anzeigen
-                // (funktioniert für Random- UND chronologischen Modus)
-                if (state.currentVokabel) {
-                    currentVokabel = state.currentVokabel;
-                    const richtung = document.getElementById("lernrichtung").value;
-                    displayVokabel(currentVokabel, richtung);
-                } else {
-                    // Fallback: Vokabel am gespeicherten Index laden
-                    await loadVokabelAtCurrentIndex();
-                }
-
-                updateLightModeDisplay();
-
                 console.log("[State] Wiederhergestellt:", state);
                 return true;
             } catch(e) {
-                isRestoringState = false;
                 console.warn("[State] Wiederherstellen fehlgeschlagen:", e);
                 return false;
             }
         }
-
-        // Lädt die Vokabel am aktuellen currentIndex ohne ihn zu verändern (Fallback für chronologischen Modus)
-        async function loadVokabelAtCurrentIndex() {
-            try {
-                const sprache    = document.getElementById("sprache").value;
-                const listeIndex = document.getElementById('listeAuswahl').value;
-                const richtung   = document.getElementById("lernrichtung").value;
-
-                if (!sprache || listeIndex === null || !richtung) return;
-
-                let vokabeln;
-                if (listeIndex === 'Schwierige Vokabel') {
-                    const snap = await firestoreDB.collection('schwierigeVokabeln')
-                        .where('sprache', '==', sprache).get();
-                    vokabeln = snap.docs.map(doc => doc.data());
-                } else {
-                    vokabeln = vokabellisten[sprache][listeIndex].vokabeln;
-                }
-
-                if (!vokabeln || vokabeln.length === 0) return;
-
-                if (currentIndex < 0 || currentIndex >= vokabeln.length) currentIndex = 0;
-
-                currentVokabel = vokabeln[currentIndex];
-                vokabelHistory = [currentVokabel];
-                historyIndex   = 0;
-
-                displayVokabel(currentVokabel, richtung);
-            } catch(e) {
-                console.warn("[State] loadVokabelAtCurrentIndex fehlgeschlagen:", e);
-            }
-        }
-                // --- ENDE ZUSTAND SPEICHERN / WIEDERHERSTELLEN ---
+        // --- ENDE ZUSTAND SPEICHERN / WIEDERHERSTELLEN ---
 
         // FIREBASE INITIALISIERUNG HINZUFÜGEN
         const firebaseConfig = {
@@ -50887,10 +50830,6 @@
         let isLoadingVokabel = false;
 
         async function loadNewVokabel() {
-            if (isRestoringState) {
-                console.log('[State] loadNewVokabel unterdrückt während Restore.');
-                return;
-            }
             if (isLoadingVokabel) {
                 console.warn('loadNewVokabel wurde bereits aufgerufen.');
                 return; // Verhindert mehrfachen Aufruf
@@ -51270,9 +51209,7 @@
             resetTimer();
 
             // Zustand wiederherstellen (Index, Sprache, Liste, Modus, LightMode)
-            console.log('[DEBUG] localStorage vor Restore:', localStorage.getItem("vokabeltrainer-state"));
             const stateRestored = await restoreState();
-            console.log('[DEBUG] stateRestored:', stateRestored);
             
             const sprache = document.getElementById("sprache").value;
             
@@ -51293,9 +51230,9 @@
 
             updateButtonColor();
 
-            // Nach vollständigem Setup: Vokabel laden und LightMode-Anzeige aktualisieren
-            await loadNewVokabel();
-            if (stateRestored) {
+            // Vokabel laden NUR wenn kein State wiederhergestellt wurde
+            if (!stateRestored) {
+                await loadNewVokabel();
                 updateLightModeDisplay();
             }
 
