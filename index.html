@@ -50538,6 +50538,10 @@
         // --- ENDE ADMIN MODUS LOGIK ---
 
         // --- ZUSTAND SPEICHERN / WIEDERHERSTELLEN ---
+        // Flag: verhindert, dass updateVokabellisten/updateLernrichtung
+        // während des State-Restores loadNewVokabel() aufrufen und currentIndex überschreiben
+        let isRestoringState = false;
+
         function saveState() {
             try {
                 const state = {
@@ -50566,7 +50570,10 @@
                     return false;
                 }
 
-                // Sprache setzen und Listen neu laden
+                // Flag setzen: loadNewVokabel() in updateVokabellisten/updateLernrichtung blockieren
+                isRestoringState = true;
+
+                // Sprache setzen und Listen neu aufbauen (ohne loadNewVokabel auszulösen)
                 if (state.sprache) {
                     document.getElementById("sprache").value = state.sprache;
                     await updateVokabellisten();
@@ -50575,13 +50582,13 @@
                     updateButtonColor();
                 }
 
-                // Lernrichtung setzen
+                // Lernrichtung setzen (nach updateLernrichtung, das das Dropdown neu befüllt)
                 if (state.lernrichtung) {
                     const lr = document.getElementById("lernrichtung");
                     if (lr) lr.value = state.lernrichtung;
                 }
 
-                // Liste setzen
+                // Liste setzen (nach updateVokabellisten, das das Dropdown neu befüllt)
                 if (state.listeAuswahl) {
                     const la = document.getElementById("listeAuswahl");
                     if (la) la.value = state.listeAuswahl;
@@ -50589,7 +50596,7 @@
 
                 // Index und Modus wiederherstellen
                 isRandomMode = state.isRandomMode ?? true;
-                currentIndex = state.currentIndex ?? -1;
+                currentIndex  = state.currentIndex ?? -1;
 
                 // Modus-Buttons im Light-Mode aktualisieren
                 if (isRandomMode) {
@@ -50600,17 +50607,61 @@
                     document.getElementById('random-mode-btn-light')?.classList.remove('active');
                 }
 
+                // Flag zurücksetzen: jetzt darf loadNewVokabel wieder laufen
+                isRestoringState = false;
+
+                // Vokabel am gespeicherten Index direkt laden
+                await loadVokabelAtCurrentIndex();
+
                 // lightModeOverlay wieder öffnen falls es offen war
                 if (state.lightModeOpen) {
                     const overlay = document.getElementById("lightModeOverlay");
                     if (overlay) overlay.style.display = "flex";
                 }
 
+                updateLightModeDisplay();
+
                 console.log("[State] Wiederhergestellt:", state);
                 return true;
             } catch(e) {
+                isRestoringState = false;
                 console.warn("[State] Wiederherstellen fehlgeschlagen:", e);
                 return false;
+            }
+        }
+
+        // Lädt die Vokabel am aktuellen currentIndex ohne ihn zu verändern
+        async function loadVokabelAtCurrentIndex() {
+            try {
+                const sprache     = document.getElementById("sprache").value;
+                const listeIndex  = document.getElementById('listeAuswahl').value;
+                const richtung    = document.getElementById("lernrichtung").value;
+
+                if (!sprache || listeIndex === null || !richtung) return;
+
+                let vokabeln;
+                if (listeIndex === 'Schwierige Vokabel') {
+                    const snap = await firestoreDB.collection('schwierigeVokabeln')
+                        .where('sprache', '==', sprache).get();
+                    vokabeln = snap.docs.map(doc => doc.data());
+                } else {
+                    vokabeln = vokabellisten[sprache][listeIndex].vokabeln;
+                }
+
+                if (!vokabeln || vokabeln.length === 0) return;
+
+                // Index in gültigem Bereich halten
+                if (currentIndex < 0 || currentIndex >= vokabeln.length) {
+                    currentIndex = 0;
+                }
+
+                currentVokabel = vokabeln[currentIndex];
+                vokabelHistory = [currentVokabel];
+                historyIndex   = 0;
+
+                displayVokabel(currentVokabel, richtung);
+            } catch(e) {
+                console.warn("[State] loadVokabelAtCurrentIndex fehlgeschlagen:", e);
             }
         }
         // --- ENDE ZUSTAND SPEICHERN / WIEDERHERSTELLEN ---
@@ -50830,6 +50881,10 @@
         let isLoadingVokabel = false;
 
         async function loadNewVokabel() {
+            if (isRestoringState) {
+                console.log('[State] loadNewVokabel unterdrückt während Restore.');
+                return;
+            }
             if (isLoadingVokabel) {
                 console.warn('loadNewVokabel wurde bereits aufgerufen.');
                 return; // Verhindert mehrfachen Aufruf
@@ -51207,9 +51262,6 @@
             openNav();
             initializeApp();
             resetTimer();
-
-            // Zustand wiederherstellen (Index, Sprache, Liste, Modus, LightMode)
-            const stateRestored = await restoreState();
             
             const sprache = document.getElementById("sprache").value;
             
@@ -51230,9 +51282,11 @@
 
             updateButtonColor();
 
-            // Nach vollständigem Setup: Vokabel laden und LightMode-Anzeige aktualisieren
-            await loadNewVokabel();
-            if (stateRestored) {
+            // Zustand wiederherstellen ODER frische Vokabel laden
+            const stateRestored = await restoreState();
+            if (!stateRestored) {
+                // Kein gespeicherter State: normal starten
+                await loadNewVokabel();
                 updateLightModeDisplay();
             }
 
