@@ -50538,18 +50538,18 @@
         // --- ENDE ADMIN MODUS LOGIK ---
 
         // --- ZUSTAND SPEICHERN / WIEDERHERSTELLEN ---
-        let isRestoringState = false; // blockiert loadNewVokabel() während Restore
-
         function saveState() {
             try {
+                if (!currentVokabel) return;
                 const state = {
                     currentIndex:   currentIndex,
                     isRandomMode:   isRandomMode,
                     sprache:        document.getElementById("sprache")?.value,
                     lernrichtung:   document.getElementById("lernrichtung")?.value,
                     listeAuswahl:   document.getElementById("listeAuswahl")?.value,
-                    lightModeOpen:  document.getElementById("lightModeOverlay")?.style.display === "flex",
-                    timestamp:      Date.now()
+                    lightModeOpen:   document.getElementById("lightModeOverlay")?.style.display === "flex",
+                    currentVokabel:  { deutsch: currentVokabel.deutsch, fremdsprache: currentVokabel.fremdsprache },
+                    timestamp:       Date.now()
                 };
                 localStorage.setItem("vokabeltrainer-state", JSON.stringify(state));
             } catch(e) { console.warn("[State] Speichern fehlgeschlagen:", e); }
@@ -50568,10 +50568,9 @@
                     return false;
                 }
 
-                // Flag VOR updateVokabellisten setzen damit loadNewVokabel blockiert wird
+                // Flag setzen VOR updateVokabellisten/updateLernrichtung
                 isRestoringState = true;
 
-                // Sprache setzen und Listen neu aufbauen
                 if (state.sprache) {
                     document.getElementById("sprache").value = state.sprache;
                     await updateVokabellisten();
@@ -50614,7 +50613,7 @@
                 // Flag zurücksetzen
                 isRestoringState = false;
 
-                // currentVokabel direkt aus gespeichertem State setzen und anzeigen
+                // Vokabel direkt aus gespeichertem State anzeigen
                 if (state.currentVokabel) {
                     currentVokabel = state.currentVokabel;
                     const richtung = document.getElementById("lernrichtung").value;
@@ -50624,7 +50623,6 @@
                 }
 
                 updateLightModeDisplay();
-
                 console.log("[State] Wiederhergestellt:", state);
                 return true;
             } catch(e) {
@@ -50634,7 +50632,6 @@
             }
         }
 
-        // Lädt Vokabel an currentIndex ohne Index zu verändern (Fallback)
         async function loadVokabelAtCurrentIndex() {
             try {
                 const sprache    = document.getElementById("sprache").value;
@@ -50656,7 +50653,7 @@
                 historyIndex   = 0;
                 displayVokabel(currentVokabel, richtung);
             } catch(e) {
-                console.warn("[State] loadVokabelAtCurrentIndex fehlgeschlagen:", e);
+                console.warn("[State] loadVokabelAtCurrentIndex:", e);
             }
         }
         // --- ENDE ZUSTAND SPEICHERN / WIEDERHERSTELLEN ---
@@ -50826,6 +50823,8 @@
         }
         
         // Vokabelliste Anzahl Vokabeln - Dropdown-Update
+        let isRestoringState = false; // blockiert loadNewVokabel() während Restore
+
         async function updateVokabellisten() {
             const sprache = document.getElementById("sprache").value;
             const listeAuswahl = document.getElementById("listeAuswahl");
@@ -50834,15 +50833,14 @@
             // Die vorhandenen Vokabellisten aus Vokabellisten anzeigen
             const listen = vokabellisten[sprache];
             listen.forEach((liste, index) => {
-                anzahlVokabeln = liste.vokabeln.length; // Setze die neue Anzahl der Vokabeln
+                anzahlVokabeln = liste.vokabeln.length;
                 listeAuswahl.innerHTML += `<option value="${index}">${liste.name} (${anzahlVokabeln})</option>`;
             });
         
-            // Füge die schwierigen Vokabeln hinzu, falls vorhanden
             await addSchwierigeOptionToDropdown(sprache);
         
-            // Automatisch eine Vokabel laden
-            await loadNewVokabel();
+            // loadNewVokabel nur wenn kein Restore läuft
+            if (!isRestoringState) await loadNewVokabel();
         
             updateMainImage(sprache);
         }
@@ -50870,16 +50868,12 @@
                 lernrichtung.innerHTML = `<option value="de-nl">Deutsch - Holländisch</option><option value="nl-de">Holländisch - Deutsch</option>`;
             }
         
-            await loadNewVokabel(); // Automatisch eine Vokabel laden (SPÄEP)
+            if (!isRestoringState) await loadNewVokabel(); // Automatisch eine Vokabel laden (SPÄEP)
         }
 
         let isLoadingVokabel = false;
 
         async function loadNewVokabel() {
-            if (isRestoringState) {
-                console.log('[State] loadNewVokabel unterdrückt während Restore.');
-                return;
-            }
             if (isLoadingVokabel) {
                 console.warn('loadNewVokabel wurde bereits aufgerufen.');
                 return; // Verhindert mehrfachen Aufruf
