@@ -51350,6 +51350,7 @@
                 event.preventDefault();
                 counterLongPressTimer = setTimeout(() => {
                     resetTraining();
+                    updateLightModeDisplay();
                     saveState();
                     showSubtleToast('🔄 Counter zurückgesetzt');
                 }, LONG_PRESS_DURATION);
