@@ -51255,23 +51255,6 @@
             // Zustand wiederherstellen (Index, Sprache, Liste, Modus, LightMode)
             const stateRestored = await restoreState();
 
-            if (!stateRestored) {
-                temporarilySwitchLanguage(sprache);  // Nur ohne gespeicherten State
-                await loadNewVokabel();
-                updateLightModeDisplay();
-            }
-            
-            const sprache = document.getElementById("sprache").value;
-            
-            // Temporäre Sprache wechseln und zurücksetzen
-            temporarilySwitchLanguage(sprache);
-
-            updateDropdown(); // Dropdown-Menü aktualisieren
-
-            if (sprache) {
-                addSchwierigeOptionToDropdown(sprache);
-            }
-            
             // Erzwinge Pro-Modus beim Laden:
             const proSwitch = document.querySelector('.switch input');
             proSwitch.checked = true;
@@ -51282,6 +51265,13 @@
 
             // Vokabel nur laden wenn KEIN State wiederhergestellt wurde
             if (!stateRestored) {
+                const sprache = document.getElementById("sprache").value;
+                // Temporäre Sprache wechseln und zurücksetzen (nur ohne gespeicherten State nötig)
+                temporarilySwitchLanguage(sprache);
+                updateDropdown(); // Dropdown-Menü aktualisieren
+                if (sprache) {
+                    addSchwierigeOptionToDropdown(sprache);
+                }
                 await loadNewVokabel();
                 updateLightModeDisplay();
             }
@@ -51347,10 +51337,8 @@
             // --- ENDE NEUER CODEBLOCK ---
 
             // Eulen-Button Event
-            document.querySelector(".owl-button").onclick = saveCurrentVokabelAsSchwierig;
-
-            // Eulen-Button Event
-            document.querySelector(".owl-button").onclick = saveCurrentVokabelAsSchwierig;
+            const owlBtn = document.querySelector(".owl-button");
+            if (owlBtn) owlBtn.onclick = saveCurrentVokabelAsSchwierig;
 
             // Zustand beim Verlassen der App automatisch sichern
             window.addEventListener("pagehide", saveState);
