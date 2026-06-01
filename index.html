@@ -51342,6 +51342,32 @@
             toggleBtn.addEventListener('touchend', cancelLongPress);
             // --- ENDE NEUER CODEBLOCK ---
 
+            // --- Long-Press auf vocab-counter-light: Counter nullen ---
+            const vocabCounter = document.getElementById('vocab-counter-light');
+            let counterLongPressTimer;
+
+            const startCounterLongPress = (event) => {
+                event.preventDefault();
+                counterLongPressTimer = setTimeout(() => {
+                    resetTraining();
+                    saveState();
+                    showSubtleToast('🔄 Counter zurückgesetzt');
+                }, LONG_PRESS_DURATION);
+            };
+
+            const cancelCounterLongPress = () => {
+                clearTimeout(counterLongPressTimer);
+            };
+
+            if (vocabCounter) {
+                vocabCounter.addEventListener('mousedown', startCounterLongPress);
+                vocabCounter.addEventListener('mouseup', cancelCounterLongPress);
+                vocabCounter.addEventListener('mouseleave', cancelCounterLongPress);
+                vocabCounter.addEventListener('touchstart', startCounterLongPress);
+                vocabCounter.addEventListener('touchend', cancelCounterLongPress);
+            }
+            // --- ENDE Long-Press Counter ---
+
             // Eulen-Button Event
             const owlBtn = document.querySelector(".owl-button");
             if (owlBtn) owlBtn.onclick = saveCurrentVokabelAsSchwierig;
