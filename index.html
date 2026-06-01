@@ -50549,6 +50549,7 @@
                     listeAuswahl:   document.getElementById("listeAuswahl")?.value,
                     lightModeOpen:   document.getElementById("lightModeOverlay")?.style.display === "flex",
                     currentVokabel:  { deutsch: currentVokabel.deutsch, fremdsprache: currentVokabel.fremdsprache },
+                    vokabelCount:    vokabelCount,
                     timestamp:       Date.now()
                 };
                 localStorage.setItem("vokabeltrainer-state", JSON.stringify(state));
@@ -50608,6 +50609,11 @@
                 if (state.lightModeOpen) {
                     const overlay = document.getElementById("lightModeOverlay");
                     if (overlay) overlay.style.display = "flex";
+                }
+
+                // Vokabelzähler wiederherstellen
+                if (state.vokabelCount != null) {
+                    vokabelCount = state.vokabelCount;
                 }
 
                 // Flag zurücksetzen
