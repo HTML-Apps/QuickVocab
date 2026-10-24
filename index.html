@@ -50623,6 +50623,8 @@
             
             if (euleBtn) euleBtn.style.display = displayStyle;
             if (euleBtnLight) euleBtnLight.style.display = displayStyle;
+            const poolBtnLight = document.getElementById('vokabelpool-btn-light');
+            if (poolBtnLight) poolBtnLight.style.display = displayStyle;
         }
         // --- ENDE ADMIN MODUS LOGIK ---
 
@@ -50767,6 +50769,399 @@
         firebase.initializeApp(firebaseConfig);
         const firestoreDB = firebase.firestore();
 
+        // =====================================================================
+        // ===================== VOKABELPOOL (Firestore) =======================
+        // Sammlung "vokabelpool": je Vokabel ein Dokument mit
+        //   fremdsprache, deutsch, beispiel, rang, sprache,
+        //   status: 'pool' | 'aktiv' | 'bekannt', uebernommenAm, imCode
+        // Dokument "vokabelpoolMeta/status": letzteUebernahme, rundeAnzahl
+        // Aktive Pool-Vokabeln werden beim Start an "Wortschatz Hendrik" angehängt.
+        // =====================================================================
+        const POOL_COLL = 'vokabelpool';
+        const POOL_META_REF = () => firestoreDB.collection('vokabelpoolMeta').doc('status');
+        const POOL_ZIEL = 20;                              // Vokabeln pro Runde
+        const POOL_SPERRE_MS = 7 * 24 * 60 * 60 * 1000;    // 7 Tage nach letzter Runde
+        const POOL_SPRACHE = 'Spanisch';
+        const POOL_LISTE = 'Wortschatz Hendrik';
+
+        const poolAuth = firebase.auth();
+        let poolQueue = [];          // offene Pool-Vokabeln, nach Rang sortiert
+        let poolStats = { pool: 0, aktiv: 0, bekannt: 0 };
+        let poolMeta = { rundeAnzahl: 0, letzteUebernahme: null };
+        let poolLetzteAktion = null; // für "Rückgängig"
+        let poolBusy = false;
+
+        function poolEsc(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
+        function poolDocId(fremdsprache) {
+            return fremdsprache.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+                .replace(/[^a-z0-9ñ]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 120) || ('v' + Date.now());
+        }
+
+        function getHendrikListe() {
+            return (vokabellisten[POOL_SPRACHE] || []).find(l => l.name === POOL_LISTE);
+        }
+
+        function poolInHendrikListe(vok) {
+            const liste = getHendrikListe();
+            if (!liste) return;
+            if (liste.vokabeln.some(v => v.fremdsprache === vok.fremdsprache)) return;
+            liste.vokabeln.push({ fremdsprache: vok.fremdsprache, deutsch: vok.deutsch, beispiel: vok.beispiel || '', _pool: true });
+        }
+
+        // Beim Start: übernommene Pool-Vokabeln an "Wortschatz Hendrik" anhängen
+        async function ladeAktivePoolVokabeln() {
+            try {
+                const snap = await firestoreDB.collection(POOL_COLL).where('status', '==', 'aktiv').get();
+                const docs = snap.docs.map(d => d.data()).sort((a, b) => (a.rang || 0) - (b.rang || 0));
+                docs.forEach(poolInHendrikListe);
+                console.log('[Pool] ' + docs.length + ' aktive Pool-Vokabeln geprüft/angehängt');
+            } catch (e) {
+                console.warn('[Pool] Laden der aktiven Pool-Vokabeln fehlgeschlagen:', e);
+            }
+        }
+
+        // Hilfstext für Lösungs-Pop-ups
+        function beispielText() {
+            return (currentVokabel && currentVokabel.beispiel) ? `\n\n💬 ${currentVokabel.beispiel}` : '';
+        }
+
+        // ---------- Modal ----------
+        function poolModal() { return document.getElementById('vokabelpool-modal'); }
+        function poolBody() { return document.getElementById('vokabelpool-body'); }
+
+        function closeVokabelpool() {
+            poolModal().style.display = 'none';
+        }
+
+        function poolStatsHtml() {
+            return `<div class="vp-stats">Pool: <b>${poolStats.pool}</b> offen · <b>${poolStats.aktiv}</b> übernommen · <b>${poolStats.bekannt}</b> bekannt</div>`;
+        }
+
+        function poolFooterHtml() {
+            return `<div class="vp-footer">
+                        <button class="vp-btn-sec" onclick="poolExportAnzeigen()">⤓ Export für Code</button>
+                        <button class="vp-btn-sec" onclick="poolImportStarten()">⤒ Pool importieren</button>
+                        <button class="vp-btn-sec" onclick="poolLogout()">Abmelden</button>
+                    </div>`;
+        }
+
+        async function openVokabelpool() {
+            poolModal().style.display = 'flex';
+            const user = poolAuth.currentUser;
+            if (!user) { poolRenderLogin(); return; }
+            poolBody().innerHTML = '<p class="vp-info">Lade Vokabelpool …</p>';
+            try {
+                await poolDatenLaden();
+            } catch (e) {
+                console.error(e);
+                poolBody().innerHTML = `<p class="vp-info">⚠️ Pool konnte nicht geladen werden.<br><small>${poolEsc(e.message)}</small></p>` + poolFooterHtml();
+                return;
+            }
+            poolEntscheideAnsicht();
+        }
+
+        async function poolDatenLaden() {
+            const [snap, metaSnap] = await Promise.all([
+                firestoreDB.collection(POOL_COLL).get(),
+                POOL_META_REF().get()
+            ]);
+            poolStats = { pool: 0, aktiv: 0, bekannt: 0 };
+            poolQueue = [];
+            snap.forEach(doc => {
+                const d = doc.data();
+                if (poolStats[d.status] != null) poolStats[d.status]++;
+                if (d.status === 'pool') poolQueue.push({ id: doc.id, ...d });
+            });
+            poolQueue.sort((a, b) => (a.rang || 0) - (b.rang || 0));
+            const m = metaSnap.exists ? metaSnap.data() : {};
+            poolMeta = {
+                rundeAnzahl: m.rundeAnzahl || 0,
+                letzteUebernahme: m.letzteUebernahme ? m.letzteUebernahme.toDate() : null
+            };
+        }
+
+        function poolNaechsteFreigabe() {
+            if (!poolMeta.letzteUebernahme) return null;
+            const frei = new Date(poolMeta.letzteUebernahme.getTime() + POOL_SPERRE_MS);
+            return frei > new Date() ? frei : null;
+        }
+
+        function poolEntscheideAnsicht() {
+            const total = poolStats.pool + poolStats.aktiv + poolStats.bekannt;
+            if (total === 0) {
+                poolBody().innerHTML = `<h3>📚 Vokabelpool</h3>
+                    <p class="vp-info">Der Pool ist noch leer. Tippe einmalig auf „Pool importieren“.</p>` + poolFooterHtml();
+                return;
+            }
+            const frei = poolNaechsteFreigabe();
+            if (poolMeta.rundeAnzahl === 0 && frei) {
+                const datum = frei.toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: '2-digit' });
+                const zeit = frei.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+                poolBody().innerHTML = `<h3>📚 Vokabelpool</h3>
+                    <p class="vp-info">✅ Diese Woche sind deine ${POOL_ZIEL} neuen Vokabeln schon übernommen.<br>
+                    Nächster Pool ab <b>${datum}, ${zeit} Uhr</b>.</p>` + poolStatsHtml() + poolFooterHtml();
+                return;
+            }
+            if (poolQueue.length === 0) {
+                poolBody().innerHTML = `<h3>📚 Vokabelpool</h3><p class="vp-info">🎉 Der Pool ist leer – alle Vokabeln sind sortiert.</p>` + poolStatsHtml() + poolFooterHtml();
+                return;
+            }
+            poolRenderKarte();
+        }
+
+        function poolRenderKarte() {
+            const v = poolQueue[0];
+            if (!v) { poolEntscheideAnsicht(); return; }
+            const fortschritt = Math.round(poolMeta.rundeAnzahl / POOL_ZIEL * 100);
+            poolBody().innerHTML = `
+                <h3>📚 Vokabelpool <span class="vp-count">${poolMeta.rundeAnzahl} / ${POOL_ZIEL} übernommen</span></h3>
+                <div class="vp-progress"><div style="width:${fortschritt}%"></div></div>
+                <div class="vp-card">
+                    <div class="vp-es">${poolEsc(v.fremdsprache)}</div>
+                    <div class="vp-de">${poolEsc(v.deutsch)}</div>
+                    ${v.beispiel ? `<div class="vp-bsp">💬 ${poolEsc(v.beispiel)}</div>` : ''}
+                    <div class="vp-rang">Häufigkeitsrang ${v.rang || '–'}</div>
+                </div>
+                <div class="vp-actions">
+                    <button class="vp-btn-known" onclick="poolEntscheiden('bekannt')">✓ Kenne ich</button>
+                    <button class="vp-btn-take" onclick="poolEntscheiden('aktiv')">➕ Übernehmen</button>
+                </div>
+                <div class="vp-sub">
+                    <button class="vp-btn-link" ${poolLetzteAktion ? '' : 'disabled'} onclick="poolRueckgaengig()">↶ Rückgängig</button>
+                    <button class="vp-btn-link" onclick="closeVokabelpool()">Später weitermachen</button>
+                </div>` + poolStatsHtml() + poolFooterHtml();
+        }
+
+        async function poolEntscheiden(status) {
+            if (poolBusy) return;
+            const v = poolQueue[0];
+            if (!v) return;
+            poolBusy = true;
+            try {
+                const ref = firestoreDB.collection(POOL_COLL).doc(v.id);
+                const update = { status: status, entschiedenAm: firebase.firestore.FieldValue.serverTimestamp() };
+                if (status === 'aktiv') update.uebernommenAm = firebase.firestore.FieldValue.serverTimestamp();
+                await ref.update(update);
+
+                poolLetzteAktion = { vok: v, status: status };
+                poolQueue.shift();
+                poolStats.pool--; poolStats[status]++;
+
+                if (status === 'aktiv') {
+                    poolInHendrikListe(v);
+                    poolMeta.rundeAnzahl++;
+                    if (poolMeta.rundeAnzahl >= POOL_ZIEL) {
+                        await POOL_META_REF().set({ rundeAnzahl: 0, letzteUebernahme: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true });
+                        poolMeta = { rundeAnzahl: 0, letzteUebernahme: new Date() };
+                        poolLetzteAktion = null;
+                        poolBody().innerHTML = `<h3>📚 Vokabelpool</h3>
+                            <p class="vp-info">🎉 Geschafft! ${POOL_ZIEL} neue Vokabeln sind jetzt in „${POOL_LISTE}“.<br>
+                            Der nächste Pool ist in 7 Tagen verfügbar.</p>` + poolStatsHtml() + poolFooterHtml();
+                        showSubtleToast(`📚 ${POOL_ZIEL} neue Vokabeln übernommen`);
+                        return;
+                    }
+                    await POOL_META_REF().set({ rundeAnzahl: poolMeta.rundeAnzahl }, { merge: true });
+                }
+                poolRenderKarte();
+            } catch (e) {
+                console.error(e);
+                alert('⚠️ Speichern fehlgeschlagen: ' + e.message);
+            } finally {
+                poolBusy = false;
+            }
+        }
+
+        async function poolRueckgaengig() {
+            if (poolBusy || !poolLetzteAktion) return;
+            poolBusy = true;
+            const { vok, status } = poolLetzteAktion;
+            try {
+                await firestoreDB.collection(POOL_COLL).doc(vok.id).update({
+                    status: 'pool',
+                    entschiedenAm: firebase.firestore.FieldValue.delete(),
+                    uebernommenAm: firebase.firestore.FieldValue.delete()
+                });
+                poolQueue.unshift(vok);
+                poolStats.pool++; poolStats[status]--;
+                if (status === 'aktiv') {
+                    const liste = getHendrikListe();
+                    if (liste) {
+                        const i = liste.vokabeln.findIndex(x => x._pool && x.fremdsprache === vok.fremdsprache);
+                        if (i >= 0) liste.vokabeln.splice(i, 1);
+                    }
+                    poolMeta.rundeAnzahl = Math.max(0, poolMeta.rundeAnzahl - 1);
+                    await POOL_META_REF().set({ rundeAnzahl: poolMeta.rundeAnzahl }, { merge: true });
+                }
+                poolLetzteAktion = null;
+                poolRenderKarte();
+            } catch (e) {
+                alert('⚠️ Rückgängig fehlgeschlagen: ' + e.message);
+            } finally {
+                poolBusy = false;
+            }
+        }
+
+        // ---------- Login (nur zum Schreiben nötig) ----------
+        function poolRenderLogin(fehler) {
+            poolBody().innerHTML = `
+                <h3>📚 Vokabelpool – Anmeldung</h3>
+                <p class="vp-info">Zum Übernehmen von Vokabeln bitte einmalig anmelden. Die Anmeldung bleibt auf diesem Gerät gespeichert.</p>
+                ${fehler ? `<p class="vp-error">${poolEsc(fehler)}</p>` : ''}
+                <button class="vp-btn-take vp-full" onclick="poolLoginGoogle()">Mit Google anmelden</button>
+                <div class="vp-or">oder mit E-Mail (empfohlen in der Android-App)</div>
+                <input id="vp-mail" type="email" placeholder="E-Mail" autocomplete="username">
+                <input id="vp-pass" type="password" placeholder="Passwort" autocomplete="current-password">
+                <button class="vp-btn-known vp-full" onclick="poolLoginMail()">Anmelden</button>
+                <div class="vp-sub"><button class="vp-btn-link" onclick="closeVokabelpool()">Abbrechen</button></div>`;
+        }
+
+        async function poolLoginGoogle() {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            try {
+                await poolAuth.signInWithPopup(provider); // Ansicht lädt über onAuthStateChanged
+            } catch (e) {
+                if (e.code === 'auth/operation-not-supported-in-this-environment' || e.code === 'auth/popup-blocked') {
+                    try { await poolAuth.signInWithRedirect(provider); return; } catch (e2) { e = e2; }
+                }
+                poolRenderLogin('Google-Anmeldung fehlgeschlagen (' + (e.code || e.message) + '). In der Android-App bitte E-Mail/Passwort verwenden.');
+            }
+        }
+
+        async function poolLoginMail() {
+            const mail = document.getElementById('vp-mail').value.trim();
+            const pass = document.getElementById('vp-pass').value;
+            if (!mail || !pass) { poolRenderLogin('Bitte E-Mail und Passwort eingeben.'); return; }
+            try {
+                await poolAuth.signInWithEmailAndPassword(mail, pass); // Ansicht lädt über onAuthStateChanged
+            } catch (e) {
+                poolRenderLogin('Anmeldung fehlgeschlagen (' + (e.code || e.message) + ').');
+            }
+        }
+
+        async function poolLogout() {
+            await poolAuth.signOut();
+            closeVokabelpool();
+            showSubtleToast('Vom Vokabelpool abgemeldet');
+        }
+
+        // ---------- Export für Code ----------
+        async function poolExportAnzeigen() {
+            poolBody().innerHTML = '<p class="vp-info">Erzeuge Export …</p>';
+            try {
+                const snap = await firestoreDB.collection(POOL_COLL).where('status', '==', 'aktiv').get();
+                const docs = snap.docs.map(d => ({ id: d.id, ...d.data() })).filter(d => !d.imCode)
+                    .sort((a, b) => (a.rang || 0) - (b.rang || 0));
+                const q = s => String(s || '').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+                const text = docs.map(d =>
+                    `                    { fremdsprache: "${q(d.fremdsprache)}", deutsch: "${q(d.deutsch)}"${d.beispiel ? `, beispiel: "${q(d.beispiel)}"` : ''} },`
+                ).join('\n');
+                window._poolExportIds = docs.map(d => d.id);
+                poolBody().innerHTML = `
+                    <h3>⤓ Export für Code</h3>
+                    ${docs.length === 0
+                        ? '<p class="vp-info">Keine neuen übernommenen Vokabeln zum Exportieren.</p>'
+                        : `<p class="vp-info">${docs.length} Vokabeln. Diese Zeilen in die Liste „${POOL_LISTE}“ in der index.html einfügen und danach auf „Als im Code markieren“ tippen.</p>
+                           <textarea id="vp-export" readonly>${poolEsc(text)}</textarea>
+                           <div class="vp-actions">
+                               <button class="vp-btn-known" onclick="poolExportKopieren()">📋 Kopieren</button>
+                               <button class="vp-btn-take" onclick="poolExportMarkieren()">✓ Als im Code markieren</button>
+                           </div>`}
+                    <div class="vp-sub"><button class="vp-btn-link" onclick="openVokabelpool()">← Zurück</button></div>`;
+            } catch (e) {
+                poolBody().innerHTML = `<p class="vp-error">Export fehlgeschlagen: ${poolEsc(e.message)}</p>
+                    <div class="vp-sub"><button class="vp-btn-link" onclick="openVokabelpool()">← Zurück</button></div>`;
+            }
+        }
+
+        async function poolExportKopieren() {
+            const ta = document.getElementById('vp-export');
+            try { await navigator.clipboard.writeText(ta.value); }
+            catch (e) { ta.select(); document.execCommand('copy'); }
+            showSubtleToast('📋 Export kopiert');
+        }
+
+        async function poolExportMarkieren() {
+            const ids = window._poolExportIds || [];
+            if (!ids.length) return;
+            if (!confirm(`${ids.length} Vokabeln als „im Code“ markieren?\nNur bestätigen, wenn du die Zeilen bereits in die index.html eingefügt hast.`)) return;
+            try {
+                for (let i = 0; i < ids.length; i += 400) {
+                    const batch = firestoreDB.batch();
+                    ids.slice(i, i + 400).forEach(id => batch.update(firestoreDB.collection(POOL_COLL).doc(id), { imCode: true }));
+                    await batch.commit();
+                }
+                showSubtleToast(`✓ ${ids.length} Vokabeln als „im Code“ markiert`);
+                openVokabelpool();
+            } catch (e) {
+                alert('⚠️ Markieren fehlgeschlagen: ' + e.message);
+            }
+        }
+
+        // ---------- Import der Pool-Datei (einmalig bzw. für Erweiterungen) ----------
+        // Erst vokabelpool.json neben der index.html (Repo) laden, sonst Dateiauswahl öffnen
+        async function poolImportStarten() {
+            if (!poolAuth.currentUser) { poolRenderLogin('Zum Importieren bitte zuerst anmelden.'); return; }
+            let daten = null;
+            try {
+                const res = await fetch('vokabelpool.json?t=' + Date.now(), { cache: 'no-store' });
+                if (res.ok) daten = await res.json();
+            } catch (e) { console.warn('[Pool] vokabelpool.json nicht direkt ladbar, öffne Dateiauswahl', e); }
+            if (Array.isArray(daten)) poolImportDaten(daten);
+            else document.getElementById('vokabelpool-file').click();
+        }
+
+        async function poolImportDatei(input) {
+            const file = input.files && input.files[0];
+            input.value = '';
+            if (!file) return;
+            try {
+                poolImportDaten(JSON.parse(await file.text()));
+            } catch (e) {
+                poolBody().innerHTML = `<p class="vp-error">Datei ungültig: ${poolEsc(e.message)}</p>` + poolFooterHtml();
+            }
+        }
+
+        async function poolImportDaten(daten) {
+            if (!poolAuth.currentUser) { poolRenderLogin('Zum Importieren bitte zuerst anmelden.'); return; }
+            try {
+                if (!Array.isArray(daten)) throw new Error('Die Datei enthält keine Liste.');
+                poolBody().innerHTML = '<p class="vp-info">Importiere …</p>';
+                const vorhanden = new Set((await firestoreDB.collection(POOL_COLL).get()).docs.map(d => d.id));
+                const liste = getHendrikListe();
+                const imCode = new Set(liste ? liste.vokabeln.map(v => v.fremdsprache) : []);
+                const neu = daten.filter(v => v && v.fremdsprache && v.deutsch)
+                    .map(v => ({ ...v, _id: poolDocId(v.fremdsprache) }))
+                    .filter(v => !vorhanden.has(v._id) && !imCode.has(v.fremdsprache));
+                for (let i = 0; i < neu.length; i += 400) {
+                    const batch = firestoreDB.batch();
+                    neu.slice(i, i + 400).forEach(v => batch.set(firestoreDB.collection(POOL_COLL).doc(v._id), {
+                        fremdsprache: v.fremdsprache,
+                        deutsch: v.deutsch,
+                        beispiel: v.beispiel || '',
+                        rang: v.rang || 99999,
+                        sprache: POOL_SPRACHE,
+                        status: 'pool'
+                    }));
+                    await batch.commit();
+                }
+                showSubtleToast(`⤒ ${neu.length} Vokabeln importiert (${daten.length - neu.length} übersprungen)`);
+                openVokabelpool();
+            } catch (e) {
+                console.error(e);
+                poolBody().innerHTML = `<p class="vp-error">Import fehlgeschlagen: ${poolEsc(e.message)}</p>` + poolFooterHtml();
+            }
+        }
+
+        poolAuth.onAuthStateChanged(() => {
+            const m = poolModal();
+            if (m && m.style.display === 'flex') openVokabelpool();
+        });
+        // =================== ENDE VOKABELPOOL ===================
+
+
         //////////////////////////////////////////////////////////////////////////
         //////////////// SPÄEP = Sprachänderungseingriffspunkt///////////////////
         /////////////////////////////////////////////////////////////////////////
@@ -50792,6 +51187,12 @@
                 } else {
                     document.getElementById('prompt-word-light').textContent = currentVokabel.fremdsprache;
                     document.getElementById('solution-word-light').textContent = currentVokabel.deutsch;
+                }
+                if (currentVokabel.beispiel) {
+                    const bsp = document.createElement('div');
+                    bsp.className = 'beispiel-light';
+                    bsp.textContent = '💬 ' + currentVokabel.beispiel;
+                    document.getElementById('solution-word-light').appendChild(bsp);
                 }
                 document.getElementById('solution-word-light').style.display = 'none';
                 
@@ -51265,7 +51666,7 @@
             correctAnswer = sprachePair[richtung];
         
             if (correctAnswer !== undefined) {
-                alert(`🦊 Bedeutung(en): ${correctAnswer}`);
+                alert(`🦊 Bedeutung(en): ${correctAnswer}` + beispielText());
 
             } else {
                 alert('Unbekannte Lernrichtung');
@@ -51316,9 +51717,9 @@
         
             if (userAnswer === correctAnswer) {
                 points++;
-                alert('🏆 Richtig!');
+                alert('🏆 Richtig!' + beispielText());
             } else {
-                alert(`🦊 Bedeutung(en): ${correctAnswer}`);
+                alert(`🦊 Bedeutung(en): ${correctAnswer}` + beispielText());
             }
 
             loadNewVokabel();
@@ -51346,6 +51747,8 @@
             openNav();
             initializeApp();
             resetTimer();
+            // max. 2,5 s warten, damit die App offline nicht hängt
+            await Promise.race([ladeAktivePoolVokabeln(), new Promise(r => setTimeout(r, 2500))]);
 
             // Zustand wiederherstellen (Index, Sprache, Liste, Modus, LightMode)
             const stateRestored = await restoreState();
@@ -52553,6 +52956,41 @@
     
     </script>
 
+
+    <style>
+        /* ===== Vokabelpool ===== */
+        #vokabelpool-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:5000;align-items:flex-start;justify-content:center;padding:16px;box-sizing:border-box;overflow-y:auto;font-family:'Roboto',sans-serif}
+        #vokabelpool-body{background:#2b2b2b;color:#f5f5f5;border:1px solid #444;border-radius:10px;width:100%;max-width:480px;padding:16px;box-sizing:border-box;box-shadow:0 6px 20px rgba(0,0,0,.6)}
+        #vokabelpool-body h3{margin:0 0 10px;font-size:1.1em;display:flex;justify-content:space-between;align-items:center;gap:8px}
+        #vokabelpool-body .vp-count{font-size:.8em;font-weight:normal;color:#a0a0a0}
+        #vokabelpool-body .vp-progress{height:6px;background:#424242;border-radius:3px;overflow:hidden;margin-bottom:14px}
+        #vokabelpool-body .vp-progress div{height:100%;background:#64b5f6;transition:width .3s}
+        #vokabelpool-body .vp-card{background:#1f1f1f;border:1px solid #444;border-radius:8px;padding:16px;margin-bottom:14px}
+        #vokabelpool-body .vp-es{font-size:1.4em;font-weight:bold;margin-bottom:6px}
+        #vokabelpool-body .vp-de{font-size:1.05em;color:#64b5f6;margin-bottom:10px}
+        #vokabelpool-body .vp-bsp{font-size:.95em;color:#d0d0d0;font-style:italic;line-height:1.4}
+        #vokabelpool-body .vp-rang{font-size:.75em;color:#888;margin-top:10px}
+        #vokabelpool-body .vp-actions{display:flex;gap:10px;margin-bottom:10px}
+        #vokabelpool-body button{font-family:inherit;cursor:pointer;border-radius:6px;border:1px solid #444;margin:0}
+        #vokabelpool-body .vp-actions button,#vokabelpool-body .vp-full{flex:1;padding:14px 8px;font-size:1em;color:#fff;width:100%}
+        #vokabelpool-body .vp-btn-known{background:#424242}
+        #vokabelpool-body .vp-btn-take{background:#1e6fb8;border-color:#1e6fb8}
+        #vokabelpool-body .vp-full{margin-bottom:10px}
+        #vokabelpool-body .vp-sub{display:flex;justify-content:space-between;margin-bottom:8px}
+        #vokabelpool-body .vp-btn-link{background:none;border:none;color:#a0a0a0;padding:6px 0;width:auto;font-size:.9em}
+        #vokabelpool-body .vp-btn-link:disabled{opacity:.35;cursor:default}
+        #vokabelpool-body .vp-stats{font-size:.85em;color:#a0a0a0;border-top:1px solid #444;padding-top:10px;margin-top:4px}
+        #vokabelpool-body .vp-footer{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+        #vokabelpool-body .vp-btn-sec{background:#333;color:#ccc;padding:6px 10px;font-size:.8em;width:auto}
+        #vokabelpool-body .vp-info{line-height:1.5;margin:0 0 12px}
+        #vokabelpool-body .vp-error{color:#ff8a80;margin:0 0 12px}
+        #vokabelpool-body .vp-or{text-align:center;font-size:.85em;color:#a0a0a0;margin:4px 0 8px}
+        #vokabelpool-body input{width:100%;box-sizing:border-box;padding:10px;margin:0 0 8px;border-radius:6px;border:1px solid #555;background:#1f1f1f;color:#fff;font-size:1em}
+        #vokabelpool-body textarea{width:100%;height:220px;box-sizing:border-box;background:#1f1f1f;color:#ddd;border:1px solid #555;border-radius:6px;font-family:monospace;font-size:.75em;margin-bottom:10px}
+        .beispiel-light{font-size:.8em;color:#bdbdbd;font-style:italic;margin-top:6px}
+        /* etwas schmalere Buttons, damit 📚 auch auf kleinen Handys in die Leiste passt */
+        #vocab-container-light .buttons-min button{padding-left:8px;padding-right:8px}
+    </style>
 </head>
 
 <body>
@@ -52713,6 +53151,12 @@
 
     </div>
 
+    <!-- Vokabelpool Modal -->
+    <div id="vokabelpool-modal" onclick="if(event.target===this) closeVokabelpool()">
+        <div id="vokabelpool-body"></div>
+    </div>
+    <input type="file" id="vokabelpool-file" accept=".json,application/json" style="display:none" onchange="poolImportDatei(this)">
+
     <!-- Light-Mode Overlay Popup -->
     <div id="lightModeOverlay">
         
@@ -52727,6 +53171,7 @@
                 <button id="list-mode-btn-light" class="mode-btn active">📋</button>
                 <button id="button-eule-light" style="display: none;" onclick="saveCurrentVokabelAsSchwierig()">🦉</button>
                 <button id="schwierig-spanisch-btn-light" title="Lange drücken zum Umschalten: Schwierige Vokabeln / Wortschatz Hendrik">⚡</button>
+                <button id="vokabelpool-btn-light" title="Vokabelpool: 20 neue Vokabeln pro Woche" onclick="openVokabelpool()">📚</button>
                 <span id="vocab-counter-light"></span>
                 <div style="flex-grow: 1;"></div>
                 <button id="prev-btn-light" class="nav-btn">&lt;</button>

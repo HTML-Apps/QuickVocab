@@ -1,0 +1,6188 @@
+[
+ {
+  "fremdsprache": "el diablo",
+  "deutsch": "der Teufel",
+  "beispiel": "Ese niño tiene el diablo en el cuerpo.",
+  "rang": 1
+ },
+ {
+  "fremdsprache": "desaparecer",
+  "deutsch": "verschwinden",
+  "beispiel": "Mis llaves han desaparecido otra vez.",
+  "rang": 2
+ },
+ {
+  "fremdsprache": "el demonio",
+  "deutsch": "der Dämon, der Teufel",
+  "beispiel": "¿Qué demonios estás haciendo?",
+  "rang": 3
+ },
+ {
+  "fremdsprache": "resultar",
+  "deutsch": "sich herausstellen, sich erweisen als",
+  "beispiel": "El examen resultó más fácil de lo esperado.",
+  "rang": 4
+ },
+ {
+  "fremdsprache": "el amo / la ama",
+  "deutsch": "der Herr, der Besitzer / die Herrin",
+  "beispiel": "El perro siempre espera a su amo en la puerta.",
+  "rang": 5
+ },
+ {
+  "fremdsprache": "asesinar",
+  "deutsch": "ermorden",
+  "beispiel": "El periodista fue asesinado en 1998.",
+  "rang": 6
+ },
+ {
+  "fremdsprache": "militar",
+  "deutsch": "militärisch; der Soldat",
+  "beispiel": "Mi abuelo hizo el servicio militar en Zaragoza.",
+  "rang": 7
+ },
+ {
+  "fremdsprache": "el informe",
+  "deutsch": "der Bericht",
+  "beispiel": "Tengo que entregar el informe mensual el viernes.",
+  "rang": 8
+ },
+ {
+  "fremdsprache": "averiguar",
+  "deutsch": "herausfinden, ermitteln",
+  "beispiel": "Voy a averiguar a qué hora sale el tren.",
+  "rang": 9
+ },
+ {
+  "fremdsprache": "salvo",
+  "deutsch": "außer, abgesehen von",
+  "beispiel": "Trabajo todos los días salvo los domingos.",
+  "rang": 10
+ },
+ {
+  "fremdsprache": "hallar",
+  "deutsch": "finden, auffinden",
+  "beispiel": "Por fin hallaron una solución al problema.",
+  "rang": 11
+ },
+ {
+  "fremdsprache": "aun",
+  "deutsch": "sogar, selbst",
+  "beispiel": "Aun así, decidimos seguir adelante.",
+  "rang": 12
+ },
+ {
+  "fremdsprache": "besar",
+  "deutsch": "küssen",
+  "beispiel": "Se besaron en la estación antes de despedirse.",
+  "rang": 13
+ },
+ {
+  "fremdsprache": "la nave",
+  "deutsch": "das Schiff; die (Fabrik-)Halle",
+  "beispiel": "La nueva nave de producción tiene 5000 metros cuadrados.",
+  "rang": 14
+ },
+ {
+  "fremdsprache": "la serie",
+  "deutsch": "die Serie; die Fernsehserie",
+  "beispiel": "Estoy viendo una serie española en Netflix.",
+  "rang": 15
+ },
+ {
+  "fremdsprache": "discutir",
+  "deutsch": "streiten; diskutieren",
+  "beispiel": "No quiero discutir contigo por tonterías.",
+  "rang": 16
+ },
+ {
+  "fremdsprache": "afirmar",
+  "deutsch": "behaupten, bestätigen",
+  "beispiel": "El director afirmó que no habrá despidos.",
+  "rang": 17
+ },
+ {
+  "fremdsprache": "la autoridad",
+  "deutsch": "die Behörde; die Autorität",
+  "beispiel": "Las autoridades cerraron la carretera por la nieve.",
+  "rang": 18
+ },
+ {
+  "fremdsprache": "el héroe / la heroína",
+  "deutsch": "der Held / die Heldin",
+  "beispiel": "Los bomberos fueron los héroes del día.",
+  "rang": 19
+ },
+ {
+  "fremdsprache": "sobrevivir",
+  "deutsch": "überleben",
+  "beispiel": "Solo tres personas sobrevivieron al accidente.",
+  "rang": 20
+ },
+ {
+  "fremdsprache": "absoluto/a",
+  "deutsch": "absolut, völlig",
+  "beispiel": "No tengo la más absoluta idea.",
+  "rang": 21
+ },
+ {
+  "fremdsprache": "provocar",
+  "deutsch": "verursachen, provozieren",
+  "beispiel": "La lluvia provocó un atasco enorme.",
+  "rang": 22
+ },
+ {
+  "fremdsprache": "la maldición",
+  "deutsch": "der Fluch",
+  "beispiel": "Parece una maldición: siempre llueve cuando salgo.",
+  "rang": 23
+ },
+ {
+  "fremdsprache": "la comisión",
+  "deutsch": "die Kommission; die Provision",
+  "beispiel": "El vendedor cobra una comisión del cinco por ciento.",
+  "rang": 24
+ },
+ {
+  "fremdsprache": "vigilar",
+  "deutsch": "überwachen, aufpassen auf",
+  "beispiel": "¿Puedes vigilar a los niños un momento?",
+  "rang": 25
+ },
+ {
+  "fremdsprache": "la victoria",
+  "deutsch": "der Sieg",
+  "beispiel": "El equipo celebró la victoria en la plaza.",
+  "rang": 26
+ },
+ {
+  "fremdsprache": "avisar",
+  "deutsch": "Bescheid geben, benachrichtigen, warnen",
+  "beispiel": "Avísame cuando llegues a casa.",
+  "rang": 27
+ },
+ {
+  "fremdsprache": "sexual",
+  "deutsch": "sexuell",
+  "beispiel": "La educación sexual es parte del programa escolar.",
+  "rang": 28
+ },
+ {
+  "fremdsprache": "atreverse a",
+  "deutsch": "sich trauen, wagen",
+  "beispiel": "No me atrevo a decirle la verdad.",
+  "rang": 29
+ },
+ {
+  "fremdsprache": "el regreso",
+  "deutsch": "die Rückkehr",
+  "beispiel": "El regreso de las vacaciones siempre es duro.",
+  "rang": 30
+ },
+ {
+  "fremdsprache": "de veras",
+  "deutsch": "wirklich, im Ernst",
+  "beispiel": "¿De veras te vas a vivir a Madrid?",
+  "rang": 31
+ },
+ {
+  "fremdsprache": "la batalla",
+  "deutsch": "die Schlacht, der Kampf",
+  "beispiel": "Fue una batalla larga contra la burocracia.",
+  "rang": 32
+ },
+ {
+  "fremdsprache": "interno/a",
+  "deutsch": "intern, innere(r)",
+  "beispiel": "Es un documento de uso interno.",
+  "rang": 33
+ },
+ {
+  "fremdsprache": "constituir",
+  "deutsch": "bilden, darstellen, gründen",
+  "beispiel": "Las mujeres constituyen la mitad de la plantilla.",
+  "rang": 34
+ },
+ {
+  "fremdsprache": "la pistola",
+  "deutsch": "die Pistole",
+  "beispiel": "El policía llevaba una pistola en el cinturón.",
+  "rang": 35
+ },
+ {
+  "fremdsprache": "el porqué",
+  "deutsch": "das Warum, der Grund",
+  "beispiel": "Nadie entiende el porqué de su decisión.",
+  "rang": 36
+ },
+ {
+  "fremdsprache": "el rostro",
+  "deutsch": "das Gesicht, das Antlitz",
+  "beispiel": "Tenía una sonrisa en el rostro.",
+  "rang": 37
+ },
+ {
+  "fremdsprache": "ridículo/a",
+  "deutsch": "lächerlich",
+  "beispiel": "Me sentí ridículo con ese disfraz.",
+  "rang": 38
+ },
+ {
+  "fremdsprache": "el ganado",
+  "deutsch": "das Vieh",
+  "beispiel": "En esta región se cría ganado.",
+  "rang": 39
+ },
+ {
+  "fremdsprache": "rodear",
+  "deutsch": "umgeben, umringen",
+  "beispiel": "La casa está rodeada de árboles.",
+  "rang": 40
+ },
+ {
+  "fremdsprache": "el sujeto",
+  "deutsch": "das Subjekt; der Typ, die Person",
+  "beispiel": "Un sujeto sospechoso estaba frente al banco.",
+  "rang": 41
+ },
+ {
+  "fremdsprache": "diverso/a",
+  "deutsch": "verschieden, vielfältig",
+  "beispiel": "Tenemos clientes de diversos países.",
+  "rang": 42
+ },
+ {
+  "fremdsprache": "la huella",
+  "deutsch": "die Spur; der Fingerabdruck",
+  "beispiel": "La policía encontró huellas en la ventana.",
+  "rang": 43
+ },
+ {
+  "fremdsprache": "mediante",
+  "deutsch": "mittels, durch",
+  "beispiel": "Se puede pagar mediante transferencia bancaria.",
+  "rang": 44
+ },
+ {
+  "fremdsprache": "imbécil",
+  "deutsch": "Idiot, blöd",
+  "beispiel": "No seas imbécil y ponte el casco.",
+  "rang": 45
+ },
+ {
+  "fremdsprache": "el empleo",
+  "deutsch": "die Beschäftigung, die Stelle",
+  "beispiel": "Encontró empleo en una empresa de logística.",
+  "rang": 46
+ },
+ {
+  "fremdsprache": "el trago",
+  "deutsch": "der Schluck; der Drink",
+  "beispiel": "¿Vamos a tomar un trago después del trabajo?",
+  "rang": 47
+ },
+ {
+  "fremdsprache": "acusar",
+  "deutsch": "beschuldigen, anklagen",
+  "beispiel": "Lo acusaron de robar dinero de la caja.",
+  "rang": 48
+ },
+ {
+  "fremdsprache": "el vistazo",
+  "deutsch": "der (kurze) Blick",
+  "beispiel": "¿Puedes echar un vistazo a mi presentación?",
+  "rang": 49
+ },
+ {
+  "fremdsprache": "manifestar",
+  "deutsch": "äußern, zeigen; demonstrieren",
+  "beispiel": "Miles de personas se manifestaron en el centro.",
+  "rang": 50
+ },
+ {
+  "fremdsprache": "quieto/a",
+  "deutsch": "still, ruhig, regungslos",
+  "beispiel": "¡Quédate quieto, que te hago una foto!",
+  "rang": 51
+ },
+ {
+  "fremdsprache": "desnudo/a",
+  "deutsch": "nackt",
+  "beispiel": "No me gusta dormir desnudo en invierno.",
+  "rang": 52
+ },
+ {
+  "fremdsprache": "la existencia",
+  "deutsch": "die Existenz, das Dasein",
+  "beispiel": "No sabía de la existencia de ese archivo.",
+  "rang": 53
+ },
+ {
+  "fremdsprache": "arrancar",
+  "deutsch": "anspringen, starten; herausreißen",
+  "beispiel": "El coche no arranca por las mañanas cuando hace frío.",
+  "rang": 54
+ },
+ {
+  "fremdsprache": "fallar",
+  "deutsch": "versagen, ausfallen; scheitern",
+  "beispiel": "Falló el sistema y se paró la línea.",
+  "rang": 55
+ },
+ {
+  "fremdsprache": "rogar",
+  "deutsch": "bitten, flehen",
+  "beispiel": "Les rogamos que apaguen los móviles.",
+  "rang": 56
+ },
+ {
+  "fremdsprache": "el inspector / la inspectora",
+  "deutsch": "der Inspektor, der Prüfer",
+  "beispiel": "El inspector de calidad revisó todas las piezas.",
+  "rang": 57
+ },
+ {
+  "fremdsprache": "ciego/a",
+  "deutsch": "blind",
+  "beispiel": "Es ciego de nacimiento.",
+  "rang": 58
+ },
+ {
+  "fremdsprache": "fingir",
+  "deutsch": "vortäuschen, so tun als ob",
+  "beispiel": "Fingió estar enfermo para no ir a la reunión.",
+  "rang": 59
+ },
+ {
+  "fremdsprache": "adorar",
+  "deutsch": "anbeten, vergöttern; lieben",
+  "beispiel": "Adoro la comida de mi abuela.",
+  "rang": 60
+ },
+ {
+  "fremdsprache": "la dama",
+  "deutsch": "die Dame",
+  "beispiel": "Las damas primero.",
+  "rang": 61
+ },
+ {
+  "fremdsprache": "el acusado / la acusada",
+  "deutsch": "der/die Angeklagte",
+  "beispiel": "El acusado se declaró inocente.",
+  "rang": 62
+ },
+ {
+  "fremdsprache": "el conde / la condesa",
+  "deutsch": "der Graf / die Gräfin",
+  "beispiel": "El conde vivía en un castillo cerca de Toledo.",
+  "rang": 63
+ },
+ {
+  "fremdsprache": "atraer",
+  "deutsch": "anziehen, anlocken",
+  "beispiel": "La feria atrae a miles de visitantes.",
+  "rang": 64
+ },
+ {
+  "fremdsprache": "plantear",
+  "deutsch": "aufwerfen, ansprechen, vorschlagen",
+  "beispiel": "Quiero plantear una pregunta sobre el presupuesto.",
+  "rang": 65
+ },
+ {
+  "fremdsprache": "el jurado",
+  "deutsch": "die Jury; die Geschworenen",
+  "beispiel": "El jurado declaró culpable al acusado.",
+  "rang": 66
+ },
+ {
+  "fremdsprache": "destacar",
+  "deutsch": "hervorheben; herausragen",
+  "beispiel": "Hay que destacar el buen trabajo del equipo.",
+  "rang": 67
+ },
+ {
+  "fremdsprache": "arriesgar",
+  "deutsch": "riskieren",
+  "beispiel": "No quiero arriesgar mi puesto de trabajo.",
+  "rang": 68
+ },
+ {
+  "fremdsprache": "el comité",
+  "deutsch": "das Komitee, der Ausschuss",
+  "beispiel": "El comité de empresa negocia con la dirección.",
+  "rang": 69
+ },
+ {
+  "fremdsprache": "tender a",
+  "deutsch": "neigen zu, tendieren zu",
+  "beispiel": "Los precios tienden a subir en verano.",
+  "rang": 70
+ },
+ {
+  "fremdsprache": "tender",
+  "deutsch": "aufhängen (Wäsche); ausbreiten",
+  "beispiel": "Tengo que tender la ropa antes de salir.",
+  "rang": 71
+ },
+ {
+  "fremdsprache": "operar",
+  "deutsch": "operieren; tätig sein",
+  "beispiel": "La empresa opera en más de 60 países.",
+  "rang": 72
+ },
+ {
+  "fremdsprache": "el prisionero / la prisionera",
+  "deutsch": "der/die Gefangene",
+  "beispiel": "Liberaron a los prisioneros al final de la guerra.",
+  "rang": 73
+ },
+ {
+  "fremdsprache": "transformar",
+  "deutsch": "verwandeln, umwandeln",
+  "beispiel": "La digitalización ha transformado la fábrica.",
+  "rang": 74
+ },
+ {
+  "fremdsprache": "filmar",
+  "deutsch": "filmen",
+  "beispiel": "Filmaron la película en Almería.",
+  "rang": 75
+ },
+ {
+  "fremdsprache": "el anciano / la anciana",
+  "deutsch": "der alte Mann / die alte Frau",
+  "beispiel": "Un anciano me preguntó por la estación.",
+  "rang": 76
+ },
+ {
+  "fremdsprache": "el talento",
+  "deutsch": "das Talent",
+  "beispiel": "Tiene mucho talento para la música.",
+  "rang": 77
+ },
+ {
+  "fremdsprache": "la princesa",
+  "deutsch": "die Prinzessin",
+  "beispiel": "La princesa de Asturias visitó la ciudad.",
+  "rang": 78
+ },
+ {
+  "fremdsprache": "la gloria",
+  "deutsch": "der Ruhm; die Herrlichkeit",
+  "beispiel": "Esta paella está que da gloria.",
+  "rang": 79
+ },
+ {
+  "fremdsprache": "la criatura",
+  "deutsch": "das Geschöpf; das kleine Kind",
+  "beispiel": "La pobre criatura tenía hambre.",
+  "rang": 80
+ },
+ {
+  "fremdsprache": "arrojar",
+  "deutsch": "werfen, schleudern; ergeben (Ergebnis)",
+  "beispiel": "El análisis arrojó resultados positivos.",
+  "rang": 81
+ },
+ {
+  "fremdsprache": "el tono",
+  "deutsch": "der Ton, der Tonfall",
+  "beispiel": "No me hables en ese tono.",
+  "rang": 82
+ },
+ {
+  "fremdsprache": "el cáncer",
+  "deutsch": "der Krebs",
+  "beispiel": "Su tía superó un cáncer de mama.",
+  "rang": 83
+ },
+ {
+  "fremdsprache": "el milagro",
+  "deutsch": "das Wunder",
+  "beispiel": "Fue un milagro que nadie resultara herido.",
+  "rang": 84
+ },
+ {
+  "fremdsprache": "el instante",
+  "deutsch": "der Augenblick",
+  "beispiel": "En ese instante sonó el teléfono.",
+  "rang": 85
+ },
+ {
+  "fremdsprache": "adoptar",
+  "deutsch": "adoptieren; übernehmen, ergreifen",
+  "beispiel": "El gobierno adoptó nuevas medidas.",
+  "rang": 86
+ },
+ {
+  "fremdsprache": "la cuerda",
+  "deutsch": "das Seil, die Schnur; die Saite",
+  "beispiel": "Ata la caja con una cuerda.",
+  "rang": 87
+ },
+ {
+  "fremdsprache": "el pecado",
+  "deutsch": "die Sünde",
+  "beispiel": "Comer tanto chocolate es un pecado.",
+  "rang": 88
+ },
+ {
+  "fremdsprache": "la risa",
+  "deutsch": "das Lachen",
+  "beispiel": "Me dio mucha risa su comentario.",
+  "rang": 89
+ },
+ {
+  "fremdsprache": "extender",
+  "deutsch": "ausdehnen, ausbreiten, verlängern",
+  "beispiel": "Han extendido el plazo hasta marzo.",
+  "rang": 90
+ },
+ {
+  "fremdsprache": "el genio",
+  "deutsch": "das Genie; die Laune",
+  "beispiel": "¡Eres un genio! / Tiene mal genio por las mañanas.",
+  "rang": 91
+ },
+ {
+  "fremdsprache": "lucir",
+  "deutsch": "tragen, zur Schau stellen; gut aussehen",
+  "beispiel": "Lucía un vestido rojo en la boda.",
+  "rang": 92
+ },
+ {
+  "fremdsprache": "concluir",
+  "deutsch": "abschließen, folgern",
+  "beispiel": "El estudio concluye que el plan es viable.",
+  "rang": 93
+ },
+ {
+  "fremdsprache": "específico/a",
+  "deutsch": "spezifisch, bestimmt",
+  "beispiel": "Necesitamos una herramienta específica para esto.",
+  "rang": 94
+ },
+ {
+  "fremdsprache": "el asistente / la asistente",
+  "deutsch": "der Assistent, die Hilfskraft",
+  "beispiel": "Mi asistente organiza las reuniones.",
+  "rang": 95
+ },
+ {
+  "fremdsprache": "el bote",
+  "deutsch": "das Boot; die Dose; der Jackpot",
+  "beispiel": "Fuimos en bote hasta la isla.",
+  "rang": 96
+ },
+ {
+  "fremdsprache": "el rumor",
+  "deutsch": "das Gerücht",
+  "beispiel": "Corre el rumor de que van a cerrar la planta.",
+  "rang": 97
+ },
+ {
+  "fremdsprache": "la lástima",
+  "deutsch": "das Mitleid; schade",
+  "beispiel": "¡Qué lástima que no puedas venir!",
+  "rang": 98
+ },
+ {
+  "fremdsprache": "conformarse con",
+  "deutsch": "sich zufriedengeben mit",
+  "beispiel": "Me conformo con un aprobado.",
+  "rang": 99
+ },
+ {
+  "fremdsprache": "capturar",
+  "deutsch": "fangen, gefangen nehmen; erfassen",
+  "beispiel": "La cámara captura cada detalle.",
+  "rang": 100
+ },
+ {
+  "fremdsprache": "el/la dirigente",
+  "deutsch": "die Führungskraft, der Funktionär",
+  "beispiel": "Los dirigentes sindicales convocaron una reunión.",
+  "rang": 101
+ },
+ {
+  "fremdsprache": "grandioso/a",
+  "deutsch": "großartig, grandios",
+  "beispiel": "El concierto fue grandioso.",
+  "rang": 102
+ },
+ {
+  "fremdsprache": "el homicidio",
+  "deutsch": "der Totschlag, die Tötung",
+  "beispiel": "La policía investiga un caso de homicidio.",
+  "rang": 103
+ },
+ {
+  "fremdsprache": "la virgen",
+  "deutsch": "die Jungfrau",
+  "beispiel": "La Virgen del Pilar es la patrona de Zaragoza.",
+  "rang": 104
+ },
+ {
+  "fremdsprache": "componer",
+  "deutsch": "zusammensetzen; komponieren",
+  "beispiel": "El equipo se compone de cinco personas.",
+  "rang": 105
+ },
+ {
+  "fremdsprache": "la explosión",
+  "deutsch": "die Explosion",
+  "beispiel": "Hubo una explosión en una fábrica química.",
+  "rang": 106
+ },
+ {
+  "fremdsprache": "el diseño",
+  "deutsch": "das Design, die Konstruktion",
+  "beispiel": "El diseño de la válvula es nuevo.",
+  "rang": 107
+ },
+ {
+  "fremdsprache": "mágico/a",
+  "deutsch": "magisch, zauberhaft",
+  "beispiel": "Fue una noche mágica.",
+  "rang": 108
+ },
+ {
+  "fremdsprache": "emitir",
+  "deutsch": "ausstrahlen, senden; ausstellen",
+  "beispiel": "El banco emitió una nueva tarjeta.",
+  "rang": 109
+ },
+ {
+  "fremdsprache": "judicial",
+  "deutsch": "gerichtlich, juristisch",
+  "beispiel": "Es un proceso judicial muy largo.",
+  "rang": 110
+ },
+ {
+  "fremdsprache": "consistir en",
+  "deutsch": "bestehen aus, darin bestehen",
+  "beispiel": "Mi trabajo consiste en planificar la producción.",
+  "rang": 111
+ },
+ {
+  "fremdsprache": "pillar",
+  "deutsch": "erwischen, fangen (ugs.)",
+  "beispiel": "Me pilló la lluvia sin paraguas.",
+  "rang": 112
+ },
+ {
+  "fremdsprache": "enterrar",
+  "deutsch": "begraben, beerdigen",
+  "beispiel": "Enterraron al abuelo en su pueblo.",
+  "rang": 113
+ },
+ {
+  "fremdsprache": "comunista",
+  "deutsch": "kommunistisch; der Kommunist",
+  "beispiel": "El partido comunista perdió votos.",
+  "rang": 114
+ },
+ {
+  "fremdsprache": "la desgracia",
+  "deutsch": "das Unglück",
+  "beispiel": "Por desgracia, no pude asistir.",
+  "rang": 115
+ },
+ {
+  "fremdsprache": "detectar",
+  "deutsch": "feststellen, erkennen",
+  "beispiel": "El sensor detecta piezas defectuosas.",
+  "rang": 116
+ },
+ {
+  "fremdsprache": "el episodio",
+  "deutsch": "die Folge, die Episode",
+  "beispiel": "Anoche vi tres episodios seguidos.",
+  "rang": 117
+ },
+ {
+  "fremdsprache": "el entrenamiento",
+  "deutsch": "das Training",
+  "beispiel": "El entrenamiento empieza a las seis.",
+  "rang": 118
+ },
+ {
+  "fremdsprache": "examinar",
+  "deutsch": "untersuchen, prüfen",
+  "beispiel": "El médico me examinó la rodilla.",
+  "rang": 119
+ },
+ {
+  "fremdsprache": "el misterio",
+  "deutsch": "das Rätsel, das Geheimnis",
+  "beispiel": "Sigue siendo un misterio cómo lo hizo.",
+  "rang": 120
+ },
+ {
+  "fremdsprache": "magnífico/a",
+  "deutsch": "großartig, hervorragend",
+  "beispiel": "Hace un día magnífico.",
+  "rang": 121
+ },
+ {
+  "fremdsprache": "habitual",
+  "deutsch": "gewöhnlich, üblich",
+  "beispiel": "Nos vemos en el bar habitual.",
+  "rang": 122
+ },
+ {
+  "fremdsprache": "la disposición",
+  "deutsch": "die Verfügung; die Bereitschaft; die Anordnung",
+  "beispiel": "Estoy a tu disposición para cualquier pregunta.",
+  "rang": 123
+ },
+ {
+  "fremdsprache": "involucrado/a",
+  "deutsch": "beteiligt, verwickelt",
+  "beispiel": "Hay tres departamentos involucrados en el proyecto.",
+  "rang": 124
+ },
+ {
+  "fremdsprache": "la provincia",
+  "deutsch": "die Provinz",
+  "beispiel": "Valencia es también una provincia.",
+  "rang": 125
+ },
+ {
+  "fremdsprache": "afortunado/a",
+  "deutsch": "glücklich, vom Glück begünstigt",
+  "beispiel": "Me siento afortunado de tener este trabajo.",
+  "rang": 126
+ },
+ {
+  "fremdsprache": "solucionar",
+  "deutsch": "lösen, beheben",
+  "beispiel": "Ya hemos solucionado el problema del servidor.",
+  "rang": 127
+ },
+ {
+  "fremdsprache": "la alianza",
+  "deutsch": "das Bündnis; der Ehering",
+  "beispiel": "Las dos empresas firmaron una alianza.",
+  "rang": 128
+ },
+ {
+  "fremdsprache": "acceder a",
+  "deutsch": "zugreifen auf; zustimmen",
+  "beispiel": "No puedo acceder a mi cuenta.",
+  "rang": 129
+ },
+ {
+  "fremdsprache": "el criterio",
+  "deutsch": "das Kriterium; die Urteilskraft",
+  "beispiel": "¿Qué criterios usáis para elegir proveedores?",
+  "rang": 130
+ },
+ {
+  "fremdsprache": "el debate",
+  "deutsch": "die Debatte",
+  "beispiel": "Hubo un debate intenso sobre el presupuesto.",
+  "rang": 131
+ },
+ {
+  "fremdsprache": "la intervención",
+  "deutsch": "der Eingriff; der Redebeitrag",
+  "beispiel": "La intervención quirúrgica duró dos horas.",
+  "rang": 132
+ },
+ {
+  "fremdsprache": "el distrito",
+  "deutsch": "der Bezirk",
+  "beispiel": "Vivo en el distrito de Chamberí.",
+  "rang": 133
+ },
+ {
+  "fremdsprache": "cobarde",
+  "deutsch": "feige; der Feigling",
+  "beispiel": "No seas cobarde y habla con ella.",
+  "rang": 134
+ },
+ {
+  "fremdsprache": "la cirugía",
+  "deutsch": "die Chirurgie, die Operation",
+  "beispiel": "Necesita cirugía en la rodilla.",
+  "rang": 135
+ },
+ {
+  "fremdsprache": "el/la guarda",
+  "deutsch": "der Wächter",
+  "beispiel": "El guarda de seguridad abre a las siete.",
+  "rang": 136
+ },
+ {
+  "fremdsprache": "la ira",
+  "deutsch": "der Zorn, die Wut",
+  "beispiel": "Sintió una ira enorme.",
+  "rang": 137
+ },
+ {
+  "fremdsprache": "implicar",
+  "deutsch": "bedeuten, mit sich bringen; verwickeln",
+  "beispiel": "El cambio implica más trabajo para todos.",
+  "rang": 138
+ },
+ {
+  "fremdsprache": "el sindicato",
+  "deutsch": "die Gewerkschaft",
+  "beispiel": "El sindicato convocó una huelga.",
+  "rang": 139
+ },
+ {
+  "fremdsprache": "el lío",
+  "deutsch": "das Durcheinander; der Ärger",
+  "beispiel": "¡Qué lío! No encuentro nada.",
+  "rang": 140
+ },
+ {
+  "fremdsprache": "la resistencia",
+  "deutsch": "der Widerstand; die Ausdauer",
+  "beispiel": "El material tiene una alta resistencia al calor.",
+  "rang": 141
+ },
+ {
+  "fremdsprache": "la cubierta",
+  "deutsch": "das Deck; die Abdeckung; der Umschlag",
+  "beispiel": "Subimos a la cubierta del barco.",
+  "rang": 142
+ },
+ {
+  "fremdsprache": "incorporar",
+  "deutsch": "einbauen, aufnehmen",
+  "beispiel": "Vamos a incorporar a dos personas nuevas al equipo.",
+  "rang": 143
+ },
+ {
+  "fremdsprache": "el investigador / la investigadora",
+  "deutsch": "der Forscher; der Ermittler",
+  "beispiel": "Los investigadores publicaron un estudio nuevo.",
+  "rang": 144
+ },
+ {
+  "fremdsprache": "ejercer",
+  "deutsch": "ausüben",
+  "beispiel": "Ejerce de abogado desde hace diez años.",
+  "rang": 145
+ },
+ {
+  "fremdsprache": "expulsar",
+  "deutsch": "ausweisen, hinauswerfen",
+  "beispiel": "Lo expulsaron del colegio.",
+  "rang": 146
+ },
+ {
+  "fremdsprache": "deprisa",
+  "deutsch": "schnell, eilig",
+  "beispiel": "¡Vamos, deprisa, que perdemos el tren!",
+  "rang": 147
+ },
+ {
+  "fremdsprache": "apestar",
+  "deutsch": "stinken",
+  "beispiel": "Esta basura apesta.",
+  "rang": 148
+ },
+ {
+  "fremdsprache": "la entidad",
+  "deutsch": "die Einrichtung, die Institution",
+  "beispiel": "Es una entidad sin ánimo de lucro.",
+  "rang": 149
+ },
+ {
+  "fremdsprache": "universitario/a",
+  "deutsch": "Universitäts-; der Student",
+  "beispiel": "Tiene un título universitario.",
+  "rang": 150
+ },
+ {
+  "fremdsprache": "permanente",
+  "deutsch": "ständig, dauerhaft",
+  "beispiel": "Busco un contrato permanente.",
+  "rang": 151
+ },
+ {
+  "fremdsprache": "librar",
+  "deutsch": "befreien; frei haben",
+  "beispiel": "Los martes libro en el trabajo.",
+  "rang": 152
+ },
+ {
+  "fremdsprache": "librarse de",
+  "deutsch": "loswerden, davonkommen",
+  "beispiel": "Por fin me he librado de ese proyecto.",
+  "rang": 153
+ },
+ {
+  "fremdsprache": "el incidente",
+  "deutsch": "der Vorfall",
+  "beispiel": "No hubo incidentes durante el turno de noche.",
+  "rang": 154
+ },
+ {
+  "fremdsprache": "fijo/a",
+  "deutsch": "fest, fix",
+  "beispiel": "Tiene un sueldo fijo.",
+  "rang": 155
+ },
+ {
+  "fremdsprache": "la acusación",
+  "deutsch": "die Anklage, die Beschuldigung",
+  "beispiel": "Niega todas las acusaciones.",
+  "rang": 156
+ },
+ {
+  "fremdsprache": "la camioneta",
+  "deutsch": "der Lieferwagen, der Kleintransporter",
+  "beispiel": "Trajeron los muebles en una camioneta.",
+  "rang": 157
+ },
+ {
+  "fremdsprache": "el emperador / la emperatriz",
+  "deutsch": "der Kaiser / die Kaiserin",
+  "beispiel": "Carlos V fue emperador.",
+  "rang": 158
+ },
+ {
+  "fremdsprache": "la caza",
+  "deutsch": "die Jagd",
+  "beispiel": "La temporada de caza empieza en octubre.",
+  "rang": 159
+ },
+ {
+  "fremdsprache": "la representación",
+  "deutsch": "die Vertretung; die Aufführung",
+  "beispiel": "Asistí a la reunión en representación de mi jefe.",
+  "rang": 160
+ },
+ {
+  "fremdsprache": "la juventud",
+  "deutsch": "die Jugend",
+  "beispiel": "En mi juventud jugaba al fútbol.",
+  "rang": 161
+ },
+ {
+  "fremdsprache": "la coincidencia",
+  "deutsch": "der Zufall",
+  "beispiel": "¡Qué coincidencia verte aquí!",
+  "rang": 162
+ },
+ {
+  "fremdsprache": "estatal",
+  "deutsch": "staatlich",
+  "beispiel": "Trabaja en una empresa estatal.",
+  "rang": 163
+ },
+ {
+  "fremdsprache": "admirar",
+  "deutsch": "bewundern",
+  "beispiel": "Admiro tu paciencia.",
+  "rang": 164
+ },
+ {
+  "fremdsprache": "cazar",
+  "deutsch": "jagen",
+  "beispiel": "Mi tío caza en el monte.",
+  "rang": 165
+ },
+ {
+  "fremdsprache": "el saco",
+  "deutsch": "der Sack",
+  "beispiel": "Compramos un saco de patatas.",
+  "rang": 166
+ },
+ {
+  "fremdsprache": "la gestión",
+  "deutsch": "die Verwaltung, das Management; die Erledigung",
+  "beispiel": "Tengo que hacer unas gestiones en el banco.",
+  "rang": 167
+ },
+ {
+  "fremdsprache": "mortal",
+  "deutsch": "tödlich; sterblich",
+  "beispiel": "Fue un accidente mortal.",
+  "rang": 168
+ },
+ {
+  "fremdsprache": "la bestia",
+  "deutsch": "die Bestie",
+  "beispiel": "Trabaja como una bestia.",
+  "rang": 169
+ },
+ {
+  "fremdsprache": "inferior",
+  "deutsch": "niedriger, unterer",
+  "beispiel": "El precio es inferior al del año pasado.",
+  "rang": 170
+ },
+ {
+  "fremdsprache": "efectuar",
+  "deutsch": "durchführen, vornehmen",
+  "beispiel": "El pago se efectuará a final de mes.",
+  "rang": 171
+ },
+ {
+  "fremdsprache": "la celda",
+  "deutsch": "die Zelle",
+  "beispiel": "Pasó la noche en una celda.",
+  "rang": 172
+ },
+ {
+  "fremdsprache": "la alarma",
+  "deutsch": "der Alarm; der Wecker",
+  "beispiel": "Sonó la alarma de incendios.",
+  "rang": 173
+ },
+ {
+  "fremdsprache": "espacial",
+  "deutsch": "Raum-, räumlich",
+  "beispiel": "La estación espacial internacional.",
+  "rang": 174
+ },
+ {
+  "fremdsprache": "agradar",
+  "deutsch": "gefallen",
+  "beispiel": "Me agrada trabajar con este equipo.",
+  "rang": 175
+ },
+ {
+  "fremdsprache": "policial",
+  "deutsch": "polizeilich, Polizei-",
+  "beispiel": "Hubo un gran control policial en la autopista.",
+  "rang": 176
+ },
+ {
+  "fremdsprache": "noble",
+  "deutsch": "edel, adlig",
+  "beispiel": "Es una persona muy noble.",
+  "rang": 177
+ },
+ {
+  "fremdsprache": "la iniciativa",
+  "deutsch": "die Initiative",
+  "beispiel": "Tomó la iniciativa y llamó al cliente.",
+  "rang": 178
+ },
+ {
+  "fremdsprache": "en torno a",
+  "deutsch": "um ... herum, ungefähr",
+  "beispiel": "Asistieron en torno a cien personas.",
+  "rang": 179
+ },
+ {
+  "fremdsprache": "desgraciado/a",
+  "deutsch": "unglücklich; der Mistkerl",
+  "beispiel": "Me siento desgraciado sin ti.",
+  "rang": 180
+ },
+ {
+  "fremdsprache": "el castigo",
+  "deutsch": "die Strafe",
+  "beispiel": "El castigo fue quedarse sin postre.",
+  "rang": 181
+ },
+ {
+  "fremdsprache": "contentar",
+  "deutsch": "zufriedenstellen",
+  "beispiel": "Es imposible contentar a todos.",
+  "rang": 182
+ },
+ {
+  "fremdsprache": "el triunfo",
+  "deutsch": "der Triumph, der Sieg",
+  "beispiel": "Fue un triunfo para todo el equipo.",
+  "rang": 183
+ },
+ {
+  "fremdsprache": "el borde",
+  "deutsch": "der Rand, die Kante",
+  "beispiel": "Estaba al borde de un ataque de nervios.",
+  "rang": 184
+ },
+ {
+  "fremdsprache": "el suicidio",
+  "deutsch": "der Suizid",
+  "beispiel": "El suicidio es un tema tabú en muchas familias.",
+  "rang": 185
+ },
+ {
+  "fremdsprache": "ingresar",
+  "deutsch": "einzahlen; eingeliefert werden; eintreten",
+  "beispiel": "Ingresé el dinero en mi cuenta.",
+  "rang": 186
+ },
+ {
+  "fremdsprache": "cruel",
+  "deutsch": "grausam",
+  "beispiel": "No seas cruel con los animales.",
+  "rang": 187
+ },
+ {
+  "fremdsprache": "brindar",
+  "deutsch": "anstoßen; bieten",
+  "beispiel": "¡Brindemos por los novios!",
+  "rang": 188
+ },
+ {
+  "fremdsprache": "rescatar",
+  "deutsch": "retten, bergen",
+  "beispiel": "Rescataron a los montañeros.",
+  "rang": 189
+ },
+ {
+  "fremdsprache": "semejante",
+  "deutsch": "ähnlich; solch",
+  "beispiel": "Nunca he visto semejante desorden.",
+  "rang": 190
+ },
+ {
+  "fremdsprache": "el mecanismo",
+  "deutsch": "der Mechanismus",
+  "beispiel": "El mecanismo de cierre está roto.",
+  "rang": 191
+ },
+ {
+  "fremdsprache": "la alerta",
+  "deutsch": "die Warnung, der Alarm",
+  "beispiel": "Hay alerta roja por calor.",
+  "rang": 192
+ },
+ {
+  "fremdsprache": "asombroso/a",
+  "deutsch": "erstaunlich",
+  "beispiel": "Es asombroso lo rápido que aprende.",
+  "rang": 193
+ },
+ {
+  "fremdsprache": "la tribu",
+  "deutsch": "der Stamm",
+  "beispiel": "Es una tribu indígena del Amazonas.",
+  "rang": 194
+ },
+ {
+  "fremdsprache": "retener",
+  "deutsch": "zurückhalten, einbehalten; sich merken",
+  "beispiel": "Me cuesta retener tantos nombres.",
+  "rang": 195
+ },
+ {
+  "fremdsprache": "la mancha",
+  "deutsch": "der Fleck",
+  "beispiel": "Tengo una mancha de vino en la camisa.",
+  "rang": 196
+ },
+ {
+  "fremdsprache": "el coma",
+  "deutsch": "das Koma",
+  "beispiel": "Estuvo dos semanas en coma.",
+  "rang": 197
+ },
+ {
+  "fremdsprache": "el metal",
+  "deutsch": "das Metall",
+  "beispiel": "La pieza es de metal.",
+  "rang": 198
+ },
+ {
+  "fremdsprache": "la sentencia",
+  "deutsch": "das Urteil",
+  "beispiel": "El juez dictó sentencia ayer.",
+  "rang": 199
+ },
+ {
+  "fremdsprache": "inclinar",
+  "deutsch": "neigen",
+  "beispiel": "Inclinó la cabeza para saludar.",
+  "rang": 200
+ },
+ {
+  "fremdsprache": "convocar",
+  "deutsch": "einberufen, ausschreiben",
+  "beispiel": "Han convocado una reunión urgente.",
+  "rang": 201
+ },
+ {
+  "fremdsprache": "el desafío",
+  "deutsch": "die Herausforderung",
+  "beispiel": "Este proyecto es un gran desafío.",
+  "rang": 202
+ },
+ {
+  "fremdsprache": "el experimento",
+  "deutsch": "das Experiment",
+  "beispiel": "Hicimos un experimento en el laboratorio.",
+  "rang": 203
+ },
+ {
+  "fremdsprache": "calcular",
+  "deutsch": "berechnen",
+  "beispiel": "Hay que calcular los costes de producción.",
+  "rang": 204
+ },
+ {
+  "fremdsprache": "artístico/a",
+  "deutsch": "künstlerisch",
+  "beispiel": "Tiene mucha sensibilidad artística.",
+  "rang": 205
+ },
+ {
+  "fremdsprache": "modificar",
+  "deutsch": "ändern",
+  "beispiel": "Tenemos que modificar el plano.",
+  "rang": 206
+ },
+ {
+  "fremdsprache": "asimismo",
+  "deutsch": "ebenso, ebenfalls",
+  "beispiel": "Asimismo, quiero agradecer su apoyo.",
+  "rang": 207
+ },
+ {
+  "fremdsprache": "el expediente",
+  "deutsch": "die Akte, der Vorgang",
+  "beispiel": "Revisaré su expediente mañana.",
+  "rang": 208
+ },
+ {
+  "fremdsprache": "el reconocimiento",
+  "deutsch": "die Anerkennung; die Erkennung",
+  "beispiel": "Recibió un reconocimiento por su trabajo.",
+  "rang": 209
+ },
+ {
+  "fremdsprache": "rodar",
+  "deutsch": "rollen; drehen (Film)",
+  "beispiel": "La pelota rodó hasta la calle.",
+  "rang": 210
+ },
+ {
+  "fremdsprache": "sensible",
+  "deutsch": "empfindlich, sensibel",
+  "beispiel": "Tengo la piel muy sensible.",
+  "rang": 211
+ },
+ {
+  "fremdsprache": "aportar",
+  "deutsch": "beitragen, einbringen",
+  "beispiel": "Cada uno aporta su experiencia.",
+  "rang": 212
+ },
+ {
+  "fremdsprache": "voluntario/a",
+  "deutsch": "freiwillig; der Freiwillige",
+  "beispiel": "Trabaja como voluntario en la Cruz Roja.",
+  "rang": 213
+ },
+ {
+  "fremdsprache": "crítico/a",
+  "deutsch": "kritisch; der Kritiker",
+  "beispiel": "Estamos en una fase crítica del proyecto.",
+  "rang": 214
+ },
+ {
+  "fremdsprache": "localizar",
+  "deutsch": "ausfindig machen, orten",
+  "beispiel": "No consigo localizar al proveedor.",
+  "rang": 215
+ },
+ {
+  "fremdsprache": "la fantasía",
+  "deutsch": "die Fantasie",
+  "beispiel": "Es solo una fantasía.",
+  "rang": 216
+ },
+ {
+  "fremdsprache": "castigar",
+  "deutsch": "bestrafen",
+  "beispiel": "Castigaron al niño sin televisión.",
+  "rang": 217
+ },
+ {
+  "fremdsprache": "el potencial",
+  "deutsch": "das Potenzial",
+  "beispiel": "Este mercado tiene mucho potencial.",
+  "rang": 218
+ },
+ {
+  "fremdsprache": "burlarse de",
+  "deutsch": "sich lustig machen über",
+  "beispiel": "No te burles de mí.",
+  "rang": 219
+ },
+ {
+  "fremdsprache": "la sospecha",
+  "deutsch": "der Verdacht",
+  "beispiel": "Tengo la sospecha de que miente.",
+  "rang": 220
+ },
+ {
+  "fremdsprache": "el consejero / la consejera",
+  "deutsch": "der Berater; das Vorstandsmitglied",
+  "beispiel": "Es consejero delegado de la empresa.",
+  "rang": 221
+ },
+ {
+  "fremdsprache": "el cazador / la cazadora",
+  "deutsch": "der Jäger",
+  "beispiel": "El cazador volvió sin nada.",
+  "rang": 222
+ },
+ {
+  "fremdsprache": "la onda",
+  "deutsch": "die Welle",
+  "beispiel": "Las ondas de radio no llegan al sótano.",
+  "rang": 223
+ },
+ {
+  "fremdsprache": "el titular",
+  "deutsch": "die Schlagzeile; der Inhaber",
+  "beispiel": "¿Has leído los titulares de hoy?",
+  "rang": 224
+ },
+ {
+  "fremdsprache": "otorgar",
+  "deutsch": "verleihen, gewähren",
+  "beispiel": "Le otorgaron el premio Cervantes.",
+  "rang": 225
+ },
+ {
+  "fremdsprache": "el traidor / la traidora",
+  "deutsch": "der Verräter",
+  "beispiel": "Lo consideran un traidor.",
+  "rang": 226
+ },
+ {
+  "fremdsprache": "el monje / la monja",
+  "deutsch": "der Mönch / die Nonne",
+  "beispiel": "Los monjes viven en el monasterio.",
+  "rang": 227
+ },
+ {
+  "fremdsprache": "involucrarse",
+  "deutsch": "sich einbringen, sich beteiligen",
+  "beispiel": "Quiero involucrarme más en el proyecto.",
+  "rang": 228
+ },
+ {
+  "fremdsprache": "delicado/a",
+  "deutsch": "heikel; zart, empfindlich",
+  "beispiel": "Es un tema delicado.",
+  "rang": 229
+ },
+ {
+  "fremdsprache": "el juzgado",
+  "deutsch": "das Gericht (Gebäude)",
+  "beispiel": "Tengo que ir al juzgado el martes.",
+  "rang": 230
+ },
+ {
+  "fremdsprache": "portar",
+  "deutsch": "tragen, mit sich führen",
+  "beispiel": "Está prohibido portar armas.",
+  "rang": 231
+ },
+ {
+  "fremdsprache": "reportar",
+  "deutsch": "einbringen; berichten",
+  "beispiel": "El negocio reporta grandes beneficios.",
+  "rang": 232
+ },
+ {
+  "fremdsprache": "nombrar",
+  "deutsch": "ernennen; nennen",
+  "beispiel": "Lo nombraron jefe de planta.",
+  "rang": 233
+ },
+ {
+  "fremdsprache": "el lector / la lectora",
+  "deutsch": "der Leser; das Lesegerät",
+  "beispiel": "El lector de códigos no funciona.",
+  "rang": 234
+ },
+ {
+  "fremdsprache": "sabio/a",
+  "deutsch": "weise; der Weise",
+  "beispiel": "Es una decisión sabia.",
+  "rang": 235
+ },
+ {
+  "fremdsprache": "el ámbito",
+  "deutsch": "der Bereich",
+  "beispiel": "Trabajo en el ámbito de la logística.",
+  "rang": 236
+ },
+ {
+  "fremdsprache": "global",
+  "deutsch": "global, gesamt",
+  "beispiel": "Es un problema global.",
+  "rang": 237
+ },
+ {
+  "fremdsprache": "desagradable",
+  "deutsch": "unangenehm",
+  "beispiel": "Fue una conversación muy desagradable.",
+  "rang": 238
+ },
+ {
+  "fremdsprache": "el ciclo",
+  "deutsch": "der Zyklus, der Takt",
+  "beispiel": "El tiempo de ciclo de la máquina es de 30 segundos.",
+  "rang": 239
+ },
+ {
+  "fremdsprache": "el refugio",
+  "deutsch": "die Zuflucht; die Berghütte",
+  "beispiel": "Dormimos en un refugio de montaña.",
+  "rang": 240
+ },
+ {
+  "fremdsprache": "jurídico/a",
+  "deutsch": "rechtlich, juristisch",
+  "beispiel": "Necesitamos asesoramiento jurídico.",
+  "rang": 241
+ },
+ {
+  "fremdsprache": "ejecutar",
+  "deutsch": "ausführen; hinrichten",
+  "beispiel": "El programa se ejecuta cada noche.",
+  "rang": 242
+ },
+ {
+  "fremdsprache": "el antecedente",
+  "deutsch": "der Präzedenzfall; die Vorgeschichte",
+  "beispiel": "No tiene antecedentes penales.",
+  "rang": 243
+ },
+ {
+  "fremdsprache": "el acontecimiento",
+  "deutsch": "das Ereignis",
+  "beispiel": "Fue el acontecimiento del año.",
+  "rang": 244
+ },
+ {
+  "fremdsprache": "el duque / la duquesa",
+  "deutsch": "der Herzog / die Herzogin",
+  "beispiel": "La duquesa de Alba era muy conocida.",
+  "rang": 245
+ },
+ {
+  "fremdsprache": "verificar",
+  "deutsch": "überprüfen",
+  "beispiel": "Verifica que todos los datos sean correctos.",
+  "rang": 246
+ },
+ {
+  "fremdsprache": "el arreglo",
+  "deutsch": "die Reparatur; die Vereinbarung",
+  "beispiel": "El arreglo del coche me costó 300 euros.",
+  "rang": 247
+ },
+ {
+  "fremdsprache": "la asamblea",
+  "deutsch": "die Versammlung",
+  "beispiel": "La asamblea de vecinos es el jueves.",
+  "rang": 248
+ },
+ {
+  "fremdsprache": "el asalto",
+  "deutsch": "der Überfall",
+  "beispiel": "Hubo un asalto a un banco.",
+  "rang": 249
+ },
+ {
+  "fremdsprache": "la aparición",
+  "deutsch": "das Erscheinen, das Auftreten",
+  "beispiel": "La aparición del nuevo modelo cambió el mercado.",
+  "rang": 250
+ },
+ {
+  "fremdsprache": "el combustible",
+  "deutsch": "der Kraftstoff, der Brennstoff",
+  "beispiel": "El hidrógeno es el combustible del futuro.",
+  "rang": 251
+ },
+ {
+  "fremdsprache": "abordar",
+  "deutsch": "angehen, behandeln; an Bord gehen",
+  "beispiel": "Tenemos que abordar este problema cuanto antes.",
+  "rang": 252
+ },
+ {
+  "fremdsprache": "la lógica",
+  "deutsch": "die Logik",
+  "beispiel": "No veo la lógica de esta decisión.",
+  "rang": 253
+ },
+ {
+  "fremdsprache": "sólido/a",
+  "deutsch": "fest, solide",
+  "beispiel": "Tienen una base sólida de clientes.",
+  "rang": 254
+ },
+ {
+  "fremdsprache": "el impulso",
+  "deutsch": "der Impuls, der Antrieb",
+  "beispiel": "El nuevo jefe dio un impulso al departamento.",
+  "rang": 255
+ },
+ {
+  "fremdsprache": "la protesta",
+  "deutsch": "der Protest",
+  "beispiel": "Hubo protestas frente al ayuntamiento.",
+  "rang": 256
+ },
+ {
+  "fremdsprache": "lejano/a",
+  "deutsch": "fern, entfernt",
+  "beispiel": "Viene de un país lejano.",
+  "rang": 257
+ },
+ {
+  "fremdsprache": "el canto",
+  "deutsch": "der Gesang; die Kante",
+  "beispiel": "Por la mañana se oye el canto de los pájaros.",
+  "rang": 258
+ },
+ {
+  "fremdsprache": "la enseñanza",
+  "deutsch": "die Lehre, der Unterricht",
+  "beispiel": "Trabaja en la enseñanza desde hace años.",
+  "rang": 259
+ },
+ {
+  "fremdsprache": "ascender",
+  "deutsch": "aufsteigen; befördert werden",
+  "beispiel": "Lo ascendieron a jefe de turno.",
+  "rang": 260
+ },
+ {
+  "fremdsprache": "centrarse en",
+  "deutsch": "sich konzentrieren auf",
+  "beispiel": "Vamos a centrarnos en lo importante.",
+  "rang": 261
+ },
+ {
+  "fremdsprache": "el camarada",
+  "deutsch": "der Kamerad, der Genosse",
+  "beispiel": "Saludó a sus camaradas.",
+  "rang": 262
+ },
+ {
+  "fremdsprache": "el vicepresidente / la vicepresidenta",
+  "deutsch": "der Vizepräsident",
+  "beispiel": "La vicepresidenta dio una rueda de prensa.",
+  "rang": 263
+ },
+ {
+  "fremdsprache": "la sede",
+  "deutsch": "der Sitz, die Zentrale",
+  "beispiel": "La sede de la empresa está en Stuttgart.",
+  "rang": 264
+ },
+ {
+  "fremdsprache": "sujetar",
+  "deutsch": "festhalten, befestigen",
+  "beispiel": "Sujeta bien la escalera.",
+  "rang": 265
+ },
+ {
+  "fremdsprache": "la recuperación",
+  "deutsch": "die Erholung; die Rückgewinnung",
+  "beispiel": "La recuperación después de la operación fue lenta.",
+  "rang": 266
+ },
+ {
+  "fremdsprache": "batir",
+  "deutsch": "schlagen (Ei, Rekord)",
+  "beispiel": "Bate los huevos con el azúcar.",
+  "rang": 267
+ },
+ {
+  "fremdsprache": "el pacto",
+  "deutsch": "der Pakt, die Vereinbarung",
+  "beispiel": "Hicimos un pacto de silencio.",
+  "rang": 268
+ },
+ {
+  "fremdsprache": "derribar",
+  "deutsch": "abreißen, niederreißen",
+  "beispiel": "Van a derribar el edificio viejo.",
+  "rang": 269
+ },
+ {
+  "fremdsprache": "la interpretación",
+  "deutsch": "die Interpretation; das Dolmetschen",
+  "beispiel": "Hay varias interpretaciones de la norma.",
+  "rang": 270
+ },
+ {
+  "fremdsprache": "el secuestro",
+  "deutsch": "die Entführung",
+  "beispiel": "El secuestro duró tres días.",
+  "rang": 271
+ },
+ {
+  "fremdsprache": "aguardar",
+  "deutsch": "abwarten, warten auf",
+  "beispiel": "Aguardamos su respuesta.",
+  "rang": 272
+ },
+ {
+  "fremdsprache": "la novedad",
+  "deutsch": "die Neuheit, das Neue",
+  "beispiel": "¿Hay alguna novedad sobre el pedido?",
+  "rang": 273
+ },
+ {
+  "fremdsprache": "cerebral",
+  "deutsch": "Gehirn-",
+  "beispiel": "Sufrió un derrame cerebral.",
+  "rang": 274
+ },
+ {
+  "fremdsprache": "la tragedia",
+  "deutsch": "die Tragödie",
+  "beispiel": "Fue una tragedia para el pueblo.",
+  "rang": 275
+ },
+ {
+  "fremdsprache": "la falla",
+  "deutsch": "der Fehler, die Störung (Lat.am.); die Falla (Valencia)",
+  "beispiel": "Las Fallas de Valencia son en marzo.",
+  "rang": 276
+ },
+ {
+  "fremdsprache": "genético/a",
+  "deutsch": "genetisch",
+  "beispiel": "Es una enfermedad genética.",
+  "rang": 277
+ },
+ {
+  "fremdsprache": "la ejecución",
+  "deutsch": "die Ausführung; die Hinrichtung",
+  "beispiel": "La ejecución del proyecto llevará un año.",
+  "rang": 278
+ },
+ {
+  "fremdsprache": "timar",
+  "deutsch": "betrügen, übers Ohr hauen",
+  "beispiel": "Me timaron en la tienda de móviles.",
+  "rang": 279
+ },
+ {
+  "fremdsprache": "combatir",
+  "deutsch": "bekämpfen",
+  "beispiel": "Hay que combatir el cambio climático.",
+  "rang": 280
+ },
+ {
+  "fremdsprache": "liberal",
+  "deutsch": "liberal",
+  "beispiel": "Tiene ideas muy liberales.",
+  "rang": 281
+ },
+ {
+  "fremdsprache": "el logro",
+  "deutsch": "die Errungenschaft, der Erfolg",
+  "beispiel": "Es un gran logro para la empresa.",
+  "rang": 282
+ },
+ {
+  "fremdsprache": "el cañón",
+  "deutsch": "die Kanone; die Schlucht",
+  "beispiel": "El Cañón del Colorado es impresionante.",
+  "rang": 283
+ },
+ {
+  "fremdsprache": "la excelencia",
+  "deutsch": "die Exzellenz",
+  "beispiel": "Buscamos la excelencia en calidad.",
+  "rang": 284
+ },
+ {
+  "fremdsprache": "forense",
+  "deutsch": "forensisch; der Gerichtsmediziner",
+  "beispiel": "El forense examinó el cadáver.",
+  "rang": 285
+ },
+ {
+  "fremdsprache": "el/la rehén",
+  "deutsch": "die Geisel",
+  "beispiel": "Liberaron a todos los rehenes.",
+  "rang": 286
+ },
+ {
+  "fremdsprache": "el pozo",
+  "deutsch": "der Brunnen; der Schacht",
+  "beispiel": "Sacaban agua del pozo.",
+  "rang": 287
+ },
+ {
+  "fremdsprache": "incrementar",
+  "deutsch": "erhöhen, steigern",
+  "beispiel": "Queremos incrementar la producción un diez por ciento.",
+  "rang": 288
+ },
+ {
+  "fremdsprache": "parlamentario/a",
+  "deutsch": "parlamentarisch; der Abgeordnete",
+  "beispiel": "Hubo un debate parlamentario.",
+  "rang": 289
+ },
+ {
+  "fremdsprache": "el pastor / la pastora",
+  "deutsch": "der Hirte; der Pfarrer",
+  "beispiel": "El pastor alemán es mi perro favorito.",
+  "rang": 290
+ },
+ {
+  "fremdsprache": "sobrar",
+  "deutsch": "übrig sein, zu viel sein",
+  "beispiel": "Ha sobrado mucha comida.",
+  "rang": 291
+ },
+ {
+  "fremdsprache": "la flota",
+  "deutsch": "die Flotte",
+  "beispiel": "La empresa tiene una flota de 200 camiones.",
+  "rang": 292
+ },
+ {
+  "fremdsprache": "la mejora",
+  "deutsch": "die Verbesserung",
+  "beispiel": "Hemos propuesto varias mejoras en el proceso.",
+  "rang": 293
+ },
+ {
+  "fremdsprache": "recurrir a",
+  "deutsch": "zurückgreifen auf",
+  "beispiel": "Tuvimos que recurrir a un proveedor externo.",
+  "rang": 294
+ },
+ {
+  "fremdsprache": "chupar",
+  "deutsch": "lutschen, saugen",
+  "beispiel": "El niño se chupa el dedo.",
+  "rang": 295
+ },
+ {
+  "fremdsprache": "descender",
+  "deutsch": "absteigen, sinken",
+  "beispiel": "Las ventas descendieron en el tercer trimestre.",
+  "rang": 296
+ },
+ {
+  "fremdsprache": "la lanza",
+  "deutsch": "die Lanze",
+  "beispiel": "El caballero llevaba una lanza.",
+  "rang": 297
+ },
+ {
+  "fremdsprache": "transportar",
+  "deutsch": "transportieren",
+  "beispiel": "Transportamos las piezas en camión.",
+  "rang": 298
+ },
+ {
+  "fremdsprache": "favorecer",
+  "deutsch": "begünstigen; stehen (Kleidung)",
+  "beispiel": "Ese color te favorece mucho.",
+  "rang": 299
+ },
+ {
+  "fremdsprache": "emocional",
+  "deutsch": "emotional",
+  "beispiel": "Fue un momento muy emocional.",
+  "rang": 300
+ },
+ {
+  "fremdsprache": "vincular",
+  "deutsch": "verknüpfen, verbinden",
+  "beispiel": "Hay que vincular el pedido con el material.",
+  "rang": 301
+ },
+ {
+  "fremdsprache": "la asistencia",
+  "deutsch": "die Anwesenheit; die Hilfe",
+  "beispiel": "La asistencia a la formación es obligatoria.",
+  "rang": 302
+ },
+ {
+  "fremdsprache": "ajeno/a",
+  "deutsch": "fremd; nicht betroffen",
+  "beispiel": "No toques las cosas ajenas.",
+  "rang": 303
+ },
+ {
+  "fremdsprache": "el funcionamiento",
+  "deutsch": "die Funktionsweise, der Betrieb",
+  "beispiel": "Explícame el funcionamiento de la máquina.",
+  "rang": 304
+ },
+ {
+  "fremdsprache": "el asco",
+  "deutsch": "der Ekel",
+  "beispiel": "¡Qué asco! Hay un pelo en la sopa.",
+  "rang": 305
+ },
+ {
+  "fremdsprache": "el entorno",
+  "deutsch": "die Umgebung, das Umfeld",
+  "beispiel": "Trabajamos en un entorno internacional.",
+  "rang": 306
+ },
+ {
+  "fremdsprache": "miserable",
+  "deutsch": "elend, erbärmlich",
+  "beispiel": "Llevan una vida miserable.",
+  "rang": 307
+ },
+ {
+  "fremdsprache": "íntimo/a",
+  "deutsch": "eng, vertraut; intim",
+  "beispiel": "Es mi amigo íntimo desde el colegio.",
+  "rang": 308
+ },
+ {
+  "fremdsprache": "el oficio",
+  "deutsch": "das Handwerk, der Beruf",
+  "beispiel": "Aprendió el oficio de carpintero.",
+  "rang": 309
+ },
+ {
+  "fremdsprache": "el bloque",
+  "deutsch": "der Block",
+  "beispiel": "Vivo en un bloque de pisos.",
+  "rang": 310
+ },
+ {
+  "fremdsprache": "la derrota",
+  "deutsch": "die Niederlage",
+  "beispiel": "Fue una derrota dolorosa.",
+  "rang": 311
+ },
+ {
+  "fremdsprache": "alterar",
+  "deutsch": "verändern; aufregen",
+  "beispiel": "No te alteres, no es para tanto.",
+  "rang": 312
+ },
+ {
+  "fremdsprache": "la estupidez",
+  "deutsch": "die Dummheit",
+  "beispiel": "¡Qué estupidez!",
+  "rang": 313
+ },
+ {
+  "fremdsprache": "el dominio",
+  "deutsch": "die Beherrschung; die Domain",
+  "beispiel": "Tiene un buen dominio del inglés.",
+  "rang": 314
+ },
+ {
+  "fremdsprache": "la posesión",
+  "deutsch": "der Besitz",
+  "beispiel": "Está en posesión de los documentos.",
+  "rang": 315
+ },
+ {
+  "fremdsprache": "el hilo",
+  "deutsch": "der Faden",
+  "beispiel": "Se me ha perdido el hilo de la conversación.",
+  "rang": 316
+ },
+ {
+  "fremdsprache": "el costado",
+  "deutsch": "die Seite, die Flanke",
+  "beispiel": "Me duele el costado derecho.",
+  "rang": 317
+ },
+ {
+  "fremdsprache": "programar",
+  "deutsch": "programmieren; planen",
+  "beispiel": "Hay que programar la producción de la semana.",
+  "rang": 318
+ },
+ {
+  "fremdsprache": "impulsar",
+  "deutsch": "vorantreiben, fördern",
+  "beispiel": "El gobierno quiere impulsar el hidrógeno verde.",
+  "rang": 319
+ },
+ {
+  "fremdsprache": "el cuartel",
+  "deutsch": "die Kaserne",
+  "beispiel": "El cuartel está a las afueras.",
+  "rang": 320
+ },
+ {
+  "fremdsprache": "el comando",
+  "deutsch": "das Kommando; der Befehl",
+  "beispiel": "Escribe el comando en la consola.",
+  "rang": 321
+ },
+ {
+  "fremdsprache": "la transmisión",
+  "deutsch": "die Übertragung; das Getriebe",
+  "beispiel": "La transmisión del partido empieza a las nueve.",
+  "rang": 322
+ },
+ {
+  "fremdsprache": "el/la portavoz",
+  "deutsch": "der Sprecher, die Sprecherin",
+  "beispiel": "El portavoz del gobierno habló esta mañana.",
+  "rang": 323
+ },
+ {
+  "fremdsprache": "el incremento",
+  "deutsch": "der Anstieg, die Erhöhung",
+  "beispiel": "Hubo un incremento de costes del 15 %.",
+  "rang": 324
+ },
+ {
+  "fremdsprache": "la gravedad",
+  "deutsch": "die Schwere; die Schwerkraft",
+  "beispiel": "No entendían la gravedad de la situación.",
+  "rang": 325
+ },
+ {
+  "fremdsprache": "espiritual",
+  "deutsch": "geistig, spirituell",
+  "beispiel": "Es una persona muy espiritual.",
+  "rang": 326
+ },
+ {
+  "fremdsprache": "literalmente",
+  "deutsch": "buchstäblich, wörtlich",
+  "beispiel": "Estaba literalmente muerto de cansancio.",
+  "rang": 327
+ },
+ {
+  "fremdsprache": "estable",
+  "deutsch": "stabil",
+  "beispiel": "El proceso ya es estable.",
+  "rang": 328
+ },
+ {
+  "fremdsprache": "el/la terrorista",
+  "deutsch": "der Terrorist",
+  "beispiel": "Detuvieron a un grupo de terroristas.",
+  "rang": 329
+ },
+ {
+  "fremdsprache": "la custodia",
+  "deutsch": "das Sorgerecht; die Verwahrung",
+  "beispiel": "Ella tiene la custodia de los niños.",
+  "rang": 330
+ },
+ {
+  "fremdsprache": "someter",
+  "deutsch": "unterwerfen; unterziehen",
+  "beispiel": "Sometieron las piezas a una prueba de presión.",
+  "rang": 331
+ },
+ {
+  "fremdsprache": "la medalla",
+  "deutsch": "die Medaille",
+  "beispiel": "Ganó la medalla de oro.",
+  "rang": 332
+ },
+ {
+  "fremdsprache": "educativo/a",
+  "deutsch": "Bildungs-, pädagogisch",
+  "beispiel": "El sistema educativo español es diferente.",
+  "rang": 333
+ },
+ {
+  "fremdsprache": "la concepción",
+  "deutsch": "die Auffassung; die Empfängnis",
+  "beispiel": "Tenemos concepciones distintas del trabajo en equipo.",
+  "rang": 334
+ },
+ {
+  "fremdsprache": "carecer de",
+  "deutsch": "nicht haben, ermangeln",
+  "beispiel": "El informe carece de datos concretos.",
+  "rang": 335
+ },
+ {
+  "fremdsprache": "compensar",
+  "deutsch": "ausgleichen, sich lohnen",
+  "beispiel": "No compensa ir en coche, hay mucho tráfico.",
+  "rang": 336
+ },
+ {
+  "fremdsprache": "la liberación",
+  "deutsch": "die Befreiung, die Freigabe",
+  "beispiel": "La liberación del pedido está pendiente.",
+  "rang": 337
+ },
+ {
+  "fremdsprache": "procurar",
+  "deutsch": "versuchen, sich bemühen",
+  "beispiel": "Procura llegar puntual mañana.",
+  "rang": 338
+ },
+ {
+  "fremdsprache": "el cálculo",
+  "deutsch": "die Berechnung",
+  "beispiel": "El cálculo de costes está casi listo.",
+  "rang": 339
+ },
+ {
+  "fremdsprache": "torturar",
+  "deutsch": "foltern, quälen",
+  "beispiel": "Esta música me tortura.",
+  "rang": 340
+ },
+ {
+  "fremdsprache": "cesar",
+  "deutsch": "aufhören; entlassen",
+  "beispiel": "No cesa de llover desde ayer.",
+  "rang": 341
+ },
+ {
+  "fremdsprache": "acumular",
+  "deutsch": "anhäufen, ansammeln",
+  "beispiel": "He acumulado muchas horas extra.",
+  "rang": 342
+ },
+ {
+  "fremdsprache": "atribuir",
+  "deutsch": "zuschreiben",
+  "beispiel": "Atribuyen el error a un fallo humano.",
+  "rang": 343
+ },
+ {
+  "fremdsprache": "transferir",
+  "deutsch": "überweisen; übertragen",
+  "beispiel": "Te transfiero el dinero mañana.",
+  "rang": 344
+ },
+ {
+  "fremdsprache": "el olvido",
+  "deutsch": "das Vergessen, die Vergessenheit",
+  "beispiel": "Fue un olvido, lo siento.",
+  "rang": 345
+ },
+ {
+  "fremdsprache": "la tripulación",
+  "deutsch": "die Besatzung",
+  "beispiel": "La tripulación del avión fue muy amable.",
+  "rang": 346
+ },
+ {
+  "fremdsprache": "proyectar",
+  "deutsch": "projizieren; planen",
+  "beispiel": "Proyectaron la película en la plaza.",
+  "rang": 347
+ },
+ {
+  "fremdsprache": "lidiar con",
+  "deutsch": "sich herumschlagen mit",
+  "beispiel": "Tengo que lidiar con clientes difíciles.",
+  "rang": 348
+ },
+ {
+  "fremdsprache": "calificar",
+  "deutsch": "bewerten, benoten; bezeichnen",
+  "beispiel": "Calificó la reunión de productiva.",
+  "rang": 349
+ },
+ {
+  "fremdsprache": "el seno",
+  "deutsch": "die Brust; der Schoß, das Innere",
+  "beispiel": "En el seno de la empresa hay debate.",
+  "rang": 350
+ },
+ {
+  "fremdsprache": "radical",
+  "deutsch": "radikal",
+  "beispiel": "Hicimos un cambio radical en el proceso.",
+  "rang": 351
+ },
+ {
+  "fremdsprache": "la presa",
+  "deutsch": "der Staudamm; die Beute",
+  "beispiel": "La presa está llena después de las lluvias.",
+  "rang": 352
+ },
+ {
+  "fremdsprache": "finalizar",
+  "deutsch": "beenden, abschließen",
+  "beispiel": "El proyecto finaliza en diciembre.",
+  "rang": 353
+ },
+ {
+  "fremdsprache": "el obispo",
+  "deutsch": "der Bischof",
+  "beispiel": "El obispo celebró la misa.",
+  "rang": 354
+ },
+ {
+  "fremdsprache": "suplicar",
+  "deutsch": "anflehen",
+  "beispiel": "Le suplicó que no se fuera.",
+  "rang": 355
+ },
+ {
+  "fremdsprache": "cuestionar",
+  "deutsch": "infrage stellen",
+  "beispiel": "Nadie cuestiona su experiencia.",
+  "rang": 356
+ },
+ {
+  "fremdsprache": "cuán",
+  "deutsch": "wie (sehr)",
+  "beispiel": "No sabes cuán difícil es.",
+  "rang": 357
+ },
+ {
+  "fremdsprache": "el drama",
+  "deutsch": "das Drama",
+  "beispiel": "No hagas un drama de esto.",
+  "rang": 358
+ },
+ {
+  "fremdsprache": "constitucional",
+  "deutsch": "verfassungsmäßig",
+  "beispiel": "Es un derecho constitucional.",
+  "rang": 359
+ },
+ {
+  "fremdsprache": "la paliza",
+  "deutsch": "die Tracht Prügel; die Schinderei",
+  "beispiel": "Subir la montaña fue una paliza.",
+  "rang": 360
+ },
+ {
+  "fremdsprache": "diplomático/a",
+  "deutsch": "diplomatisch; der Diplomat",
+  "beispiel": "Fue muy diplomático en su respuesta.",
+  "rang": 361
+ },
+ {
+  "fremdsprache": "masivo/a",
+  "deutsch": "massenhaft, Massen-",
+  "beispiel": "Hubo una respuesta masiva a la encuesta.",
+  "rang": 362
+ },
+ {
+  "fremdsprache": "orgánico/a",
+  "deutsch": "organisch, Bio-",
+  "beispiel": "Compro verduras orgánicas.",
+  "rang": 363
+ },
+ {
+  "fremdsprache": "la patrulla",
+  "deutsch": "die Streife, die Patrouille",
+  "beispiel": "Una patrulla de la policía pasó por la calle.",
+  "rang": 364
+ },
+ {
+  "fremdsprache": "el contexto",
+  "deutsch": "der Zusammenhang, der Kontext",
+  "beispiel": "Hay que ver la frase en su contexto.",
+  "rang": 365
+ },
+ {
+  "fremdsprache": "inconsciente",
+  "deutsch": "bewusstlos; unbewusst; leichtsinnig",
+  "beispiel": "Lo encontraron inconsciente en el suelo.",
+  "rang": 366
+ },
+ {
+  "fremdsprache": "la evaluación",
+  "deutsch": "die Bewertung, die Beurteilung",
+  "beispiel": "La evaluación anual es en enero.",
+  "rang": 367
+ },
+ {
+  "fremdsprache": "la confesión",
+  "deutsch": "das Geständnis; die Beichte",
+  "beispiel": "La policía obtuvo una confesión.",
+  "rang": 368
+ },
+ {
+  "fremdsprache": "el aprecio",
+  "deutsch": "die Wertschätzung",
+  "beispiel": "Te tengo mucho aprecio.",
+  "rang": 369
+ },
+ {
+  "fremdsprache": "aislado/a",
+  "deutsch": "isoliert, abgelegen",
+  "beispiel": "Viven en un pueblo aislado.",
+  "rang": 370
+ },
+ {
+  "fremdsprache": "pisar",
+  "deutsch": "treten auf, betreten",
+  "beispiel": "No pises el césped.",
+  "rang": 371
+ },
+ {
+  "fremdsprache": "alzar",
+  "deutsch": "heben, erheben",
+  "beispiel": "Alzó la voz para que todos le oyeran.",
+  "rang": 372
+ },
+ {
+  "fremdsprache": "republicano/a",
+  "deutsch": "republikanisch",
+  "beispiel": "La bandera republicana tenía tres colores.",
+  "rang": 373
+ },
+ {
+  "fremdsprache": "el aplauso",
+  "deutsch": "der Beifall",
+  "beispiel": "Recibió un gran aplauso.",
+  "rang": 374
+ },
+ {
+  "fremdsprache": "el/la delincuente",
+  "deutsch": "der Straftäter, der Kriminelle",
+  "beispiel": "Detuvieron al delincuente en el aeropuerto.",
+  "rang": 375
+ },
+ {
+  "fremdsprache": "la negativa",
+  "deutsch": "die Weigerung, die Absage",
+  "beispiel": "Su negativa a colaborar sorprendió a todos.",
+  "rang": 376
+ },
+ {
+  "fremdsprache": "el oxígeno",
+  "deutsch": "der Sauerstoff",
+  "beispiel": "El agua está formada por hidrógeno y oxígeno.",
+  "rang": 377
+ },
+ {
+  "fremdsprache": "la respiración",
+  "deutsch": "die Atmung",
+  "beispiel": "Contén la respiración.",
+  "rang": 378
+ },
+ {
+  "fremdsprache": "colaborar",
+  "deutsch": "zusammenarbeiten, mitwirken",
+  "beispiel": "Colaboramos con un proveedor de Valencia.",
+  "rang": 379
+ },
+ {
+  "fremdsprache": "el sirviente / la sirvienta",
+  "deutsch": "der Diener",
+  "beispiel": "El sirviente abrió la puerta.",
+  "rang": 380
+ },
+ {
+  "fremdsprache": "cardíaco/a",
+  "deutsch": "Herz-",
+  "beispiel": "Sufrió un paro cardíaco.",
+  "rang": 381
+ },
+ {
+  "fremdsprache": "la reducción",
+  "deutsch": "die Senkung, die Reduzierung",
+  "beispiel": "Buscamos una reducción de costes.",
+  "rang": 382
+ },
+ {
+  "fremdsprache": "el escape",
+  "deutsch": "das Entweichen; der Auspuff",
+  "beispiel": "Hay un escape de gas.",
+  "rang": 383
+ },
+ {
+  "fremdsprache": "gráfico/a",
+  "deutsch": "grafisch; die Grafik",
+  "beispiel": "Este gráfico muestra la evolución de las ventas.",
+  "rang": 384
+ },
+ {
+  "fremdsprache": "el acero",
+  "deutsch": "der Stahl",
+  "beispiel": "La válvula es de acero inoxidable.",
+  "rang": 385
+ },
+ {
+  "fremdsprache": "apresurarse",
+  "deutsch": "sich beeilen",
+  "beispiel": "No te apresures, tenemos tiempo.",
+  "rang": 386
+ },
+ {
+  "fremdsprache": "adonde",
+  "deutsch": "wohin",
+  "beispiel": "Iré adonde tú vayas.",
+  "rang": 387
+ },
+ {
+  "fremdsprache": "la desaparición",
+  "deutsch": "das Verschwinden",
+  "beispiel": "La desaparición del niño preocupó al pueblo.",
+  "rang": 388
+ },
+ {
+  "fremdsprache": "el relato",
+  "deutsch": "die Erzählung, der Bericht",
+  "beispiel": "Escribió un relato corto.",
+  "rang": 389
+ },
+ {
+  "fremdsprache": "el macho",
+  "deutsch": "das Männchen; der Macho",
+  "beispiel": "El macho es más grande que la hembra.",
+  "rang": 390
+ },
+ {
+  "fremdsprache": "invisible",
+  "deutsch": "unsichtbar",
+  "beispiel": "Es un problema invisible pero real.",
+  "rang": 391
+ },
+ {
+  "fremdsprache": "la advertencia",
+  "deutsch": "die Warnung",
+  "beispiel": "No hizo caso de la advertencia.",
+  "rang": 392
+ },
+ {
+  "fremdsprache": "influir en",
+  "deutsch": "beeinflussen",
+  "beispiel": "El tiempo influye en mi estado de ánimo.",
+  "rang": 393
+ },
+ {
+  "fremdsprache": "aplastar",
+  "deutsch": "zerquetschen, plattdrücken",
+  "beispiel": "La caja aplastó los tomates.",
+  "rang": 394
+ },
+ {
+  "fremdsprache": "tecnológico/a",
+  "deutsch": "technologisch",
+  "beispiel": "Es una empresa tecnológica.",
+  "rang": 395
+ },
+ {
+  "fremdsprache": "académico/a",
+  "deutsch": "akademisch",
+  "beispiel": "Tiene una carrera académica brillante.",
+  "rang": 396
+ },
+ {
+  "fremdsprache": "el decreto",
+  "deutsch": "der Erlass, die Verordnung",
+  "beispiel": "El gobierno aprobó un nuevo decreto.",
+  "rang": 397
+ },
+ {
+  "fremdsprache": "el abuso",
+  "deutsch": "der Missbrauch",
+  "beispiel": "Es un abuso de poder.",
+  "rang": 398
+ },
+ {
+  "fremdsprache": "afrontar",
+  "deutsch": "sich stellen, bewältigen",
+  "beispiel": "Hay que afrontar los problemas.",
+  "rang": 399
+ },
+ {
+  "fremdsprache": "la escritura",
+  "deutsch": "die Schrift; die Urkunde",
+  "beispiel": "Firmamos la escritura de la casa.",
+  "rang": 400
+ },
+ {
+  "fremdsprache": "el rango",
+  "deutsch": "der Rang; der Bereich",
+  "beispiel": "El valor está dentro del rango de tolerancia.",
+  "rang": 401
+ },
+ {
+  "fremdsprache": "apuñalar",
+  "deutsch": "erstechen",
+  "beispiel": "Lo apuñalaron en la calle.",
+  "rang": 402
+ },
+ {
+  "fremdsprache": "la traición",
+  "deutsch": "der Verrat",
+  "beispiel": "Lo vivió como una traición.",
+  "rang": 403
+ },
+ {
+  "fremdsprache": "el escudo",
+  "deutsch": "das Wappen; der Schild",
+  "beispiel": "El escudo de la ciudad es un león.",
+  "rang": 404
+ },
+ {
+  "fremdsprache": "padecer",
+  "deutsch": "leiden (an)",
+  "beispiel": "Padece de diabetes.",
+  "rang": 405
+ },
+ {
+  "fremdsprache": "el retiro",
+  "deutsch": "der Ruhestand; der Rückzug",
+  "beispiel": "Disfruta de su retiro en la costa.",
+  "rang": 406
+ },
+ {
+  "fremdsprache": "distribuir",
+  "deutsch": "verteilen",
+  "beispiel": "Distribuimos los productos en toda Europa.",
+  "rang": 407
+ },
+ {
+  "fremdsprache": "ejemplar",
+  "deutsch": "vorbildlich; das Exemplar",
+  "beispiel": "Es un trabajador ejemplar.",
+  "rang": 408
+ },
+ {
+  "fremdsprache": "el muelle",
+  "deutsch": "der Kai; die Feder",
+  "beispiel": "El barco está en el muelle.",
+  "rang": 409
+ },
+ {
+  "fremdsprache": "la creencia",
+  "deutsch": "der Glaube, die Überzeugung",
+  "beispiel": "Respeto todas las creencias.",
+  "rang": 410
+ },
+ {
+  "fremdsprache": "el rasgo",
+  "deutsch": "der Zug, das Merkmal",
+  "beispiel": "Tiene rasgos de su padre.",
+  "rang": 411
+ },
+ {
+  "fremdsprache": "el vidrio",
+  "deutsch": "das Glas",
+  "beispiel": "Separa el vidrio del resto de la basura.",
+  "rang": 412
+ },
+ {
+  "fremdsprache": "la renta",
+  "deutsch": "das Einkommen; die Miete",
+  "beispiel": "Tengo que hacer la declaración de la renta.",
+  "rang": 413
+ },
+ {
+  "fremdsprache": "la tristeza",
+  "deutsch": "die Traurigkeit",
+  "beispiel": "Sintió una gran tristeza.",
+  "rang": 414
+ },
+ {
+  "fremdsprache": "egoísta",
+  "deutsch": "egoistisch",
+  "beispiel": "No seas egoísta y comparte.",
+  "rang": 415
+ },
+ {
+  "fremdsprache": "presidir",
+  "deutsch": "vorsitzen",
+  "beispiel": "El director preside la reunión.",
+  "rang": 416
+ },
+ {
+  "fremdsprache": "el embarazo",
+  "deutsch": "die Schwangerschaft",
+  "beispiel": "El embarazo fue sin complicaciones.",
+  "rang": 417
+ },
+ {
+  "fremdsprache": "existente",
+  "deutsch": "bestehend, vorhanden",
+  "beispiel": "Aprovechamos la infraestructura existente.",
+  "rang": 418
+ },
+ {
+  "fremdsprache": "el protocolo",
+  "deutsch": "das Protokoll",
+  "beispiel": "Seguimos el protocolo de seguridad.",
+  "rang": 419
+ },
+ {
+  "fremdsprache": "protestar",
+  "deutsch": "protestieren, sich beschweren",
+  "beispiel": "Los vecinos protestaron por el ruido.",
+  "rang": 420
+ },
+ {
+  "fremdsprache": "la caridad",
+  "deutsch": "die Wohltätigkeit",
+  "beispiel": "Donaron el dinero a caridad.",
+  "rang": 421
+ },
+ {
+  "fremdsprache": "el esquema",
+  "deutsch": "das Schema, die Übersicht",
+  "beispiel": "Haz un esquema del proceso.",
+  "rang": 422
+ },
+ {
+  "fremdsprache": "la jugada",
+  "deutsch": "der Spielzug; der Schachzug",
+  "beispiel": "Fue una buena jugada.",
+  "rang": 423
+ },
+ {
+  "fremdsprache": "desplazar",
+  "deutsch": "verschieben, verdrängen",
+  "beispiel": "Desplazamos la reunión al jueves.",
+  "rang": 424
+ },
+ {
+  "fremdsprache": "desplazarse",
+  "deutsch": "sich fortbewegen, pendeln",
+  "beispiel": "Me desplazo al trabajo en coche.",
+  "rang": 425
+ },
+ {
+  "fremdsprache": "remoto/a",
+  "deutsch": "entfernt, abgelegen",
+  "beispiel": "Trabajo en remoto dos días a la semana.",
+  "rang": 426
+ },
+ {
+  "fremdsprache": "tierno/a",
+  "deutsch": "zart; zärtlich, liebevoll",
+  "beispiel": "La carne está muy tierna.",
+  "rang": 427
+ },
+ {
+  "fremdsprache": "el municipio",
+  "deutsch": "die Gemeinde",
+  "beispiel": "Neunkirchen es un municipio del Sarre.",
+  "rang": 428
+ },
+ {
+  "fremdsprache": "inspirar",
+  "deutsch": "inspirieren; einatmen",
+  "beispiel": "Su historia me inspiró.",
+  "rang": 429
+ },
+ {
+  "fremdsprache": "el niñero / la niñera",
+  "deutsch": "der Babysitter",
+  "beispiel": "Buscamos una niñera para los sábados.",
+  "rang": 430
+ },
+ {
+  "fremdsprache": "la rutina",
+  "deutsch": "die Routine",
+  "beispiel": "Me gusta tener una rutina por la mañana.",
+  "rang": 431
+ },
+ {
+  "fremdsprache": "la orilla",
+  "deutsch": "das Ufer",
+  "beispiel": "Paseamos por la orilla del río.",
+  "rang": 432
+ },
+ {
+  "fremdsprache": "el comunicado",
+  "deutsch": "die Mitteilung, das Kommuniqué",
+  "beispiel": "La empresa publicó un comunicado.",
+  "rang": 433
+ },
+ {
+  "fremdsprache": "supremo/a",
+  "deutsch": "oberste(r), höchste(r)",
+  "beispiel": "El Tribunal Supremo dictó sentencia.",
+  "rang": 434
+ },
+ {
+  "fremdsprache": "soplar",
+  "deutsch": "blasen, wehen",
+  "beispiel": "Sopla mucho viento hoy.",
+  "rang": 435
+ },
+ {
+  "fremdsprache": "evaluar",
+  "deutsch": "bewerten, auswerten",
+  "beispiel": "Tenemos que evaluar los riesgos.",
+  "rang": 436
+ },
+ {
+  "fremdsprache": "la secuencia",
+  "deutsch": "die Abfolge, die Sequenz",
+  "beispiel": "La secuencia de montaje es importante.",
+  "rang": 437
+ },
+ {
+  "fremdsprache": "la realización",
+  "deutsch": "die Durchführung, die Umsetzung",
+  "beispiel": "La realización del proyecto llevó dos años.",
+  "rang": 438
+ },
+ {
+  "fremdsprache": "el huésped / la huésped",
+  "deutsch": "der Gast",
+  "beispiel": "El hotel tiene cien huéspedes.",
+  "rang": 439
+ },
+ {
+  "fremdsprache": "el refuerzo",
+  "deutsch": "die Verstärkung",
+  "beispiel": "Necesitamos refuerzos en el turno de noche.",
+  "rang": 440
+ },
+ {
+  "fremdsprache": "designar",
+  "deutsch": "ernennen, bestimmen",
+  "beispiel": "Lo designaron responsable del proyecto.",
+  "rang": 441
+ },
+ {
+  "fremdsprache": "el varón",
+  "deutsch": "der Mann (männlich)",
+  "beispiel": "Tienen dos hijos varones.",
+  "rang": 442
+ },
+ {
+  "fremdsprache": "gozar de",
+  "deutsch": "genießen",
+  "beispiel": "Goza de buena salud.",
+  "rang": 443
+ },
+ {
+  "fremdsprache": "el pirata",
+  "deutsch": "der Pirat",
+  "beispiel": "Los piratas atacaron el barco.",
+  "rang": 444
+ },
+ {
+  "fremdsprache": "el/la residente",
+  "deutsch": "der Bewohner; der Assistenzarzt",
+  "beispiel": "Los residentes del edificio se quejaron.",
+  "rang": 445
+ },
+ {
+  "fremdsprache": "la tortura",
+  "deutsch": "die Folter, die Qual",
+  "beispiel": "Esta reunión es una tortura.",
+  "rang": 446
+ },
+ {
+  "fremdsprache": "la plataforma",
+  "deutsch": "die Plattform",
+  "beispiel": "Usamos una plataforma digital para los pedidos.",
+  "rang": 447
+ },
+ {
+  "fremdsprache": "explorar",
+  "deutsch": "erkunden",
+  "beispiel": "Queremos explorar nuevos mercados.",
+  "rang": 448
+ },
+ {
+  "fremdsprache": "el pasaje",
+  "deutsch": "das Ticket (Flug/Schiff); die Passage",
+  "beispiel": "Compré el pasaje a Bogotá.",
+  "rang": 449
+ },
+ {
+  "fremdsprache": "el récord",
+  "deutsch": "der Rekord",
+  "beispiel": "Batió el récord mundial.",
+  "rang": 450
+ },
+ {
+  "fremdsprache": "severo/a",
+  "deutsch": "streng; schwer",
+  "beispiel": "El profesor era muy severo.",
+  "rang": 451
+ },
+ {
+  "fremdsprache": "desperdiciar",
+  "deutsch": "verschwenden",
+  "beispiel": "No desperdicies la comida.",
+  "rang": 452
+ },
+ {
+  "fremdsprache": "el delegado / la delegada",
+  "deutsch": "der Delegierte, der Vertreter",
+  "beispiel": "Es el delegado sindical de la planta.",
+  "rang": 453
+ },
+ {
+  "fremdsprache": "el suceso",
+  "deutsch": "das Ereignis, der Vorfall",
+  "beispiel": "La sección de sucesos del periódico.",
+  "rang": 454
+ },
+ {
+  "fremdsprache": "la esencia",
+  "deutsch": "das Wesen, die Essenz",
+  "beispiel": "Esa es la esencia del problema.",
+  "rang": 455
+ },
+ {
+  "fremdsprache": "figurar",
+  "deutsch": "erscheinen, aufgeführt sein",
+  "beispiel": "Su nombre no figura en la lista.",
+  "rang": 456
+ },
+ {
+  "fremdsprache": "comunitario/a",
+  "deutsch": "Gemeinschafts-; EU-",
+  "beispiel": "Es una norma comunitaria.",
+  "rang": 457
+ },
+ {
+  "fremdsprache": "el apartado",
+  "deutsch": "der Abschnitt; das Postfach",
+  "beispiel": "Ver el apartado 3 del contrato.",
+  "rang": 458
+ },
+ {
+  "fremdsprache": "el coraje",
+  "deutsch": "der Mut; die Wut",
+  "beispiel": "Hace falta coraje para decir la verdad.",
+  "rang": 459
+ },
+ {
+  "fremdsprache": "la autorización",
+  "deutsch": "die Genehmigung",
+  "beispiel": "Necesitas autorización para entrar.",
+  "rang": 460
+ },
+ {
+  "fremdsprache": "la cualidad",
+  "deutsch": "die Eigenschaft",
+  "beispiel": "La paciencia es una de sus cualidades.",
+  "rang": 461
+ },
+ {
+  "fremdsprache": "financiar",
+  "deutsch": "finanzieren",
+  "beispiel": "El banco financia el proyecto.",
+  "rang": 462
+ },
+ {
+  "fremdsprache": "la cima",
+  "deutsch": "der Gipfel",
+  "beispiel": "Llegamos a la cima del Teide.",
+  "rang": 463
+ },
+ {
+  "fremdsprache": "oriental",
+  "deutsch": "östlich, orientalisch",
+  "beispiel": "Viven en la parte oriental de la ciudad.",
+  "rang": 464
+ },
+ {
+  "fremdsprache": "la angustia",
+  "deutsch": "die Angst, die Beklemmung",
+  "beispiel": "Sentí angustia antes del examen.",
+  "rang": 465
+ },
+ {
+  "fremdsprache": "la localidad",
+  "deutsch": "der Ort; die Eintrittskarte",
+  "beispiel": "Es una pequeña localidad de Galicia.",
+  "rang": 466
+ },
+ {
+  "fremdsprache": "enloquecer",
+  "deutsch": "verrückt werden",
+  "beispiel": "Este ruido me hace enloquecer.",
+  "rang": 467
+ },
+ {
+  "fremdsprache": "penetrar",
+  "deutsch": "eindringen",
+  "beispiel": "El agua penetró por el techo.",
+  "rang": 468
+ },
+ {
+  "fremdsprache": "doméstico/a",
+  "deutsch": "häuslich, Haus-",
+  "beispiel": "Las tareas domésticas se reparten.",
+  "rang": 469
+ },
+ {
+  "fremdsprache": "la renuncia",
+  "deutsch": "der Verzicht; die Kündigung",
+  "beispiel": "Presentó su renuncia ayer.",
+  "rang": 470
+ },
+ {
+  "fremdsprache": "el callejón",
+  "deutsch": "die Gasse",
+  "beispiel": "Es un callejón sin salida.",
+  "rang": 471
+ },
+ {
+  "fremdsprache": "el misil",
+  "deutsch": "die Rakete (Waffe)",
+  "beispiel": "Lanzaron un misil.",
+  "rang": 472
+ },
+ {
+  "fremdsprache": "el/la psiquiatra",
+  "deutsch": "der Psychiater",
+  "beispiel": "Va al psiquiatra cada mes.",
+  "rang": 473
+ },
+ {
+  "fremdsprache": "el importe",
+  "deutsch": "der Betrag",
+  "beispiel": "El importe total es de 450 euros.",
+  "rang": 474
+ },
+ {
+  "fremdsprache": "la integración",
+  "deutsch": "die Integration",
+  "beispiel": "La integración de los nuevos empleados fue rápida.",
+  "rang": 475
+ },
+ {
+  "fremdsprache": "el trastorno",
+  "deutsch": "die Störung",
+  "beispiel": "Tiene un trastorno del sueño.",
+  "rang": 476
+ },
+ {
+  "fremdsprache": "la jaula",
+  "deutsch": "der Käfig",
+  "beispiel": "El pájaro está en la jaula.",
+  "rang": 477
+ },
+ {
+  "fremdsprache": "creciente",
+  "deutsch": "wachsend, zunehmend",
+  "beispiel": "Hay una demanda creciente de hidrógeno.",
+  "rang": 478
+ },
+ {
+  "fremdsprache": "la galaxia",
+  "deutsch": "die Galaxie",
+  "beispiel": "Nuestra galaxia es la Vía Láctea.",
+  "rang": 479
+ },
+ {
+  "fremdsprache": "el pagaré",
+  "deutsch": "der Schuldschein",
+  "beispiel": "Firmó un pagaré a 90 días.",
+  "rang": 480
+ },
+ {
+  "fremdsprache": "el azar",
+  "deutsch": "der Zufall",
+  "beispiel": "Lo encontré por azar.",
+  "rang": 481
+ },
+ {
+  "fremdsprache": "la ubicación",
+  "deutsch": "der Standort, die Lage",
+  "beispiel": "Envíame tu ubicación.",
+  "rang": 482
+ },
+ {
+  "fremdsprache": "el hígado",
+  "deutsch": "die Leber",
+  "beispiel": "El alcohol daña el hígado.",
+  "rang": 483
+ },
+ {
+  "fremdsprache": "la pandilla",
+  "deutsch": "die Clique, die Bande",
+  "beispiel": "Salgo con mi pandilla de siempre.",
+  "rang": 484
+ },
+ {
+  "fremdsprache": "acoger",
+  "deutsch": "aufnehmen",
+  "beispiel": "La ciudad acoge a muchos refugiados.",
+  "rang": 485
+ },
+ {
+  "fremdsprache": "el engaño",
+  "deutsch": "der Betrug, die Täuschung",
+  "beispiel": "Todo fue un engaño.",
+  "rang": 486
+ },
+ {
+  "fremdsprache": "interferir",
+  "deutsch": "sich einmischen, stören",
+  "beispiel": "No quiero interferir en tu decisión.",
+  "rang": 487
+ },
+ {
+  "fremdsprache": "la miseria",
+  "deutsch": "das Elend; der Hungerlohn",
+  "beispiel": "Le pagan una miseria.",
+  "rang": 488
+ },
+ {
+  "fremdsprache": "el convenio",
+  "deutsch": "das Abkommen; der Tarifvertrag",
+  "beispiel": "El convenio colectivo se firmó ayer.",
+  "rang": 489
+ },
+ {
+  "fremdsprache": "el rechazo",
+  "deutsch": "die Ablehnung",
+  "beispiel": "Hubo un rechazo general a la propuesta.",
+  "rang": 490
+ },
+ {
+  "fremdsprache": "la radiación",
+  "deutsch": "die Strahlung",
+  "beispiel": "La radiación solar es fuerte hoy.",
+  "rang": 491
+ },
+ {
+  "fremdsprache": "prender",
+  "deutsch": "anzünden; anschalten (Lat.am.)",
+  "beispiel": "Prende la luz, por favor.",
+  "rang": 492
+ },
+ {
+  "fremdsprache": "contemporáneo/a",
+  "deutsch": "zeitgenössisch",
+  "beispiel": "Me gusta el arte contemporáneo.",
+  "rang": 493
+ },
+ {
+  "fremdsprache": "acariciar",
+  "deutsch": "streicheln",
+  "beispiel": "El niño acariciaba al gato.",
+  "rang": 494
+ },
+ {
+  "fremdsprache": "la porquería",
+  "deutsch": "der Mist, der Dreck",
+  "beispiel": "Esta impresora es una porquería.",
+  "rang": 495
+ },
+ {
+  "fremdsprache": "la modificación",
+  "deutsch": "die Änderung",
+  "beispiel": "Hicimos una modificación en el diseño.",
+  "rang": 496
+ },
+ {
+  "fremdsprache": "el chófer",
+  "deutsch": "der Fahrer, der Chauffeur",
+  "beispiel": "El chófer nos llevó al aeropuerto.",
+  "rang": 497
+ },
+ {
+  "fremdsprache": "espiar",
+  "deutsch": "spionieren",
+  "beispiel": "Me siento espiado.",
+  "rang": 498
+ },
+ {
+  "fremdsprache": "administrar",
+  "deutsch": "verwalten",
+  "beispiel": "Ella administra el dinero de la familia.",
+  "rang": 499
+ },
+ {
+  "fremdsprache": "difundir",
+  "deutsch": "verbreiten",
+  "beispiel": "La noticia se difundió rápidamente.",
+  "rang": 500
+ },
+ {
+  "fremdsprache": "inevitable",
+  "deutsch": "unvermeidlich",
+  "beispiel": "Un retraso es inevitable.",
+  "rang": 501
+ },
+ {
+  "fremdsprache": "la coartada",
+  "deutsch": "das Alibi",
+  "beispiel": "El sospechoso tiene coartada.",
+  "rang": 502
+ },
+ {
+  "fremdsprache": "la inmunidad",
+  "deutsch": "die Immunität",
+  "beispiel": "La vacuna da inmunidad.",
+  "rang": 503
+ },
+ {
+  "fremdsprache": "elaborar",
+  "deutsch": "ausarbeiten, herstellen",
+  "beispiel": "Estamos elaborando un nuevo plan.",
+  "rang": 504
+ },
+ {
+  "fremdsprache": "donar",
+  "deutsch": "spenden",
+  "beispiel": "Dono sangre dos veces al año.",
+  "rang": 505
+ },
+ {
+  "fremdsprache": "la emisión",
+  "deutsch": "die Ausstrahlung; die Emission",
+  "beispiel": "Hay que reducir las emisiones de CO₂.",
+  "rang": 506
+ },
+ {
+  "fremdsprache": "el chaval / la chavala",
+  "deutsch": "der Junge, das Mädchen (ugs.)",
+  "beispiel": "Es un chaval muy majo.",
+  "rang": 507
+ },
+ {
+  "fremdsprache": "el creador / la creadora",
+  "deutsch": "der Schöpfer, der Urheber",
+  "beispiel": "El creador de la serie es español.",
+  "rang": 508
+ },
+ {
+  "fremdsprache": "la votación",
+  "deutsch": "die Abstimmung",
+  "beispiel": "La votación será el martes.",
+  "rang": 509
+ },
+ {
+  "fremdsprache": "aproximarse",
+  "deutsch": "sich nähern",
+  "beispiel": "Se aproxima una tormenta.",
+  "rang": 510
+ },
+ {
+  "fremdsprache": "el/la concejal",
+  "deutsch": "der Stadtrat (Person)",
+  "beispiel": "El concejal de urbanismo inauguró la calle.",
+  "rang": 511
+ },
+ {
+  "fremdsprache": "ambiental",
+  "deutsch": "Umwelt-",
+  "beispiel": "Tiene un gran impacto ambiental.",
+  "rang": 512
+ },
+ {
+  "fremdsprache": "grosero/a",
+  "deutsch": "unhöflich, grob",
+  "beispiel": "No seas grosero con el camarero.",
+  "rang": 513
+ },
+ {
+  "fremdsprache": "activar",
+  "deutsch": "aktivieren",
+  "beispiel": "Activa la alarma antes de salir.",
+  "rang": 514
+ },
+ {
+  "fremdsprache": "el síndrome",
+  "deutsch": "das Syndrom",
+  "beispiel": "Sufre síndrome de burnout.",
+  "rang": 515
+ },
+ {
+  "fremdsprache": "desafiar",
+  "deutsch": "herausfordern, trotzen",
+  "beispiel": "Desafió a su jefe en la reunión.",
+  "rang": 516
+ },
+ {
+  "fremdsprache": "asomarse",
+  "deutsch": "sich hinauslehnen, hinausschauen",
+  "beispiel": "No te asomes por la ventana.",
+  "rang": 517
+ },
+ {
+  "fremdsprache": "el/la cómplice",
+  "deutsch": "der Komplize",
+  "beispiel": "Fue cómplice del robo.",
+  "rang": 518
+ },
+ {
+  "fremdsprache": "el hechizo",
+  "deutsch": "der Zauber",
+  "beispiel": "Rompió el hechizo.",
+  "rang": 519
+ },
+ {
+  "fremdsprache": "sindical",
+  "deutsch": "gewerkschaftlich",
+  "beispiel": "Es representante sindical.",
+  "rang": 520
+ },
+ {
+  "fremdsprache": "el terrorismo",
+  "deutsch": "der Terrorismus",
+  "beispiel": "La lucha contra el terrorismo.",
+  "rang": 521
+ },
+ {
+  "fremdsprache": "africano/a",
+  "deutsch": "afrikanisch",
+  "beispiel": "La cultura africana es muy rica.",
+  "rang": 522
+ },
+ {
+  "fremdsprache": "el casino",
+  "deutsch": "das Casino",
+  "beispiel": "Perdió todo su dinero en el casino.",
+  "rang": 523
+ },
+ {
+  "fremdsprache": "crudo/a",
+  "deutsch": "roh; hart",
+  "beispiel": "No me gusta el pescado crudo.",
+  "rang": 524
+ },
+ {
+  "fremdsprache": "destacado/a",
+  "deutsch": "herausragend",
+  "beispiel": "Es un científico destacado.",
+  "rang": 525
+ },
+ {
+  "fremdsprache": "el novato / la novata",
+  "deutsch": "der Neuling",
+  "beispiel": "Soy novato en esto.",
+  "rang": 526
+ },
+ {
+  "fremdsprache": "alcohólico/a",
+  "deutsch": "alkoholisch; der Alkoholiker",
+  "beispiel": "Bebidas sin alcohol o alcohólicas.",
+  "rang": 527
+ },
+ {
+  "fremdsprache": "el trono",
+  "deutsch": "der Thron",
+  "beispiel": "El rey subió al trono en 2014.",
+  "rang": 528
+ },
+ {
+  "fremdsprache": "originar",
+  "deutsch": "verursachen, hervorrufen",
+  "beispiel": "El fallo originó un retraso.",
+  "rang": 529
+ },
+ {
+  "fremdsprache": "la instancia",
+  "deutsch": "der Antrag; die Instanz",
+  "beispiel": "En última instancia decide el jefe.",
+  "rang": 530
+ },
+ {
+  "fremdsprache": "el desorden",
+  "deutsch": "die Unordnung",
+  "beispiel": "Hay mucho desorden en el almacén.",
+  "rang": 531
+ },
+ {
+  "fremdsprache": "clavar",
+  "deutsch": "einschlagen, nageln",
+  "beispiel": "Clava el cuadro en la pared.",
+  "rang": 532
+ },
+ {
+  "fremdsprache": "el tumor",
+  "deutsch": "der Tumor",
+  "beispiel": "Le operaron de un tumor.",
+  "rang": 533
+ },
+ {
+  "fremdsprache": "el consumidor / la consumidora",
+  "deutsch": "der Verbraucher",
+  "beispiel": "Los consumidores buscan precios bajos.",
+  "rang": 534
+ },
+ {
+  "fremdsprache": "la corporación",
+  "deutsch": "der Konzern, die Körperschaft",
+  "beispiel": "Trabaja para una gran corporación.",
+  "rang": 535
+ },
+ {
+  "fremdsprache": "amoroso/a",
+  "deutsch": "Liebes-; liebevoll",
+  "beispiel": "Tiene problemas amorosos.",
+  "rang": 536
+ },
+ {
+  "fremdsprache": "productivo/a",
+  "deutsch": "produktiv",
+  "beispiel": "Fue un día muy productivo.",
+  "rang": 537
+ },
+ {
+  "fremdsprache": "el hoyo",
+  "deutsch": "das Loch, die Grube",
+  "beispiel": "Hay un hoyo en la carretera.",
+  "rang": 538
+ },
+ {
+  "fremdsprache": "el bicho",
+  "deutsch": "das Tier, das Insekt (ugs.)",
+  "beispiel": "Hay un bicho en la cocina.",
+  "rang": 539
+ },
+ {
+  "fremdsprache": "extremadamente",
+  "deutsch": "äußerst",
+  "beispiel": "Es extremadamente importante.",
+  "rang": 540
+ },
+ {
+  "fremdsprache": "la cosecha",
+  "deutsch": "die Ernte",
+  "beispiel": "La cosecha de uva fue buena este año.",
+  "rang": 541
+ },
+ {
+  "fremdsprache": "absorber",
+  "deutsch": "aufsaugen, absorbieren",
+  "beispiel": "Esta tela absorbe el agua.",
+  "rang": 542
+ },
+ {
+  "fremdsprache": "la autonomía",
+  "deutsch": "die Autonomie; die Reichweite (Akku)",
+  "beispiel": "El coche tiene 400 km de autonomía.",
+  "rang": 543
+ },
+ {
+  "fremdsprache": "fiarse de",
+  "deutsch": "vertrauen",
+  "beispiel": "No me fío de él.",
+  "rang": 544
+ },
+ {
+  "fremdsprache": "la cicatriz",
+  "deutsch": "die Narbe",
+  "beispiel": "Tiene una cicatriz en la frente.",
+  "rang": 545
+ },
+ {
+  "fremdsprache": "la fianza",
+  "deutsch": "die Kaution",
+  "beispiel": "Pagamos dos meses de fianza por el piso.",
+  "rang": 546
+ },
+ {
+  "fremdsprache": "la ética",
+  "deutsch": "die Ethik",
+  "beispiel": "La ética profesional es importante.",
+  "rang": 547
+ },
+ {
+  "fremdsprache": "el polo",
+  "deutsch": "der Pol; das Poloshirt; das Eis am Stiel",
+  "beispiel": "Quiero un polo de limón.",
+  "rang": 548
+ },
+ {
+  "fremdsprache": "primitivo/a",
+  "deutsch": "primitiv, ursprünglich",
+  "beispiel": "Usaban herramientas primitivas.",
+  "rang": 549
+ },
+ {
+  "fremdsprache": "enfriar",
+  "deutsch": "abkühlen",
+  "beispiel": "Deja enfriar la tarta.",
+  "rang": 550
+ },
+ {
+  "fremdsprache": "el bono",
+  "deutsch": "der Gutschein; die Anleihe; die Zeitkarte",
+  "beispiel": "Compré un bono de diez viajes.",
+  "rang": 551
+ },
+ {
+  "fremdsprache": "el preso / la presa",
+  "deutsch": "der Häftling",
+  "beispiel": "Los presos salen al patio a las diez.",
+  "rang": 552
+ },
+ {
+  "fremdsprache": "reventar",
+  "deutsch": "platzen; kaputtmachen",
+  "beispiel": "Reventó una rueda en la autopista.",
+  "rang": 553
+ },
+ {
+  "fremdsprache": "la ruptura",
+  "deutsch": "der Bruch, die Trennung",
+  "beispiel": "Después de la ruptura se mudó.",
+  "rang": 554
+ },
+ {
+  "fremdsprache": "desmayarse",
+  "deutsch": "in Ohnmacht fallen",
+  "beispiel": "Se desmayó por el calor.",
+  "rang": 555
+ },
+ {
+  "fremdsprache": "el horizonte",
+  "deutsch": "der Horizont",
+  "beispiel": "El sol desaparece en el horizonte.",
+  "rang": 556
+ },
+ {
+  "fremdsprache": "idéntico/a",
+  "deutsch": "identisch",
+  "beispiel": "Las dos piezas son idénticas.",
+  "rang": 557
+ },
+ {
+  "fremdsprache": "emprender",
+  "deutsch": "unternehmen, in Angriff nehmen",
+  "beispiel": "Quiere emprender un negocio propio.",
+  "rang": 558
+ },
+ {
+  "fremdsprache": "el testamento",
+  "deutsch": "das Testament",
+  "beispiel": "Dejó todo en su testamento a sus hijos.",
+  "rang": 559
+ },
+ {
+  "fremdsprache": "fastidiar",
+  "deutsch": "ärgern, nerven",
+  "beispiel": "Me fastidia esperar.",
+  "rang": 560
+ },
+ {
+  "fremdsprache": "complacer",
+  "deutsch": "erfreuen, gefallen",
+  "beispiel": "Nos complace informarle que…",
+  "rang": 561
+ },
+ {
+  "fremdsprache": "el marqués / la marquesa",
+  "deutsch": "der Marquis",
+  "beispiel": "El palacio del marqués es un museo.",
+  "rang": 562
+ },
+ {
+  "fremdsprache": "la utilización",
+  "deutsch": "die Nutzung",
+  "beispiel": "La utilización de la máquina es sencilla.",
+  "rang": 563
+ },
+ {
+  "fremdsprache": "decisivo/a",
+  "deutsch": "entscheidend",
+  "beispiel": "Fue un momento decisivo.",
+  "rang": 564
+ },
+ {
+  "fremdsprache": "informativo/a",
+  "deutsch": "informativ; die Nachrichtensendung",
+  "beispiel": "Vi el informativo de las nueve.",
+  "rang": 565
+ },
+ {
+  "fremdsprache": "el homenaje",
+  "deutsch": "die Ehrung, die Hommage",
+  "beispiel": "Le hicieron un homenaje al jubilarse.",
+  "rang": 566
+ },
+ {
+  "fremdsprache": "el alivio",
+  "deutsch": "die Erleichterung",
+  "beispiel": "¡Qué alivio!",
+  "rang": 567
+ },
+ {
+  "fremdsprache": "presunto/a",
+  "deutsch": "mutmaßlich",
+  "beispiel": "El presunto autor fue detenido.",
+  "rang": 568
+ },
+ {
+  "fremdsprache": "el duelo",
+  "deutsch": "die Trauer; das Duell",
+  "beispiel": "Está de duelo por su padre.",
+  "rang": 569
+ },
+ {
+  "fremdsprache": "paralelo/a",
+  "deutsch": "parallel",
+  "beispiel": "Trabajamos en dos proyectos en paralelo.",
+  "rang": 570
+ },
+ {
+  "fremdsprache": "el afecto",
+  "deutsch": "die Zuneigung",
+  "beispiel": "Le tengo mucho afecto.",
+  "rang": 571
+ },
+ {
+  "fremdsprache": "la certeza",
+  "deutsch": "die Gewissheit",
+  "beispiel": "No lo sé con certeza.",
+  "rang": 572
+ },
+ {
+  "fremdsprache": "la ansiedad",
+  "deutsch": "die Angst, die Angstzustände",
+  "beispiel": "Sufre ansiedad antes de hablar en público.",
+  "rang": 573
+ },
+ {
+  "fremdsprache": "la exigencia",
+  "deutsch": "die Anforderung",
+  "beispiel": "Las exigencias del cliente son altas.",
+  "rang": 574
+ },
+ {
+  "fremdsprache": "testificar",
+  "deutsch": "aussagen (vor Gericht)",
+  "beispiel": "Tuvo que testificar en el juicio.",
+  "rang": 575
+ },
+ {
+  "fremdsprache": "asaltar",
+  "deutsch": "überfallen",
+  "beispiel": "Asaltaron una gasolinera.",
+  "rang": 576
+ },
+ {
+  "fremdsprache": "el fragmento",
+  "deutsch": "das Fragment, der Ausschnitt",
+  "beispiel": "Leímos un fragmento del libro.",
+  "rang": 577
+ },
+ {
+  "fremdsprache": "inscribirse",
+  "deutsch": "sich anmelden",
+  "beispiel": "Me inscribí en un curso de español.",
+  "rang": 578
+ },
+ {
+  "fremdsprache": "el eco",
+  "deutsch": "das Echo",
+  "beispiel": "Se oía el eco en la cueva.",
+  "rang": 579
+ },
+ {
+  "fremdsprache": "desconocer",
+  "deutsch": "nicht wissen, nicht kennen",
+  "beispiel": "Desconozco el motivo.",
+  "rang": 580
+ },
+ {
+  "fremdsprache": "hondo/a",
+  "deutsch": "tief",
+  "beispiel": "Respira hondo.",
+  "rang": 581
+ },
+ {
+  "fremdsprache": "la convención",
+  "deutsch": "die Konvention; die Tagung",
+  "beispiel": "La convención anual es en Madrid.",
+  "rang": 582
+ },
+ {
+  "fremdsprache": "el vínculo",
+  "deutsch": "die Verbindung, die Bindung",
+  "beispiel": "Tienen un vínculo muy fuerte.",
+  "rang": 583
+ },
+ {
+  "fremdsprache": "la maniobra",
+  "deutsch": "das Manöver",
+  "beispiel": "Hizo una maniobra peligrosa.",
+  "rang": 584
+ },
+ {
+  "fremdsprache": "denominar",
+  "deutsch": "bezeichnen, benennen",
+  "beispiel": "Se denomina “tiempo de ciclo”.",
+  "rang": 585
+ },
+ {
+  "fremdsprache": "el almirante",
+  "deutsch": "der Admiral",
+  "beispiel": "El almirante dio la orden.",
+  "rang": 586
+ },
+ {
+  "fremdsprache": "optar por",
+  "deutsch": "sich entscheiden für",
+  "beispiel": "Optamos por el proveedor más barato.",
+  "rang": 587
+ },
+ {
+  "fremdsprache": "gubernamental",
+  "deutsch": "Regierungs-",
+  "beispiel": "Es una organización no gubernamental.",
+  "rang": 588
+ },
+ {
+  "fremdsprache": "procedente de",
+  "deutsch": "kommend aus",
+  "beispiel": "El vuelo procedente de Lima llega tarde.",
+  "rang": 589
+ },
+ {
+  "fremdsprache": "cooperar",
+  "deutsch": "kooperieren, zusammenarbeiten",
+  "beispiel": "Todos cooperaron para terminar a tiempo.",
+  "rang": 590
+ },
+ {
+  "fremdsprache": "el servidor",
+  "deutsch": "der Server; der Diener",
+  "beispiel": "El servidor está caído.",
+  "rang": 591
+ },
+ {
+  "fremdsprache": "la sabiduría",
+  "deutsch": "die Weisheit",
+  "beispiel": "La sabiduría popular dice…",
+  "rang": 592
+ },
+ {
+  "fremdsprache": "transcurrir",
+  "deutsch": "vergehen, verlaufen",
+  "beispiel": "La reunión transcurrió sin problemas.",
+  "rang": 593
+ },
+ {
+  "fremdsprache": "la fusión",
+  "deutsch": "die Fusion; das Schmelzen",
+  "beispiel": "La fusión de las dos empresas fue en 2020.",
+  "rang": 594
+ },
+ {
+  "fremdsprache": "imitar",
+  "deutsch": "nachahmen",
+  "beispiel": "Imita muy bien a su jefe.",
+  "rang": 595
+ },
+ {
+  "fremdsprache": "agitar",
+  "deutsch": "schütteln; aufwühlen",
+  "beispiel": "Agitar antes de usar.",
+  "rang": 596
+ },
+ {
+  "fremdsprache": "el/la comerciante",
+  "deutsch": "der Händler, der Kaufmann",
+  "beispiel": "Los comerciantes del centro se quejan.",
+  "rang": 597
+ },
+ {
+  "fremdsprache": "la cuota",
+  "deutsch": "der Beitrag; die Quote",
+  "beispiel": "Pago una cuota mensual en el gimnasio.",
+  "rang": 598
+ },
+ {
+  "fremdsprache": "tenso/a",
+  "deutsch": "angespannt",
+  "beispiel": "El ambiente estaba tenso.",
+  "rang": 599
+ },
+ {
+  "fremdsprache": "reconstruir",
+  "deutsch": "wieder aufbauen",
+  "beispiel": "Reconstruyeron el puente.",
+  "rang": 600
+ },
+ {
+  "fremdsprache": "seducir",
+  "deutsch": "verführen; reizen",
+  "beispiel": "No me seduce la idea.",
+  "rang": 601
+ },
+ {
+  "fremdsprache": "excepcional",
+  "deutsch": "außergewöhnlich",
+  "beispiel": "Fue un año excepcional.",
+  "rang": 602
+ },
+ {
+  "fremdsprache": "la delegación",
+  "deutsch": "die Delegation; die Niederlassung",
+  "beispiel": "Tenemos una delegación en Barcelona.",
+  "rang": 603
+ },
+ {
+  "fremdsprache": "homosexual",
+  "deutsch": "homosexuell",
+  "beispiel": "El matrimonio homosexual es legal en España.",
+  "rang": 604
+ },
+ {
+  "fremdsprache": "estimular",
+  "deutsch": "anregen",
+  "beispiel": "El café estimula.",
+  "rang": 605
+ },
+ {
+  "fremdsprache": "la conspiración",
+  "deutsch": "die Verschwörung",
+  "beispiel": "Cree en teorías de la conspiración.",
+  "rang": 606
+ },
+ {
+  "fremdsprache": "la hembra",
+  "deutsch": "das Weibchen",
+  "beispiel": "La hembra pone los huevos.",
+  "rang": 607
+ },
+ {
+  "fremdsprache": "insinuar",
+  "deutsch": "andeuten",
+  "beispiel": "¿Qué insinúas?",
+  "rang": 608
+ },
+ {
+  "fremdsprache": "la transición",
+  "deutsch": "der Übergang",
+  "beispiel": "La transición a la nueva máquina fue lenta.",
+  "rang": 609
+ },
+ {
+  "fremdsprache": "empresarial",
+  "deutsch": "unternehmerisch, Unternehmens-",
+  "beispiel": "Estudió administración empresarial.",
+  "rang": 610
+ },
+ {
+  "fremdsprache": "el barro",
+  "deutsch": "der Schlamm; der Ton (Material)",
+  "beispiel": "Las botas están llenas de barro.",
+  "rang": 611
+ },
+ {
+  "fremdsprache": "abusar de",
+  "deutsch": "missbrauchen; übertreiben",
+  "beispiel": "No abuses del azúcar.",
+  "rang": 612
+ },
+ {
+  "fremdsprache": "circular",
+  "deutsch": "zirkulieren; fahren",
+  "beispiel": "Por esta calle no se puede circular.",
+  "rang": 613
+ },
+ {
+  "fremdsprache": "terrestre",
+  "deutsch": "irdisch, Land-",
+  "beispiel": "El transporte terrestre es más barato.",
+  "rang": 614
+ },
+ {
+  "fremdsprache": "el culto",
+  "deutsch": "der Kult; der Gottesdienst",
+  "beispiel": "Existe un culto a la personalidad del líder.",
+  "rang": 615
+ },
+ {
+  "fremdsprache": "los celos",
+  "deutsch": "die Eifersucht",
+  "beispiel": "Tiene celos de su hermano.",
+  "rang": 616
+ },
+ {
+  "fremdsprache": "aferrarse a",
+  "deutsch": "sich klammern an",
+  "beispiel": "Se aferra a sus viejas costumbres.",
+  "rang": 617
+ },
+ {
+  "fremdsprache": "la percepción",
+  "deutsch": "die Wahrnehmung",
+  "beispiel": "La percepción del cliente es importante.",
+  "rang": 618
+ },
+ {
+  "fremdsprache": "la comprensión",
+  "deutsch": "das Verständnis",
+  "beispiel": "Gracias por tu comprensión.",
+  "rang": 619
+ },
+ {
+  "fremdsprache": "la totalidad",
+  "deutsch": "die Gesamtheit",
+  "beispiel": "La totalidad de los empleados votó.",
+  "rang": 620
+ },
+ {
+  "fremdsprache": "el interrogatorio",
+  "deutsch": "das Verhör",
+  "beispiel": "El interrogatorio duró horas.",
+  "rang": 621
+ },
+ {
+  "fremdsprache": "modesto/a",
+  "deutsch": "bescheiden",
+  "beispiel": "Es muy modesto.",
+  "rang": 622
+ },
+ {
+  "fremdsprache": "la flecha",
+  "deutsch": "der Pfeil",
+  "beispiel": "Sigue las flechas.",
+  "rang": 623
+ },
+ {
+  "fremdsprache": "la separación",
+  "deutsch": "die Trennung",
+  "beispiel": "La separación de residuos es obligatoria.",
+  "rang": 624
+ },
+ {
+  "fremdsprache": "la dependencia",
+  "deutsch": "die Abhängigkeit; die Räumlichkeit",
+  "beispiel": "Hay que reducir la dependencia del gas.",
+  "rang": 625
+ },
+ {
+  "fremdsprache": "la etiqueta",
+  "deutsch": "das Etikett; die Etikette",
+  "beispiel": "Lee la etiqueta antes de comprar.",
+  "rang": 626
+ },
+ {
+  "fremdsprache": "la píldora",
+  "deutsch": "die Pille",
+  "beispiel": "Toma una píldora para dormir.",
+  "rang": 627
+ },
+ {
+  "fremdsprache": "el verso",
+  "deutsch": "der Vers",
+  "beispiel": "Escribe versos desde joven.",
+  "rang": 628
+ },
+ {
+  "fremdsprache": "exhibir",
+  "deutsch": "ausstellen, zeigen",
+  "beispiel": "Exhibieron el coche nuevo en la feria.",
+  "rang": 629
+ },
+ {
+  "fremdsprache": "atropellar",
+  "deutsch": "überfahren",
+  "beispiel": "Un coche atropelló a un perro.",
+  "rang": 630
+ },
+ {
+  "fremdsprache": "agacharse",
+  "deutsch": "sich bücken",
+  "beispiel": "Me agaché para coger la moneda.",
+  "rang": 631
+ },
+ {
+  "fremdsprache": "la alteración",
+  "deutsch": "die Veränderung, die Störung",
+  "beispiel": "Hubo una alteración del orden público.",
+  "rang": 632
+ },
+ {
+  "fremdsprache": "el flujo",
+  "deutsch": "der Fluss, der Strom",
+  "beispiel": "El flujo de material es continuo.",
+  "rang": 633
+ },
+ {
+  "fremdsprache": "el consuelo",
+  "deutsch": "der Trost",
+  "beispiel": "Es un pequeño consuelo.",
+  "rang": 634
+ },
+ {
+  "fremdsprache": "derramar",
+  "deutsch": "verschütten, vergießen",
+  "beispiel": "Derramé el café en el teclado.",
+  "rang": 635
+ },
+ {
+  "fremdsprache": "favorable",
+  "deutsch": "günstig",
+  "beispiel": "Las condiciones son favorables.",
+  "rang": 636
+ },
+ {
+  "fremdsprache": "el manifiesto",
+  "deutsch": "das Manifest",
+  "beispiel": "Publicaron un manifiesto.",
+  "rang": 637
+ },
+ {
+  "fremdsprache": "delatar",
+  "deutsch": "verraten, anzeigen",
+  "beispiel": "Lo delató su compañero.",
+  "rang": 638
+ },
+ {
+  "fremdsprache": "el/la traficante",
+  "deutsch": "der Händler (illegal)",
+  "beispiel": "Detuvieron a un traficante de drogas.",
+  "rang": 639
+ },
+ {
+  "fremdsprache": "paralizar",
+  "deutsch": "lähmen, stilllegen",
+  "beispiel": "La huelga paralizó la producción.",
+  "rang": 640
+ },
+ {
+  "fremdsprache": "estrenar",
+  "deutsch": "erstmals nutzen; uraufführen",
+  "beispiel": "Hoy estreno zapatos.",
+  "rang": 641
+ },
+ {
+  "fremdsprache": "visible",
+  "deutsch": "sichtbar",
+  "beispiel": "El defecto no es visible a simple vista.",
+  "rang": 642
+ },
+ {
+  "fremdsprache": "el cohete",
+  "deutsch": "die Rakete",
+  "beispiel": "Lanzaron un cohete al espacio.",
+  "rang": 643
+ },
+ {
+  "fremdsprache": "espléndido/a",
+  "deutsch": "prächtig, großzügig",
+  "beispiel": "Hace un día espléndido.",
+  "rang": 644
+ },
+ {
+  "fremdsprache": "agrícola",
+  "deutsch": "landwirtschaftlich",
+  "beispiel": "Es una región agrícola.",
+  "rang": 645
+ },
+ {
+  "fremdsprache": "en vano",
+  "deutsch": "vergeblich",
+  "beispiel": "Lo intentamos en vano.",
+  "rang": 646
+ },
+ {
+  "fremdsprache": "la afirmación",
+  "deutsch": "die Behauptung",
+  "beispiel": "Esa afirmación no es correcta.",
+  "rang": 647
+ },
+ {
+  "fremdsprache": "nacionalista",
+  "deutsch": "nationalistisch",
+  "beispiel": "Es un partido nacionalista.",
+  "rang": 648
+ },
+ {
+  "fremdsprache": "la cobertura",
+  "deutsch": "die Abdeckung; der Empfang (Handy)",
+  "beispiel": "Aquí no hay cobertura.",
+  "rang": 649
+ },
+ {
+  "fremdsprache": "discreto/a",
+  "deutsch": "diskret, unauffällig",
+  "beispiel": "Sé discreto, por favor.",
+  "rang": 650
+ },
+ {
+  "fremdsprache": "psíquico/a",
+  "deutsch": "psychisch",
+  "beispiel": "Tiene problemas psíquicos.",
+  "rang": 651
+ },
+ {
+  "fremdsprache": "el timbre",
+  "deutsch": "die Klingel",
+  "beispiel": "Toca el timbre.",
+  "rang": 652
+ },
+ {
+  "fremdsprache": "desprenderse de",
+  "deutsch": "sich trennen von; sich lösen",
+  "beispiel": "Me desprendí de muchos libros viejos.",
+  "rang": 653
+ },
+ {
+  "fremdsprache": "la beca",
+  "deutsch": "das Stipendium",
+  "beispiel": "Consiguió una beca para estudiar en Alemania.",
+  "rang": 654
+ },
+ {
+  "fremdsprache": "la crónica",
+  "deutsch": "die Chronik, die Reportage",
+  "beispiel": "Leí la crónica del partido.",
+  "rang": 655
+ },
+ {
+  "fremdsprache": "el vientre",
+  "deutsch": "der Bauch",
+  "beispiel": "Tenía dolor de vientre.",
+  "rang": 656
+ },
+ {
+  "fremdsprache": "la precisión",
+  "deutsch": "die Genauigkeit",
+  "beispiel": "Esta máquina trabaja con mucha precisión.",
+  "rang": 657
+ },
+ {
+  "fremdsprache": "el cigarro",
+  "deutsch": "die Zigarette, die Zigarre",
+  "beispiel": "Se fumó un cigarro.",
+  "rang": 658
+ },
+ {
+  "fremdsprache": "la brigada",
+  "deutsch": "die Brigade, der Trupp",
+  "beispiel": "Llegó la brigada de bomberos.",
+  "rang": 659
+ },
+ {
+  "fremdsprache": "la concesión",
+  "deutsch": "die Konzession; das Zugeständnis",
+  "beispiel": "Hicimos algunas concesiones al cliente.",
+  "rang": 660
+ },
+ {
+  "fremdsprache": "honrado/a",
+  "deutsch": "ehrlich, rechtschaffen",
+  "beispiel": "Es una persona honrada.",
+  "rang": 661
+ },
+ {
+  "fremdsprache": "la fiscalía",
+  "deutsch": "die Staatsanwaltschaft",
+  "beispiel": "La fiscalía pide cinco años de cárcel.",
+  "rang": 662
+ },
+ {
+  "fremdsprache": "la rehabilitación",
+  "deutsch": "die Reha; die Sanierung",
+  "beispiel": "Está en rehabilitación tras la operación.",
+  "rang": 663
+ },
+ {
+  "fremdsprache": "la proyección",
+  "deutsch": "die Projektion, die Vorführung",
+  "beispiel": "La proyección de la película empieza a las ocho.",
+  "rang": 664
+ },
+ {
+  "fremdsprache": "el cuerno",
+  "deutsch": "das Horn",
+  "beispiel": "El toro tiene cuernos grandes.",
+  "rang": 665
+ },
+ {
+  "fremdsprache": "el masaje",
+  "deutsch": "die Massage",
+  "beispiel": "Me di un masaje en la espalda.",
+  "rang": 666
+ },
+ {
+  "fremdsprache": "inaugurar",
+  "deutsch": "eröffnen, einweihen",
+  "beispiel": "Inauguraron la nueva planta.",
+  "rang": 667
+ },
+ {
+  "fremdsprache": "madrileño/a",
+  "deutsch": "aus Madrid",
+  "beispiel": "Mi cuñado es madrileño.",
+  "rang": 668
+ },
+ {
+  "fremdsprache": "el tiroteo",
+  "deutsch": "die Schießerei",
+  "beispiel": "Hubo un tiroteo en el centro.",
+  "rang": 669
+ },
+ {
+  "fremdsprache": "estirar",
+  "deutsch": "dehnen, strecken",
+  "beispiel": "Estira las piernas antes de correr.",
+  "rang": 670
+ },
+ {
+  "fremdsprache": "la compasión",
+  "deutsch": "das Mitgefühl",
+  "beispiel": "Siente compasión por los animales.",
+  "rang": 671
+ },
+ {
+  "fremdsprache": "la autopsia",
+  "deutsch": "die Autopsie",
+  "beispiel": "La autopsia reveló la causa de la muerte.",
+  "rang": 672
+ },
+ {
+  "fremdsprache": "liar",
+  "deutsch": "einwickeln; verwirren",
+  "beispiel": "No me líes, que ya estoy confundido.",
+  "rang": 673
+ },
+ {
+  "fremdsprache": "liarse",
+  "deutsch": "sich verheddern, durcheinanderkommen",
+  "beispiel": "Me lié con las fechas.",
+  "rang": 674
+ },
+ {
+  "fremdsprache": "ordinario/a",
+  "deutsch": "gewöhnlich; ordinär",
+  "beispiel": "Es una reunión ordinaria.",
+  "rang": 675
+ },
+ {
+  "fremdsprache": "evolucionar",
+  "deutsch": "sich entwickeln",
+  "beispiel": "La tecnología evoluciona rápidamente.",
+  "rang": 676
+ },
+ {
+  "fremdsprache": "desempeñar",
+  "deutsch": "ausüben (Funktion)",
+  "beispiel": "Desempeña el cargo de jefe de compras.",
+  "rang": 677
+ },
+ {
+  "fremdsprache": "respectivo/a",
+  "deutsch": "jeweilig",
+  "beispiel": "Cada uno volvió a su respectiva casa.",
+  "rang": 678
+ },
+ {
+  "fremdsprache": "la explotación",
+  "deutsch": "die Ausbeutung; der Betrieb",
+  "beispiel": "Es una explotación agrícola.",
+  "rang": 679
+ },
+ {
+  "fremdsprache": "el reglamento",
+  "deutsch": "die Vorschrift, die Ordnung",
+  "beispiel": "Según el reglamento interno…",
+  "rang": 680
+ },
+ {
+  "fremdsprache": "el observador / la observadora",
+  "deutsch": "der Beobachter",
+  "beispiel": "Es un buen observador.",
+  "rang": 681
+ },
+ {
+  "fremdsprache": "el domicilio",
+  "deutsch": "der Wohnsitz",
+  "beispiel": "Indique su domicilio actual.",
+  "rang": 682
+ },
+ {
+  "fremdsprache": "deducir",
+  "deutsch": "ableiten, folgern; abziehen",
+  "beispiel": "De esto deduzco que no vendrá.",
+  "rang": 683
+ },
+ {
+  "fremdsprache": "leve",
+  "deutsch": "leicht, gering",
+  "beispiel": "Tuvo una lesión leve.",
+  "rang": 684
+ },
+ {
+  "fremdsprache": "el estatuto",
+  "deutsch": "die Satzung, das Statut",
+  "beispiel": "Los estatutos de la asociación.",
+  "rang": 685
+ },
+ {
+  "fremdsprache": "la mafia",
+  "deutsch": "die Mafia",
+  "beispiel": "La mafia controla el puerto.",
+  "rang": 686
+ },
+ {
+  "fremdsprache": "proclamar",
+  "deutsch": "verkünden, ausrufen",
+  "beispiel": "Fue proclamado campeón.",
+  "rang": 687
+ },
+ {
+  "fremdsprache": "procesar",
+  "deutsch": "verarbeiten; anklagen",
+  "beispiel": "El sistema procesa mil pedidos al día.",
+  "rang": 688
+ },
+ {
+  "fremdsprache": "válido/a",
+  "deutsch": "gültig",
+  "beispiel": "El pasaporte ya no es válido.",
+  "rang": 689
+ },
+ {
+  "fremdsprache": "proseguir",
+  "deutsch": "fortsetzen",
+  "beispiel": "Prosigamos con la reunión.",
+  "rang": 690
+ },
+ {
+  "fremdsprache": "oportuno/a",
+  "deutsch": "passend, günstig",
+  "beispiel": "No es el momento oportuno.",
+  "rang": 691
+ },
+ {
+  "fremdsprache": "ideológico/a",
+  "deutsch": "ideologisch",
+  "beispiel": "Hay diferencias ideológicas entre los partidos.",
+  "rang": 692
+ },
+ {
+  "fremdsprache": "la precaución",
+  "deutsch": "die Vorsicht",
+  "beispiel": "Conduce con precaución.",
+  "rang": 693
+ },
+ {
+  "fremdsprache": "energético/a",
+  "deutsch": "Energie-; energiegeladen",
+  "beispiel": "La transición energética necesita hidrógeno.",
+  "rang": 694
+ },
+ {
+  "fremdsprache": "alterado/a",
+  "deutsch": "aufgeregt; verändert",
+  "beispiel": "Estaba muy alterado después del accidente.",
+  "rang": 695
+ },
+ {
+  "fremdsprache": "a mediados de",
+  "deutsch": "Mitte (Zeitraum)",
+  "beispiel": "Nos vemos a mediados de noviembre.",
+  "rang": 696
+ },
+ {
+  "fremdsprache": "afortunadamente",
+  "deutsch": "glücklicherweise",
+  "beispiel": "Afortunadamente, nadie se hizo daño.",
+  "rang": 697
+ },
+ {
+  "fremdsprache": "la furgoneta",
+  "deutsch": "der Transporter",
+  "beispiel": "Alquilamos una furgoneta para la mudanza.",
+  "rang": 698
+ },
+ {
+  "fremdsprache": "el magistrado / la magistrada",
+  "deutsch": "der Richter",
+  "beispiel": "El magistrado archivó el caso.",
+  "rang": 699
+ },
+ {
+  "fremdsprache": "realista",
+  "deutsch": "realistisch",
+  "beispiel": "Hay que ser realista con los plazos.",
+  "rang": 700
+ },
+ {
+  "fremdsprache": "el padrino / la madrina",
+  "deutsch": "der Pate / die Patin; der Trauzeuge",
+  "beispiel": "Mi hermano es el padrino de mi hija.",
+  "rang": 701
+ },
+ {
+  "fremdsprache": "condicional",
+  "deutsch": "bedingt; auf Bewährung",
+  "beispiel": "Salió en libertad condicional.",
+  "rang": 702
+ },
+ {
+  "fremdsprache": "legislativo/a",
+  "deutsch": "gesetzgebend",
+  "beispiel": "El poder legislativo.",
+  "rang": 703
+ },
+ {
+  "fremdsprache": "perjudicar",
+  "deutsch": "schaden",
+  "beispiel": "Fumar perjudica la salud.",
+  "rang": 704
+ },
+ {
+  "fremdsprache": "la secretaría",
+  "deutsch": "das Sekretariat",
+  "beispiel": "Pregunta en la secretaría.",
+  "rang": 705
+ },
+ {
+  "fremdsprache": "monetario/a",
+  "deutsch": "Währungs-, Geld-",
+  "beispiel": "La política monetaria del BCE.",
+  "rang": 706
+ },
+ {
+  "fremdsprache": "el submarino",
+  "deutsch": "das U-Boot",
+  "beispiel": "El submarino amarillo.",
+  "rang": 707
+ },
+ {
+  "fremdsprache": "la utilidad",
+  "deutsch": "der Nutzen",
+  "beispiel": "¿Qué utilidad tiene esta herramienta?",
+  "rang": 708
+ },
+ {
+  "fremdsprache": "reforzar",
+  "deutsch": "verstärken",
+  "beispiel": "Hay que reforzar el control de calidad.",
+  "rang": 709
+ },
+ {
+  "fremdsprache": "la banca",
+  "deutsch": "das Bankwesen",
+  "beispiel": "Trabaja en la banca.",
+  "rang": 710
+ },
+ {
+  "fremdsprache": "remitir",
+  "deutsch": "übersenden; nachlassen",
+  "beispiel": "Le remito el documento adjunto.",
+  "rang": 711
+ },
+ {
+  "fremdsprache": "interponer",
+  "deutsch": "einlegen (Rechtsmittel)",
+  "beispiel": "Interpusieron un recurso.",
+  "rang": 712
+ },
+ {
+  "fremdsprache": "la quema",
+  "deutsch": "das Verbrennen",
+  "beispiel": "Está prohibida la quema de rastrojos.",
+  "rang": 713
+ },
+ {
+  "fremdsprache": "el nido",
+  "deutsch": "das Nest",
+  "beispiel": "Hay un nido en el tejado.",
+  "rang": 714
+ },
+ {
+  "fremdsprache": "provincial",
+  "deutsch": "Provinz-",
+  "beispiel": "La carretera provincial está cortada.",
+  "rang": 715
+ },
+ {
+  "fremdsprache": "infectado/a",
+  "deutsch": "infiziert",
+  "beispiel": "La herida está infectada.",
+  "rang": 716
+ },
+ {
+  "fremdsprache": "el veterano / la veterana",
+  "deutsch": "der Veteran; alter Hase",
+  "beispiel": "Es un veterano de la empresa.",
+  "rang": 717
+ },
+ {
+  "fremdsprache": "el fundador / la fundadora",
+  "deutsch": "der Gründer",
+  "beispiel": "El fundador de Bosch fue Robert Bosch.",
+  "rang": 718
+ },
+ {
+  "fremdsprache": "el bloqueo",
+  "deutsch": "die Blockade, die Sperre",
+  "beispiel": "El bloqueo del pedido se levantó.",
+  "rang": 719
+ },
+ {
+  "fremdsprache": "la variación",
+  "deutsch": "die Schwankung, die Abweichung",
+  "beispiel": "Hay variaciones en las medidas.",
+  "rang": 720
+ },
+ {
+  "fremdsprache": "la audición",
+  "deutsch": "das Hören; das Vorsingen",
+  "beispiel": "Hizo una audición para el coro.",
+  "rang": 721
+ },
+ {
+  "fremdsprache": "la recta",
+  "deutsch": "die Gerade",
+  "beispiel": "Estamos en la recta final del proyecto.",
+  "rang": 722
+ },
+ {
+  "fremdsprache": "la órbita",
+  "deutsch": "die Umlaufbahn",
+  "beispiel": "El satélite está en órbita.",
+  "rang": 723
+ },
+ {
+  "fremdsprache": "abundante",
+  "deutsch": "reichlich",
+  "beispiel": "La comida fue abundante.",
+  "rang": 724
+ },
+ {
+  "fremdsprache": "la inspección",
+  "deutsch": "die Prüfung, die Inspektion",
+  "beispiel": "La inspección de entrada detectó fallos.",
+  "rang": 725
+ },
+ {
+  "fremdsprache": "multiplicar",
+  "deutsch": "multiplizieren, vervielfachen",
+  "beispiel": "Las ventas se multiplicaron por tres.",
+  "rang": 726
+ },
+ {
+  "fremdsprache": "sentimental",
+  "deutsch": "sentimental; Beziehungs-",
+  "beispiel": "Tiene problemas sentimentales.",
+  "rang": 727
+ },
+ {
+  "fremdsprache": "la bondad",
+  "deutsch": "die Güte",
+  "beispiel": "Agradezco tu bondad.",
+  "rang": 728
+ },
+ {
+  "fremdsprache": "la psicología",
+  "deutsch": "die Psychologie",
+  "beispiel": "Estudió psicología en Granada.",
+  "rang": 729
+ },
+ {
+  "fremdsprache": "encubierto/a",
+  "deutsch": "verdeckt",
+  "beispiel": "Es un agente encubierto.",
+  "rang": 730
+ },
+ {
+  "fremdsprache": "arriesgado/a",
+  "deutsch": "riskant",
+  "beispiel": "Es una inversión arriesgada.",
+  "rang": 731
+ },
+ {
+  "fremdsprache": "la esfera",
+  "deutsch": "die Kugel; die Sphäre",
+  "beispiel": "En la esfera política…",
+  "rang": 732
+ },
+ {
+  "fremdsprache": "relevante",
+  "deutsch": "relevant",
+  "beispiel": "Esa información no es relevante.",
+  "rang": 733
+ },
+ {
+  "fremdsprache": "estrellarse",
+  "deutsch": "zerschellen, verunglücken",
+  "beispiel": "El avión se estrelló en el mar.",
+  "rang": 734
+ },
+ {
+  "fremdsprache": "la inspiración",
+  "deutsch": "die Inspiration",
+  "beispiel": "Busco inspiración para la presentación.",
+  "rang": 735
+ },
+ {
+  "fremdsprache": "el barril",
+  "deutsch": "das Fass",
+  "beispiel": "El precio del barril de petróleo subió.",
+  "rang": 736
+ },
+ {
+  "fremdsprache": "el apetito",
+  "deutsch": "der Appetit",
+  "beispiel": "No tengo apetito.",
+  "rang": 737
+ },
+ {
+  "fremdsprache": "el administrador / la administradora",
+  "deutsch": "der Verwalter, der Administrator",
+  "beispiel": "El administrador del sistema cambió las contraseñas.",
+  "rang": 738
+ },
+ {
+  "fremdsprache": "residir",
+  "deutsch": "wohnen, ansässig sein",
+  "beispiel": "Reside en Alemania desde 2010.",
+  "rang": 739
+ },
+ {
+  "fremdsprache": "el ladrillo",
+  "deutsch": "der Ziegelstein",
+  "beispiel": "Una casa de ladrillo.",
+  "rang": 740
+ },
+ {
+  "fremdsprache": "remover",
+  "deutsch": "umrühren; aufwühlen",
+  "beispiel": "Remueve la salsa de vez en cuando.",
+  "rang": 741
+ },
+ {
+  "fremdsprache": "la persecución",
+  "deutsch": "die Verfolgung",
+  "beispiel": "Hubo una persecución policial.",
+  "rang": 742
+ },
+ {
+  "fremdsprache": "disputar",
+  "deutsch": "austragen, streiten um",
+  "beispiel": "Disputaron la final en Sevilla.",
+  "rang": 743
+ },
+ {
+  "fremdsprache": "la corrección",
+  "deutsch": "die Korrektur",
+  "beispiel": "Hice algunas correcciones al texto.",
+  "rang": 744
+ },
+ {
+  "fremdsprache": "el juramento",
+  "deutsch": "der Eid",
+  "beispiel": "Hizo juramento de su cargo.",
+  "rang": 745
+ },
+ {
+  "fremdsprache": "el buque",
+  "deutsch": "das Schiff",
+  "beispiel": "Un buque de carga llegó al puerto.",
+  "rang": 746
+ },
+ {
+  "fremdsprache": "el admirador / la admiradora",
+  "deutsch": "der Bewunderer, der Fan",
+  "beispiel": "Tiene muchos admiradores.",
+  "rang": 747
+ },
+ {
+  "fremdsprache": "el cachorro",
+  "deutsch": "der Welpe",
+  "beispiel": "Adoptamos un cachorro.",
+  "rang": 748
+ },
+ {
+  "fremdsprache": "respaldar",
+  "deutsch": "unterstützen",
+  "beispiel": "El jefe respaldó mi propuesta.",
+  "rang": 749
+ },
+ {
+  "fremdsprache": "el estímulo",
+  "deutsch": "der Anreiz, der Reiz",
+  "beispiel": "Es un estímulo para seguir.",
+  "rang": 750
+ },
+ {
+  "fremdsprache": "la polémica",
+  "deutsch": "die Kontroverse",
+  "beispiel": "La decisión generó polémica.",
+  "rang": 751
+ },
+ {
+  "fremdsprache": "la cucharada",
+  "deutsch": "der Esslöffel (Menge)",
+  "beispiel": "Añade dos cucharadas de azúcar.",
+  "rang": 752
+ },
+ {
+  "fremdsprache": "la sirena",
+  "deutsch": "die Sirene; die Meerjungfrau",
+  "beispiel": "Se oyó la sirena de la ambulancia.",
+  "rang": 753
+ },
+ {
+  "fremdsprache": "institucional",
+  "deutsch": "institutionell",
+  "beispiel": "Es un acto institucional.",
+  "rang": 754
+ },
+ {
+  "fremdsprache": "restante",
+  "deutsch": "restlich",
+  "beispiel": "Los días restantes los paso en casa.",
+  "rang": 755
+ },
+ {
+  "fremdsprache": "estratégico/a",
+  "deutsch": "strategisch",
+  "beispiel": "Es un proyecto estratégico.",
+  "rang": 756
+ },
+ {
+  "fremdsprache": "geográfico/a",
+  "deutsch": "geografisch",
+  "beispiel": "La situación geográfica es ideal.",
+  "rang": 757
+ },
+ {
+  "fremdsprache": "el ataúd",
+  "deutsch": "der Sarg",
+  "beispiel": "Llevaron el ataúd a la iglesia.",
+  "rang": 758
+ },
+ {
+  "fremdsprache": "atascado/a",
+  "deutsch": "festgefahren, verstopft",
+  "beispiel": "El cajón está atascado.",
+  "rang": 759
+ },
+ {
+  "fremdsprache": "la hemorragia",
+  "deutsch": "die Blutung",
+  "beispiel": "Tuvo una hemorragia interna.",
+  "rang": 760
+ },
+ {
+  "fremdsprache": "el nudo",
+  "deutsch": "der Knoten",
+  "beispiel": "Hazme un nudo en la corbata.",
+  "rang": 761
+ },
+ {
+  "fremdsprache": "el clavo",
+  "deutsch": "der Nagel; die Gewürznelke",
+  "beispiel": "Diste en el clavo.",
+  "rang": 762
+ },
+ {
+  "fremdsprache": "incendiar",
+  "deutsch": "in Brand setzen",
+  "beispiel": "Incendiaron un coche.",
+  "rang": 763
+ },
+ {
+  "fremdsprache": "sanguíneo/a",
+  "deutsch": "Blut-",
+  "beispiel": "¿Cuál es tu grupo sanguíneo?",
+  "rang": 764
+ },
+ {
+  "fremdsprache": "el reparto",
+  "deutsch": "die Verteilung; die Zustellung; die Besetzung",
+  "beispiel": "El reparto de paquetes es por la mañana.",
+  "rang": 765
+ },
+ {
+  "fremdsprache": "la infraestructura",
+  "deutsch": "die Infrastruktur",
+  "beispiel": "La infraestructura de hidrógeno es aún escasa.",
+  "rang": 766
+ },
+ {
+  "fremdsprache": "la obsesión",
+  "deutsch": "die Besessenheit",
+  "beispiel": "Tiene obsesión por el orden.",
+  "rang": 767
+ },
+ {
+  "fremdsprache": "el mandato",
+  "deutsch": "das Mandat, die Amtszeit",
+  "beispiel": "Su mandato termina en 2027.",
+  "rang": 768
+ },
+ {
+  "fremdsprache": "la limitación",
+  "deutsch": "die Einschränkung",
+  "beispiel": "Tiene limitaciones de movilidad.",
+  "rang": 769
+ },
+ {
+  "fremdsprache": "la documentación",
+  "deutsch": "die Unterlagen",
+  "beispiel": "Traiga la documentación del coche.",
+  "rang": 770
+ },
+ {
+  "fremdsprache": "asentarse",
+  "deutsch": "sich niederlassen",
+  "beispiel": "Se asentaron cerca del río.",
+  "rang": 771
+ },
+ {
+  "fremdsprache": "el prestigio",
+  "deutsch": "das Ansehen",
+  "beispiel": "Es una empresa de prestigio.",
+  "rang": 772
+ },
+ {
+  "fremdsprache": "estrangular",
+  "deutsch": "erwürgen",
+  "beispiel": "Casi lo estrangula.",
+  "rang": 773
+ },
+ {
+  "fremdsprache": "desplegar",
+  "deutsch": "entfalten; ausrollen (Software)",
+  "beispiel": "Desplegamos la nueva versión el lunes.",
+  "rang": 774
+ },
+ {
+  "fremdsprache": "el montaje",
+  "deutsch": "die Montage; der Schnitt",
+  "beispiel": "La línea de montaje está parada.",
+  "rang": 775
+ },
+ {
+  "fremdsprache": "la emisora",
+  "deutsch": "der Sender",
+  "beispiel": "Escucho una emisora de radio española.",
+  "rang": 776
+ },
+ {
+  "fremdsprache": "el difunto / la difunta",
+  "deutsch": "der/die Verstorbene",
+  "beispiel": "Rezaron por el difunto.",
+  "rang": 777
+ },
+ {
+  "fremdsprache": "brutal",
+  "deutsch": "brutal; der Wahnsinn (ugs.)",
+  "beispiel": "El concierto fue brutal.",
+  "rang": 778
+ },
+ {
+  "fremdsprache": "aterrorizar",
+  "deutsch": "in Angst versetzen",
+  "beispiel": "La tormenta aterrorizó a los niños.",
+  "rang": 779
+ },
+ {
+  "fremdsprache": "sobrio/a",
+  "deutsch": "nüchtern; schlicht",
+  "beispiel": "Prefiero un diseño sobrio.",
+  "rang": 780
+ },
+ {
+  "fremdsprache": "el apuro",
+  "deutsch": "die Notlage, die Verlegenheit",
+  "beispiel": "Me sacaste de un apuro.",
+  "rang": 781
+ },
+ {
+  "fremdsprache": "considerable",
+  "deutsch": "beträchtlich",
+  "beispiel": "Hubo un aumento considerable de precios.",
+  "rang": 782
+ },
+ {
+  "fremdsprache": "el aborto",
+  "deutsch": "die Abtreibung; die Fehlgeburt",
+  "beispiel": "El aborto es legal en España.",
+  "rang": 783
+ },
+ {
+  "fremdsprache": "el matón",
+  "deutsch": "der Schläger",
+  "beispiel": "El matón del colegio.",
+  "rang": 784
+ },
+ {
+  "fremdsprache": "equivalente",
+  "deutsch": "gleichwertig; die Entsprechung",
+  "beispiel": "¿Cuál es el equivalente en euros?",
+  "rang": 785
+ },
+ {
+  "fremdsprache": "el colaborador / la colaboradora",
+  "deutsch": "der Mitarbeiter",
+  "beispiel": "Agradezco a todos mis colaboradores.",
+  "rang": 786
+ },
+ {
+  "fremdsprache": "ejercitar",
+  "deutsch": "üben, trainieren",
+  "beispiel": "Hay que ejercitar la memoria.",
+  "rang": 787
+ },
+ {
+  "fremdsprache": "blando/a",
+  "deutsch": "weich",
+  "beispiel": "Este colchón es demasiado blando.",
+  "rang": 788
+ },
+ {
+  "fremdsprache": "consolidar",
+  "deutsch": "festigen",
+  "beispiel": "Queremos consolidar nuestra posición en el mercado.",
+  "rang": 789
+ },
+ {
+  "fremdsprache": "el triple",
+  "deutsch": "das Dreifache",
+  "beispiel": "Cuesta el triple que antes.",
+  "rang": 790
+ },
+ {
+  "fremdsprache": "el anfitrión / la anfitriona",
+  "deutsch": "der Gastgeber",
+  "beispiel": "Los anfitriones nos recibieron con cava.",
+  "rang": 791
+ },
+ {
+  "fremdsprache": "devorar",
+  "deutsch": "verschlingen",
+  "beispiel": "Devoró el libro en dos días.",
+  "rang": 792
+ },
+ {
+  "fremdsprache": "el cumplimiento",
+  "deutsch": "die Erfüllung, die Einhaltung",
+  "beispiel": "El cumplimiento de las normas es obligatorio.",
+  "rang": 793
+ },
+ {
+  "fremdsprache": "la nuez",
+  "deutsch": "die Walnuss",
+  "beispiel": "Una tarta de nueces.",
+  "rang": 794
+ },
+ {
+  "fremdsprache": "la suspensión",
+  "deutsch": "die Aussetzung; die Federung",
+  "beispiel": "La suspensión del coche hace ruido.",
+  "rang": 795
+ },
+ {
+  "fremdsprache": "acosar",
+  "deutsch": "belästigen, bedrängen",
+  "beispiel": "Lo acosaban en el trabajo.",
+  "rang": 796
+ },
+ {
+  "fremdsprache": "quebrar",
+  "deutsch": "brechen; pleitegehen",
+  "beispiel": "La empresa quebró en 2009.",
+  "rang": 797
+ },
+ {
+  "fremdsprache": "el residuo",
+  "deutsch": "der Abfall, der Rückstand",
+  "beispiel": "Hay que separar los residuos.",
+  "rang": 798
+ },
+ {
+  "fremdsprache": "derrumbarse",
+  "deutsch": "einstürzen; zusammenbrechen",
+  "beispiel": "El edificio se derrumbó.",
+  "rang": 799
+ },
+ {
+  "fremdsprache": "arrodillarse",
+  "deutsch": "niederknien",
+  "beispiel": "Se arrodilló para pedirle matrimonio.",
+  "rang": 800
+ },
+ {
+  "fremdsprache": "el asilo",
+  "deutsch": "das Asyl; das Altenheim",
+  "beispiel": "Pidió asilo político.",
+  "rang": 801
+ },
+ {
+  "fremdsprache": "la chimenea",
+  "deutsch": "der Kamin, der Schornstein",
+  "beispiel": "Encendimos la chimenea.",
+  "rang": 802
+ },
+ {
+  "fremdsprache": "la furia",
+  "deutsch": "die Wut",
+  "beispiel": "Salió con furia.",
+  "rang": 803
+ },
+ {
+  "fremdsprache": "la orina",
+  "deutsch": "der Urin",
+  "beispiel": "Análisis de orina.",
+  "rang": 804
+ },
+ {
+  "fremdsprache": "el fanático / la fanática",
+  "deutsch": "der Fanatiker; der Fan",
+  "beispiel": "Es un fanático del fútbol.",
+  "rang": 805
+ },
+ {
+  "fremdsprache": "inyectar",
+  "deutsch": "spritzen, injizieren",
+  "beispiel": "El plástico se inyecta en el molde.",
+  "rang": 806
+ },
+ {
+  "fremdsprache": "la intimidad",
+  "deutsch": "die Privatsphäre",
+  "beispiel": "Respeta mi intimidad.",
+  "rang": 807
+ },
+ {
+  "fremdsprache": "presumir de",
+  "deutsch": "angeben mit",
+  "beispiel": "Siempre presume de su coche.",
+  "rang": 808
+ },
+ {
+  "fremdsprache": "la portada",
+  "deutsch": "die Titelseite, das Cover",
+  "beispiel": "Salió en la portada del periódico.",
+  "rang": 809
+ },
+ {
+  "fremdsprache": "el vagabundo / la vagabunda",
+  "deutsch": "der Obdachlose, der Landstreicher",
+  "beispiel": "Un vagabundo dormía en el banco.",
+  "rang": 810
+ },
+ {
+  "fremdsprache": "la complicación",
+  "deutsch": "die Komplikation",
+  "beispiel": "Surgieron complicaciones.",
+  "rang": 811
+ },
+ {
+  "fremdsprache": "repugnante",
+  "deutsch": "ekelhaft",
+  "beispiel": "Este olor es repugnante.",
+  "rang": 812
+ },
+ {
+  "fremdsprache": "el trofeo",
+  "deutsch": "die Trophäe",
+  "beispiel": "Levantaron el trofeo.",
+  "rang": 813
+ },
+ {
+  "fremdsprache": "la determinación",
+  "deutsch": "die Entschlossenheit; die Bestimmung",
+  "beispiel": "Actuó con determinación.",
+  "rang": 814
+ },
+ {
+  "fremdsprache": "el brindis",
+  "deutsch": "der Toast, der Trinkspruch",
+  "beispiel": "Hizo un brindis por los novios.",
+  "rang": 815
+ },
+ {
+  "fremdsprache": "el estreno",
+  "deutsch": "die Premiere",
+  "beispiel": "El estreno de la película es el viernes.",
+  "rang": 816
+ },
+ {
+  "fremdsprache": "el maletín",
+  "deutsch": "die Aktentasche",
+  "beispiel": "Dejó el maletín en el tren.",
+  "rang": 817
+ },
+ {
+  "fremdsprache": "la subasta",
+  "deutsch": "die Versteigerung",
+  "beispiel": "Compró el cuadro en una subasta.",
+  "rang": 818
+ },
+ {
+  "fremdsprache": "el traslado",
+  "deutsch": "der Umzug, die Versetzung",
+  "beispiel": "Pidió el traslado a otra planta.",
+  "rang": 819
+ },
+ {
+  "fremdsprache": "vergonzoso/a",
+  "deutsch": "beschämend; schüchtern",
+  "beispiel": "Es vergonzoso cómo nos trataron.",
+  "rang": 820
+ },
+ {
+  "fremdsprache": "el indicio",
+  "deutsch": "das Anzeichen, das Indiz",
+  "beispiel": "Hay indicios de mejora.",
+  "rang": 821
+ },
+ {
+  "fremdsprache": "latir",
+  "deutsch": "schlagen (Herz)",
+  "beispiel": "Me latía el corazón muy rápido.",
+  "rang": 822
+ },
+ {
+  "fremdsprache": "la noción",
+  "deutsch": "der Begriff, die Ahnung",
+  "beispiel": "No tengo noción del tiempo.",
+  "rang": 823
+ },
+ {
+  "fremdsprache": "la expedición",
+  "deutsch": "die Expedition; der Versand",
+  "beispiel": "La expedición sale del almacén a las seis.",
+  "rang": 824
+ },
+ {
+  "fremdsprache": "el planteamiento",
+  "deutsch": "der Ansatz",
+  "beispiel": "El planteamiento del problema es correcto.",
+  "rang": 825
+ },
+ {
+  "fremdsprache": "racional",
+  "deutsch": "rational",
+  "beispiel": "Hay que tomar una decisión racional.",
+  "rang": 826
+ },
+ {
+  "fremdsprache": "el protector / la protectora",
+  "deutsch": "der Beschützer; der Schutz",
+  "beispiel": "Protector solar, por favor.",
+  "rang": 827
+ },
+ {
+  "fremdsprache": "el coco",
+  "deutsch": "die Kokosnuss; der Kopf (ugs.)",
+  "beispiel": "Me estás comiendo el coco.",
+  "rang": 828
+ },
+ {
+  "fremdsprache": "expandir",
+  "deutsch": "ausweiten",
+  "beispiel": "La empresa quiere expandirse a México.",
+  "rang": 829
+ },
+ {
+  "fremdsprache": "el abandono",
+  "deutsch": "das Verlassen, die Verwahrlosung",
+  "beispiel": "El edificio está en estado de abandono.",
+  "rang": 830
+ },
+ {
+  "fremdsprache": "el centenar",
+  "deutsch": "das Hundert (ca.)",
+  "beispiel": "Vinieron un centenar de personas.",
+  "rang": 831
+ },
+ {
+  "fremdsprache": "el retorno",
+  "deutsch": "die Rückkehr; die Rendite",
+  "beispiel": "El retorno de la inversión es de dos años.",
+  "rang": 832
+ },
+ {
+  "fremdsprache": "la demostración",
+  "deutsch": "die Vorführung; der Beweis",
+  "beispiel": "Hicimos una demostración del producto.",
+  "rang": 833
+ },
+ {
+  "fremdsprache": "asiático/a",
+  "deutsch": "asiatisch",
+  "beispiel": "Me gusta la comida asiática.",
+  "rang": 834
+ },
+ {
+  "fremdsprache": "regir",
+  "deutsch": "gelten; regieren",
+  "beispiel": "Estas normas rigen desde enero.",
+  "rang": 835
+ },
+ {
+  "fremdsprache": "el presentimiento",
+  "deutsch": "die Vorahnung",
+  "beispiel": "Tengo un mal presentimiento.",
+  "rang": 836
+ },
+ {
+  "fremdsprache": "la difusión",
+  "deutsch": "die Verbreitung",
+  "beispiel": "La difusión de la noticia fue rápida.",
+  "rang": 837
+ },
+ {
+  "fremdsprache": "honrar",
+  "deutsch": "ehren",
+  "beispiel": "Nos honra con su visita.",
+  "rang": 838
+ },
+ {
+  "fremdsprache": "imprescindible",
+  "deutsch": "unverzichtbar",
+  "beispiel": "Es imprescindible llevar casco.",
+  "rang": 839
+ },
+ {
+  "fremdsprache": "contraer",
+  "deutsch": "zusammenziehen; sich zuziehen; eingehen (Ehe)",
+  "beispiel": "Contrajo una infección.",
+  "rang": 840
+ },
+ {
+  "fremdsprache": "el radar",
+  "deutsch": "der Radar, der Blitzer",
+  "beispiel": "Me pilló el radar a 130.",
+  "rang": 841
+ },
+ {
+  "fremdsprache": "intacto/a",
+  "deutsch": "unversehrt",
+  "beispiel": "El paquete llegó intacto.",
+  "rang": 842
+ },
+ {
+  "fremdsprache": "la gala",
+  "deutsch": "die Gala",
+  "beispiel": "La gala de los Goya.",
+  "rang": 843
+ },
+ {
+  "fremdsprache": "la bandeja",
+  "deutsch": "das Tablett; das Fach",
+  "beispiel": "La bandeja de entrada está llena.",
+  "rang": 844
+ },
+ {
+  "fremdsprache": "convencional",
+  "deutsch": "konventionell",
+  "beispiel": "Coches convencionales y eléctricos.",
+  "rang": 845
+ },
+ {
+  "fremdsprache": "rudo/a",
+  "deutsch": "grob, rau",
+  "beispiel": "Es un hombre rudo pero amable.",
+  "rang": 846
+ },
+ {
+  "fremdsprache": "despreciar",
+  "deutsch": "verachten",
+  "beispiel": "No desprecies su ayuda.",
+  "rang": 847
+ },
+ {
+  "fremdsprache": "amistoso/a",
+  "deutsch": "freundschaftlich",
+  "beispiel": "Un partido amistoso.",
+  "rang": 848
+ },
+ {
+  "fremdsprache": "vulgar",
+  "deutsch": "gewöhnlich; vulgär",
+  "beispiel": "Es un comentario vulgar.",
+  "rang": 849
+ },
+ {
+  "fremdsprache": "respectivamente",
+  "deutsch": "beziehungsweise, jeweils",
+  "beispiel": "Tienen 30 y 35 años respectivamente.",
+  "rang": 850
+ },
+ {
+  "fremdsprache": "la enfermería",
+  "deutsch": "die Krankenstation; die Krankenpflege",
+  "beispiel": "Llévalo a la enfermería.",
+  "rang": 851
+ },
+ {
+  "fremdsprache": "la ideología",
+  "deutsch": "die Ideologie",
+  "beispiel": "No comparto su ideología.",
+  "rang": 852
+ },
+ {
+  "fremdsprache": "prolongar",
+  "deutsch": "verlängern",
+  "beispiel": "Prolongaron la reunión una hora.",
+  "rang": 853
+ },
+ {
+  "fremdsprache": "alabar",
+  "deutsch": "loben",
+  "beispiel": "Todos alabaron su trabajo.",
+  "rang": 854
+ },
+ {
+  "fremdsprache": "descifrar",
+  "deutsch": "entziffern",
+  "beispiel": "No puedo descifrar su letra.",
+  "rang": 855
+ },
+ {
+  "fremdsprache": "la cerradura",
+  "deutsch": "das Schloss (Tür)",
+  "beispiel": "Cambiamos la cerradura.",
+  "rang": 856
+ },
+ {
+  "fremdsprache": "conmover",
+  "deutsch": "rühren, bewegen",
+  "beispiel": "Su historia me conmovió.",
+  "rang": 857
+ },
+ {
+  "fremdsprache": "la candidatura",
+  "deutsch": "die Kandidatur, die Bewerbung",
+  "beispiel": "Presentó su candidatura.",
+  "rang": 858
+ },
+ {
+  "fremdsprache": "el puñado",
+  "deutsch": "die Handvoll",
+  "beispiel": "Un puñado de arroz.",
+  "rang": 859
+ },
+ {
+  "fremdsprache": "ahorcar",
+  "deutsch": "erhängen",
+  "beispiel": "Lo ahorcaron en la plaza en 1650.",
+  "rang": 860
+ },
+ {
+  "fremdsprache": "la contradicción",
+  "deutsch": "der Widerspruch",
+  "beispiel": "Hay una contradicción en sus palabras.",
+  "rang": 861
+ },
+ {
+  "fremdsprache": "el fugitivo / la fugitiva",
+  "deutsch": "der Flüchtige",
+  "beispiel": "Buscan al fugitivo.",
+  "rang": 862
+ },
+ {
+  "fremdsprache": "la contribución",
+  "deutsch": "der Beitrag",
+  "beispiel": "Gracias por tu contribución.",
+  "rang": 863
+ },
+ {
+  "fremdsprache": "sereno/a",
+  "deutsch": "ruhig, gelassen",
+  "beispiel": "Se mantuvo sereno.",
+  "rang": 864
+ },
+ {
+  "fremdsprache": "la ofensiva",
+  "deutsch": "die Offensive",
+  "beispiel": "Lanzaron una ofensiva comercial.",
+  "rang": 865
+ },
+ {
+  "fremdsprache": "dominante",
+  "deutsch": "dominant, vorherrschend",
+  "beispiel": "Es la opinión dominante.",
+  "rang": 866
+ },
+ {
+  "fremdsprache": "el gatillo",
+  "deutsch": "der Abzug (Waffe)",
+  "beispiel": "Apretó el gatillo.",
+  "rang": 867
+ },
+ {
+  "fremdsprache": "la decena",
+  "deutsch": "etwa zehn",
+  "beispiel": "Una decena de personas esperaban.",
+  "rang": 868
+ },
+ {
+  "fremdsprache": "el altar",
+  "deutsch": "der Altar",
+  "beispiel": "Se casaron frente al altar.",
+  "rang": 869
+ },
+ {
+  "fremdsprache": "la salvación",
+  "deutsch": "die Rettung",
+  "beispiel": "Fue mi salvación.",
+  "rang": 870
+ },
+ {
+  "fremdsprache": "arrebatar",
+  "deutsch": "entreißen",
+  "beispiel": "Le arrebataron el bolso.",
+  "rang": 871
+ },
+ {
+  "fremdsprache": "ardiente",
+  "deutsch": "brennend, glühend",
+  "beispiel": "Un deseo ardiente.",
+  "rang": 872
+ },
+ {
+  "fremdsprache": "maldecir",
+  "deutsch": "verfluchen",
+  "beispiel": "Maldijo su mala suerte.",
+  "rang": 873
+ },
+ {
+  "fremdsprache": "repentino/a",
+  "deutsch": "plötzlich",
+  "beispiel": "Un cambio repentino de tiempo.",
+  "rang": 874
+ },
+ {
+  "fremdsprache": "liquidar",
+  "deutsch": "abwickeln, ausverkaufen; begleichen",
+  "beispiel": "Liquidaron todo el stock.",
+  "rang": 875
+ },
+ {
+  "fremdsprache": "el guerrero / la guerrera",
+  "deutsch": "der Krieger",
+  "beispiel": "Es un guerrero.",
+  "rang": 876
+ },
+ {
+  "fremdsprache": "el tejado",
+  "deutsch": "das Dach",
+  "beispiel": "Hay un gato en el tejado.",
+  "rang": 877
+ },
+ {
+  "fremdsprache": "el bando",
+  "deutsch": "die Seite, die Partei; der Erlass",
+  "beispiel": "¿De qué bando estás?",
+  "rang": 878
+ },
+ {
+  "fremdsprache": "el jinete",
+  "deutsch": "der Reiter",
+  "beispiel": "El jinete cayó del caballo.",
+  "rang": 879
+ },
+ {
+  "fremdsprache": "el mozo / la moza",
+  "deutsch": "der Bursche; der Gehilfe",
+  "beispiel": "Mozo de almacén.",
+  "rang": 880
+ },
+ {
+  "fremdsprache": "la normalidad",
+  "deutsch": "die Normalität",
+  "beispiel": "Volvimos a la normalidad.",
+  "rang": 881
+ },
+ {
+  "fremdsprache": "el convento",
+  "deutsch": "das Kloster",
+  "beispiel": "Las monjas del convento hacen dulces.",
+  "rang": 882
+ },
+ {
+  "fremdsprache": "moderado/a",
+  "deutsch": "gemäßigt, mäßig",
+  "beispiel": "Precios moderados.",
+  "rang": 883
+ },
+ {
+  "fremdsprache": "el artefacto",
+  "deutsch": "der Sprengsatz; das Gerät",
+  "beispiel": "Explotó un artefacto.",
+  "rang": 884
+ },
+ {
+  "fremdsprache": "imaginario/a",
+  "deutsch": "eingebildet, imaginär",
+  "beispiel": "Un amigo imaginario.",
+  "rang": 885
+ },
+ {
+  "fremdsprache": "la financiación",
+  "deutsch": "die Finanzierung",
+  "beispiel": "Buscamos financiación para el proyecto.",
+  "rang": 886
+ },
+ {
+  "fremdsprache": "el rencor",
+  "deutsch": "der Groll",
+  "beispiel": "No le guardo rencor.",
+  "rang": 887
+ },
+ {
+  "fremdsprache": "el exilio",
+  "deutsch": "das Exil",
+  "beispiel": "Vivió en el exilio en México.",
+  "rang": 888
+ },
+ {
+  "fremdsprache": "el fundamento",
+  "deutsch": "die Grundlage",
+  "beispiel": "Sin fundamento.",
+  "rang": 889
+ },
+ {
+  "fremdsprache": "la capilla",
+  "deutsch": "die Kapelle",
+  "beispiel": "Una pequeña capilla en la montaña.",
+  "rang": 890
+ },
+ {
+  "fremdsprache": "la mención",
+  "deutsch": "die Erwähnung",
+  "beispiel": "Hizo mención de tu trabajo.",
+  "rang": 891
+ },
+ {
+  "fremdsprache": "la ampliación",
+  "deutsch": "die Erweiterung",
+  "beispiel": "La ampliación de la planta empieza en 2027.",
+  "rang": 892
+ },
+ {
+  "fremdsprache": "imperial",
+  "deutsch": "kaiserlich",
+  "beispiel": "La Viena imperial.",
+  "rang": 893
+ },
+ {
+  "fremdsprache": "autonómico/a",
+  "deutsch": "der autonomen Region",
+  "beispiel": "Las elecciones autonómicas.",
+  "rang": 894
+ },
+ {
+  "fremdsprache": "el espectro",
+  "deutsch": "das Spektrum; das Gespenst",
+  "beispiel": "Un amplio espectro de clientes.",
+  "rang": 895
+ },
+ {
+  "fremdsprache": "almacenar",
+  "deutsch": "lagern, speichern",
+  "beispiel": "Almacenamos las piezas en el almacén B.",
+  "rang": 896
+ },
+ {
+  "fremdsprache": "el psicólogo / la psicóloga",
+  "deutsch": "der Psychologe",
+  "beispiel": "Va al psicólogo.",
+  "rang": 897
+ },
+ {
+  "fremdsprache": "debilitar",
+  "deutsch": "schwächen",
+  "beispiel": "La crisis debilitó la economía.",
+  "rang": 898
+ },
+ {
+  "fremdsprache": "el cretino / la cretina",
+  "deutsch": "der Trottel",
+  "beispiel": "¡Qué cretino!",
+  "rang": 899
+ },
+ {
+  "fremdsprache": "generalizar",
+  "deutsch": "verallgemeinern",
+  "beispiel": "No hay que generalizar.",
+  "rang": 900
+ },
+ {
+  "fremdsprache": "presenciar",
+  "deutsch": "miterleben, Zeuge sein",
+  "beispiel": "Presencié el accidente.",
+  "rang": 901
+ },
+ {
+  "fremdsprache": "calibrar",
+  "deutsch": "kalibrieren",
+  "beispiel": "Hay que calibrar los instrumentos de medición.",
+  "rang": 902
+ },
+ {
+  "fremdsprache": "la melodía",
+  "deutsch": "die Melodie",
+  "beispiel": "Una melodía pegadiza.",
+  "rang": 903
+ },
+ {
+  "fremdsprache": "la contaminación",
+  "deutsch": "die Verschmutzung",
+  "beispiel": "La contaminación del aire en las ciudades.",
+  "rang": 904
+ },
+ {
+  "fremdsprache": "la burla",
+  "deutsch": "der Spott",
+  "beispiel": "Fue objeto de burlas.",
+  "rang": 905
+ },
+ {
+  "fremdsprache": "voltear",
+  "deutsch": "umdrehen",
+  "beispiel": "Voltea la tortilla con un plato.",
+  "rang": 906
+ },
+ {
+  "fremdsprache": "la estética",
+  "deutsch": "die Ästhetik",
+  "beispiel": "Cuida mucho la estética.",
+  "rang": 907
+ },
+ {
+  "fremdsprache": "la cría",
+  "deutsch": "das Junge (Tier); die Zucht",
+  "beispiel": "La gata tuvo crías.",
+  "rang": 908
+ },
+ {
+  "fremdsprache": "la desesperación",
+  "deutsch": "die Verzweiflung",
+  "beispiel": "Lloraba de desesperación.",
+  "rang": 909
+ },
+ {
+  "fremdsprache": "confidencial",
+  "deutsch": "vertraulich",
+  "beispiel": "Este documento es confidencial.",
+  "rang": 910
+ },
+ {
+  "fremdsprache": "desvanecerse",
+  "deutsch": "verschwinden; ohnmächtig werden",
+  "beispiel": "Sus esperanzas se desvanecieron.",
+  "rang": 911
+ },
+ {
+  "fremdsprache": "defensivo/a",
+  "deutsch": "defensiv",
+  "beispiel": "Se puso a la defensiva.",
+  "rang": 912
+ },
+ {
+  "fremdsprache": "el respiro",
+  "deutsch": "die Atempause",
+  "beispiel": "Necesito un respiro.",
+  "rang": 913
+ },
+ {
+  "fremdsprache": "la descarga",
+  "deutsch": "die Entladung; der Download; der Stromschlag",
+  "beispiel": "Me dio una descarga eléctrica.",
+  "rang": 914
+ },
+ {
+  "fremdsprache": "los modales",
+  "deutsch": "die Manieren",
+  "beispiel": "¡Qué malos modales!",
+  "rang": 915
+ },
+ {
+  "fremdsprache": "el infinito",
+  "deutsch": "die Unendlichkeit",
+  "beispiel": "Hasta el infinito y más allá.",
+  "rang": 916
+ },
+ {
+  "fremdsprache": "la restricción",
+  "deutsch": "die Beschränkung",
+  "beispiel": "Hay restricciones de agua.",
+  "rang": 917
+ },
+ {
+  "fremdsprache": "ocasionar",
+  "deutsch": "verursachen",
+  "beispiel": "El temporal ocasionó daños.",
+  "rang": 918
+ },
+ {
+  "fremdsprache": "la porción",
+  "deutsch": "die Portion, der Anteil",
+  "beispiel": "Una porción de tarta.",
+  "rang": 919
+ },
+ {
+  "fremdsprache": "la convocatoria",
+  "deutsch": "die Ausschreibung; die Einberufung",
+  "beispiel": "Publicaron la convocatoria de empleo.",
+  "rang": 920
+ },
+ {
+  "fremdsprache": "sobrepasar",
+  "deutsch": "überschreiten",
+  "beispiel": "No sobrepase la velocidad máxima.",
+  "rang": 921
+ },
+ {
+  "fremdsprache": "irrumpir",
+  "deutsch": "hereinplatzen",
+  "beispiel": "Irrumpió en la sala sin llamar.",
+  "rang": 922
+ },
+ {
+  "fremdsprache": "el panel",
+  "deutsch": "die Tafel, das Panel",
+  "beispiel": "Panel solar.",
+  "rang": 923
+ },
+ {
+  "fremdsprache": "la trama",
+  "deutsch": "die Handlung (Film)",
+  "beispiel": "La trama de la novela es complicada.",
+  "rang": 924
+ },
+ {
+  "fremdsprache": "teatral",
+  "deutsch": "Theater-; theatralisch",
+  "beispiel": "Es muy teatral cuando habla.",
+  "rang": 925
+ },
+ {
+  "fremdsprache": "el filósofo / la filósofa",
+  "deutsch": "der Philosoph",
+  "beispiel": "Un filósofo griego.",
+  "rang": 926
+ },
+ {
+  "fremdsprache": "resaltar",
+  "deutsch": "hervorheben",
+  "beispiel": "Quiero resaltar dos puntos.",
+  "rang": 927
+ },
+ {
+  "fremdsprache": "glorioso/a",
+  "deutsch": "glorreich",
+  "beispiel": "Fue un día glorioso.",
+  "rang": 928
+ },
+ {
+  "fremdsprache": "la planificación",
+  "deutsch": "die Planung",
+  "beispiel": "La planificación de la producción es mi tarea.",
+  "rang": 929
+ },
+ {
+  "fremdsprache": "chiflado/a",
+  "deutsch": "verrückt",
+  "beispiel": "Está chiflado por el fútbol.",
+  "rang": 930
+ },
+ {
+  "fremdsprache": "el aislamiento",
+  "deutsch": "die Isolierung; die Isolation",
+  "beispiel": "El aislamiento térmico de la casa.",
+  "rang": 931
+ },
+ {
+  "fremdsprache": "lamentable",
+  "deutsch": "bedauerlich, erbärmlich",
+  "beispiel": "Es lamentable.",
+  "rang": 932
+ },
+ {
+  "fremdsprache": "la coordinación",
+  "deutsch": "die Koordination",
+  "beispiel": "Falta coordinación entre los departamentos.",
+  "rang": 933
+ },
+ {
+  "fremdsprache": "la vocación",
+  "deutsch": "die Berufung",
+  "beispiel": "Es médico por vocación.",
+  "rang": 934
+ },
+ {
+  "fremdsprache": "acertar",
+  "deutsch": "richtig liegen, treffen",
+  "beispiel": "Acertaste con el regalo.",
+  "rang": 935
+ },
+ {
+  "fremdsprache": "siniestro/a",
+  "deutsch": "unheimlich; der Schadensfall",
+  "beispiel": "Declaramos el siniestro al seguro.",
+  "rang": 936
+ },
+ {
+  "fremdsprache": "yacer",
+  "deutsch": "liegen (begraben)",
+  "beispiel": "Aquí yace…",
+  "rang": 937
+ },
+ {
+  "fremdsprache": "indispensable",
+  "deutsch": "unentbehrlich",
+  "beispiel": "Es indispensable tu firma.",
+  "rang": 938
+ },
+ {
+  "fremdsprache": "la linterna",
+  "deutsch": "die Taschenlampe",
+  "beispiel": "Trae una linterna.",
+  "rang": 939
+ },
+ {
+  "fremdsprache": "la distracción",
+  "deutsch": "die Ablenkung",
+  "beispiel": "Un momento de distracción.",
+  "rang": 940
+ },
+ {
+  "fremdsprache": "la adopción",
+  "deutsch": "die Adoption; die Übernahme",
+  "beispiel": "La adopción de nuevas tecnologías.",
+  "rang": 941
+ },
+ {
+  "fremdsprache": "la adaptación",
+  "deutsch": "die Anpassung",
+  "beispiel": "La adaptación al nuevo puesto.",
+  "rang": 942
+ },
+ {
+  "fremdsprache": "la rapidez",
+  "deutsch": "die Schnelligkeit",
+  "beispiel": "Gracias por la rapidez.",
+  "rang": 943
+ },
+ {
+  "fremdsprache": "la reparación",
+  "deutsch": "die Reparatur",
+  "beispiel": "La reparación tarda una semana.",
+  "rang": 944
+ },
+ {
+  "fremdsprache": "encarcelar",
+  "deutsch": "einsperren",
+  "beispiel": "Lo encarcelaron por fraude.",
+  "rang": 945
+ },
+ {
+  "fremdsprache": "inducir",
+  "deutsch": "verleiten, herbeiführen",
+  "beispiel": "Indujo a error al cliente.",
+  "rang": 946
+ },
+ {
+  "fremdsprache": "vigente",
+  "deutsch": "geltend, gültig",
+  "beispiel": "La normativa vigente.",
+  "rang": 947
+ },
+ {
+  "fremdsprache": "oral",
+  "deutsch": "mündlich",
+  "beispiel": "Examen oral.",
+  "rang": 948
+ },
+ {
+  "fremdsprache": "la proposición",
+  "deutsch": "der Vorschlag, das Angebot",
+  "beispiel": "Me hizo una proposición.",
+  "rang": 949
+ },
+ {
+  "fremdsprache": "la donación",
+  "deutsch": "die Spende",
+  "beispiel": "Hizo una donación.",
+  "rang": 950
+ },
+ {
+  "fremdsprache": "atrevido/a",
+  "deutsch": "mutig, gewagt",
+  "beispiel": "Es una propuesta atrevida.",
+  "rang": 951
+ },
+ {
+  "fremdsprache": "atormentar",
+  "deutsch": "quälen",
+  "beispiel": "Le atormenta su pasado.",
+  "rang": 952
+ },
+ {
+  "fremdsprache": "el/la corresponsal",
+  "deutsch": "der Korrespondent",
+  "beispiel": "Es corresponsal en Berlín.",
+  "rang": 953
+ },
+ {
+  "fremdsprache": "las coordenadas",
+  "deutsch": "die Koordinaten",
+  "beispiel": "Mándame las coordenadas.",
+  "rang": 954
+ },
+ {
+  "fremdsprache": "el golfo",
+  "deutsch": "der Golf; der Gauner",
+  "beispiel": "El golfo de Vizcaya.",
+  "rang": 955
+ },
+ {
+  "fremdsprache": "el crío / la cría",
+  "deutsch": "das Kind (ugs.)",
+  "beispiel": "Los críos están jugando.",
+  "rang": 956
+ },
+ {
+  "fremdsprache": "territorial",
+  "deutsch": "territorial",
+  "beispiel": "Disputa territorial.",
+  "rang": 957
+ },
+ {
+  "fremdsprache": "el rigor",
+  "deutsch": "die Strenge, die Genauigkeit",
+  "beispiel": "Con rigor científico.",
+  "rang": 958
+ },
+ {
+  "fremdsprache": "la armonía",
+  "deutsch": "die Harmonie",
+  "beispiel": "Viven en armonía.",
+  "rang": 959
+ },
+ {
+  "fremdsprache": "revivir",
+  "deutsch": "wiederbeleben; noch einmal erleben",
+  "beispiel": "Revivimos viejos tiempos.",
+  "rang": 960
+ },
+ {
+  "fremdsprache": "la plaga",
+  "deutsch": "die Plage",
+  "beispiel": "Una plaga de mosquitos.",
+  "rang": 961
+ },
+ {
+  "fremdsprache": "naval",
+  "deutsch": "Marine-, Schiffs-",
+  "beispiel": "Industria naval.",
+  "rang": 962
+ },
+ {
+  "fremdsprache": "potente",
+  "deutsch": "leistungsstark",
+  "beispiel": "Un motor muy potente.",
+  "rang": 963
+ },
+ {
+  "fremdsprache": "alegar",
+  "deutsch": "anführen, geltend machen",
+  "beispiel": "Alegó problemas personales.",
+  "rang": 964
+ },
+ {
+  "fremdsprache": "consolar",
+  "deutsch": "trösten",
+  "beispiel": "Intenté consolarla.",
+  "rang": 965
+ },
+ {
+  "fremdsprache": "florecer",
+  "deutsch": "blühen",
+  "beispiel": "Los almendros florecen en febrero.",
+  "rang": 966
+ },
+ {
+  "fremdsprache": "el aroma",
+  "deutsch": "das Aroma, der Duft",
+  "beispiel": "Aroma a café.",
+  "rang": 967
+ },
+ {
+  "fremdsprache": "hostil",
+  "deutsch": "feindselig",
+  "beispiel": "Un ambiente hostil.",
+  "rang": 968
+ },
+ {
+  "fremdsprache": "el acta",
+  "deutsch": "das Protokoll",
+  "beispiel": "Levanta acta de la reunión.",
+  "rang": 969
+ },
+ {
+  "fremdsprache": "la laguna",
+  "deutsch": "die Lagune; die Lücke",
+  "beispiel": "Tengo lagunas en gramática.",
+  "rang": 970
+ },
+ {
+  "fremdsprache": "resucitar",
+  "deutsch": "wiederauferstehen",
+  "beispiel": "Jesús resucitó.",
+  "rang": 971
+ },
+ {
+  "fremdsprache": "el disfrute",
+  "deutsch": "der Genuss",
+  "beispiel": "Para el disfrute de todos.",
+  "rang": 972
+ },
+ {
+  "fremdsprache": "la caña",
+  "deutsch": "das kleine Bier; das Rohr; die Angel",
+  "beispiel": "¿Tomamos una caña?",
+  "rang": 973
+ },
+ {
+  "fremdsprache": "el alba",
+  "deutsch": "die Morgendämmerung",
+  "beispiel": "Nos levantamos al alba.",
+  "rang": 974
+ },
+ {
+  "fremdsprache": "restar",
+  "deutsch": "abziehen, subtrahieren",
+  "beispiel": "Resta 5 de 10.",
+  "rang": 975
+ },
+ {
+  "fremdsprache": "la propaganda",
+  "deutsch": "die Propaganda; die Werbung",
+  "beispiel": "Propaganda electoral.",
+  "rang": 976
+ },
+ {
+  "fremdsprache": "protagonizar",
+  "deutsch": "die Hauptrolle spielen",
+  "beispiel": "Protagonizó la película.",
+  "rang": 977
+ },
+ {
+  "fremdsprache": "redactar",
+  "deutsch": "verfassen",
+  "beispiel": "Redacta un correo al cliente.",
+  "rang": 978
+ },
+ {
+  "fremdsprache": "posar",
+  "deutsch": "posieren",
+  "beispiel": "Posó para la foto.",
+  "rang": 979
+ },
+ {
+  "fremdsprache": "el recorte",
+  "deutsch": "die Kürzung; der Ausschnitt",
+  "beispiel": "Recortes en sanidad.",
+  "rang": 980
+ },
+ {
+  "fremdsprache": "propiciar",
+  "deutsch": "begünstigen",
+  "beispiel": "Esto propicia el diálogo.",
+  "rang": 981
+ },
+ {
+  "fremdsprache": "desnudarse",
+  "deutsch": "sich ausziehen",
+  "beispiel": "Se desnudó en el vestuario.",
+  "rang": 982
+ },
+ {
+  "fremdsprache": "honorable",
+  "deutsch": "ehrenwert",
+  "beispiel": "Un hombre honorable.",
+  "rang": 983
+ },
+ {
+  "fremdsprache": "callejero/a",
+  "deutsch": "Straßen-",
+  "beispiel": "Un perro callejero.",
+  "rang": 984
+ },
+ {
+  "fremdsprache": "la maldad",
+  "deutsch": "die Bosheit",
+  "beispiel": "Lo hizo sin maldad.",
+  "rang": 985
+ },
+ {
+  "fremdsprache": "experimental",
+  "deutsch": "experimentell",
+  "beispiel": "Fase experimental.",
+  "rang": 986
+ },
+ {
+  "fremdsprache": "petrolero/a",
+  "deutsch": "Erdöl-; der Öltanker",
+  "beispiel": "Industria petrolera.",
+  "rang": 987
+ },
+ {
+  "fremdsprache": "peculiar",
+  "deutsch": "eigenartig",
+  "beispiel": "Tiene un humor peculiar.",
+  "rang": 988
+ },
+ {
+  "fremdsprache": "el/la acompañante",
+  "deutsch": "die Begleitperson",
+  "beispiel": "Puede venir con un acompañante.",
+  "rang": 989
+ },
+ {
+  "fremdsprache": "la velada",
+  "deutsch": "der Abend (Veranstaltung)",
+  "beispiel": "Fue una velada agradable.",
+  "rang": 990
+ },
+ {
+  "fremdsprache": "la élite",
+  "deutsch": "die Elite",
+  "beispiel": "Deportistas de élite.",
+  "rang": 991
+ },
+ {
+  "fremdsprache": "el sensor",
+  "deutsch": "der Sensor",
+  "beispiel": "El sensor de presión falla.",
+  "rang": 992
+ },
+ {
+  "fremdsprache": "tentar",
+  "deutsch": "verlocken",
+  "beispiel": "Me tienta la idea.",
+  "rang": 993
+ },
+ {
+  "fremdsprache": "la medicación",
+  "deutsch": "die Medikation",
+  "beispiel": "Toma medicación para la tensión.",
+  "rang": 994
+ },
+ {
+  "fremdsprache": "el sustituto / la sustituta",
+  "deutsch": "der Vertreter, der Ersatz",
+  "beispiel": "Viene un sustituto del profesor.",
+  "rang": 995
+ },
+ {
+  "fremdsprache": "la continuidad",
+  "deutsch": "die Kontinuität",
+  "beispiel": "Hay que garantizar la continuidad.",
+  "rang": 996
+ },
+ {
+  "fremdsprache": "resbalar",
+  "deutsch": "ausrutschen",
+  "beispiel": "Resbalé en el hielo.",
+  "rang": 997
+ },
+ {
+  "fremdsprache": "dotado/a de",
+  "deutsch": "ausgestattet mit",
+  "beispiel": "Dotado de la última tecnología.",
+  "rang": 998
+ },
+ {
+  "fremdsprache": "por consiguiente",
+  "deutsch": "folglich",
+  "beispiel": "Por consiguiente, aplazamos la reunión.",
+  "rang": 999
+ },
+ {
+  "fremdsprache": "el/la terapeuta",
+  "deutsch": "der Therapeut",
+  "beispiel": "Mi terapeuta me ayuda mucho.",
+  "rang": 1000
+ },
+ {
+  "fremdsprache": "insoportable",
+  "deutsch": "unerträglich",
+  "beispiel": "El calor es insoportable.",
+  "rang": 1001
+ },
+ {
+  "fremdsprache": "la patente",
+  "deutsch": "das Patent",
+  "beispiel": "Bosch tiene muchas patentes.",
+  "rang": 1002
+ },
+ {
+  "fremdsprache": "la sanidad",
+  "deutsch": "das Gesundheitswesen",
+  "beispiel": "La sanidad pública.",
+  "rang": 1003
+ },
+ {
+  "fremdsprache": "el veredicto",
+  "deutsch": "das Urteil",
+  "beispiel": "El jurado dio su veredicto.",
+  "rang": 1004
+ },
+ {
+  "fremdsprache": "argumentar",
+  "deutsch": "argumentieren",
+  "beispiel": "Argumentó bien su postura.",
+  "rang": 1005
+ },
+ {
+  "fremdsprache": "la doctrina",
+  "deutsch": "die Lehre, die Doktrin",
+  "beispiel": "Doctrina católica.",
+  "rang": 1006
+ },
+ {
+  "fremdsprache": "el/la militante",
+  "deutsch": "das Parteimitglied, der Aktivist",
+  "beispiel": "Es militante del partido.",
+  "rang": 1007
+ },
+ {
+  "fremdsprache": "la eliminación",
+  "deutsch": "die Beseitigung",
+  "beispiel": "Eliminación de residuos.",
+  "rang": 1008
+ },
+ {
+  "fremdsprache": "el hacha",
+  "deutsch": "die Axt",
+  "beispiel": "Corta leña con un hacha.",
+  "rang": 1009
+ },
+ {
+  "fremdsprache": "la integridad",
+  "deutsch": "die Integrität, die Unversehrtheit",
+  "beispiel": "La integridad de los datos.",
+  "rang": 1010
+ },
+ {
+  "fremdsprache": "el cobre",
+  "deutsch": "das Kupfer",
+  "beispiel": "Cables de cobre.",
+  "rang": 1011
+ },
+ {
+  "fremdsprache": "el tramo",
+  "deutsch": "der Abschnitt",
+  "beispiel": "Un tramo de la autopista está cortado.",
+  "rang": 1012
+ },
+ {
+  "fremdsprache": "aparente",
+  "deutsch": "scheinbar",
+  "beispiel": "Sin motivo aparente.",
+  "rang": 1013
+ },
+ {
+  "fremdsprache": "el referente",
+  "deutsch": "das Vorbild, der Maßstab",
+  "beispiel": "Es un referente en el sector.",
+  "rang": 1014
+ },
+ {
+  "fremdsprache": "inmortal",
+  "deutsch": "unsterblich",
+  "beispiel": "Nadie es inmortal.",
+  "rang": 1015
+ },
+ {
+  "fremdsprache": "la injusticia",
+  "deutsch": "die Ungerechtigkeit",
+  "beispiel": "¡Es una injusticia!",
+  "rang": 1016
+ },
+ {
+  "fremdsprache": "la magnitud",
+  "deutsch": "das Ausmaß",
+  "beispiel": "La magnitud del problema.",
+  "rang": 1017
+ },
+ {
+  "fremdsprache": "el recinto",
+  "deutsch": "das Gelände",
+  "beispiel": "El recinto ferial.",
+  "rang": 1018
+ },
+ {
+  "fremdsprache": "integral",
+  "deutsch": "ganzheitlich; Vollkorn-",
+  "beispiel": "Pan integral.",
+  "rang": 1019
+ },
+ {
+  "fremdsprache": "la exhibición",
+  "deutsch": "die Ausstellung, die Vorführung",
+  "beispiel": "Una exhibición de coches antiguos.",
+  "rang": 1020
+ },
+ {
+  "fremdsprache": "el agradecimiento",
+  "deutsch": "der Dank",
+  "beispiel": "Mi agradecimiento a todos.",
+  "rang": 1021
+ },
+ {
+  "fremdsprache": "la garra",
+  "deutsch": "die Kralle; der Biss (Einsatz)",
+  "beispiel": "Juega con garra.",
+  "rang": 1022
+ },
+ {
+  "fremdsprache": "lamentablemente",
+  "deutsch": "bedauerlicherweise",
+  "beispiel": "Lamentablemente, no podemos ayudarle.",
+  "rang": 1023
+ },
+ {
+  "fremdsprache": "fugarse",
+  "deutsch": "fliehen, ausbrechen",
+  "beispiel": "Se fugó de la cárcel.",
+  "rang": 1024
+ },
+ {
+  "fremdsprache": "toparse con",
+  "deutsch": "stoßen auf",
+  "beispiel": "Me topé con mi jefe en el súper.",
+  "rang": 1025
+ },
+ {
+  "fremdsprache": "la regulación",
+  "deutsch": "die Regelung, die Regulierung",
+  "beispiel": "La regulación de la UE.",
+  "rang": 1026
+ },
+ {
+  "fremdsprache": "la decepción",
+  "deutsch": "die Enttäuschung",
+  "beispiel": "Fue una decepción.",
+  "rang": 1027
+ },
+ {
+  "fremdsprache": "cabalgar",
+  "deutsch": "reiten",
+  "beispiel": "Cabalgaron por la playa.",
+  "rang": 1028
+ },
+ {
+  "fremdsprache": "progresar",
+  "deutsch": "Fortschritte machen",
+  "beispiel": "Estás progresando mucho en español.",
+  "rang": 1029
+ },
+ {
+  "fremdsprache": "la bacteria",
+  "deutsch": "das Bakterium",
+  "beispiel": "Las bacterias del yogur.",
+  "rang": 1030
+ },
+ {
+  "fremdsprache": "reclutar",
+  "deutsch": "anwerben",
+  "beispiel": "Reclutan ingenieros.",
+  "rang": 1031
+ }
+]
