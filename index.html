@@ -51794,7 +51794,27 @@
 
 
             // --- KORREKTE UND FUNKTIONIERENDE LOGIK FÜR LIGHT-MODE ---
-            document.getElementById('closeLightModeBtn').addEventListener('click', toggleLightMode);
+            // Wischgeste nach links oder rechts schließt die Kompaktansicht (ersetzt den >-Button)
+            (function () {
+                const box = document.getElementById('vocab-container-light');
+                let startX = null, startY = null, startT = 0;
+                const start = (x, y) => { startX = x; startY = y; startT = Date.now(); };
+                const end = (x, y) => {
+                    if (startX === null) return;
+                    const dx = x - startX, dy = y - startY, dt = Date.now() - startT;
+                    startX = null;
+                    // mind. 60 px waagerecht, deutlich mehr waagerecht als senkrecht, innerhalb 800 ms
+                    if (Math.abs(dx) >= 60 && Math.abs(dx) > 1.5 * Math.abs(dy) && dt < 800) {
+                        if (document.getElementById('lightModeOverlay').style.display === 'flex') toggleLightMode();
+                    }
+                };
+                box.addEventListener('touchstart', e => { const t = e.changedTouches[0]; start(t.clientX, t.clientY); }, { passive: true });
+                box.addEventListener('touchend', e => { const t = e.changedTouches[0]; end(t.clientX, t.clientY); }, { passive: true });
+                box.addEventListener('touchcancel', () => { startX = null; }, { passive: true });
+                // Maus (PC): mit gedrückter Maustaste seitlich ziehen
+                box.addEventListener('mousedown', e => start(e.clientX, e.clientY));
+                box.addEventListener('mouseup', e => end(e.clientX, e.clientY));
+            })();
 
             document.getElementById('next-btn-light').addEventListener('click', () => {
                 loadNewVokabel();
@@ -53005,13 +53025,12 @@
         #vokabelpool-body input{width:100%;box-sizing:border-box;padding:10px;margin:0 0 8px;border-radius:6px;border:1px solid #555;background:#1f1f1f;color:#fff;font-size:1em}
         #vokabelpool-body textarea{width:100%;height:220px;box-sizing:border-box;background:#1f1f1f;color:#ddd;border:1px solid #555;border-radius:6px;font-family:monospace;font-size:.75em;margin-bottom:10px}
         .beispiel-light{font-size:.8em;color:#bdbdbd;font-style:italic;margin-top:6px}
-        /* 📚 oben rechts, links neben dem Schließen-Button */
-        #vocab-container-light #vokabelpool-btn-light{position:absolute;top:10px;right:56px;height:34px;padding:0 10px}
-        /* Modus-Buttons kompakt, dafür < L > größer */
-        #vocab-container-light .buttons-min button{padding-left:8px;padding-right:8px}
-        #vocab-container-light .buttons-min #prev-btn-light,
-        #vocab-container-light .buttons-min #solution-btn-light,
-        #vocab-container-light .buttons-min #next-btn-light{padding:9px 13px;font-size:1.15em;font-weight:bold}
+        /* 📚 oben rechts in der Ecke */
+        #vocab-container-light #vokabelpool-btn-light{position:absolute;top:10px;right:10px;width:38px;height:38px;padding:0;display:flex;align-items:center;justify-content:center}
+        /* alle Buttons der unteren Leiste quadratisch und gleich groß */
+        #vocab-container-light .buttons-min button{width:38px;height:38px;padding:0;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        #vocab-container-light .buttons-min .nav-btn,
+        #vocab-container-light .buttons-min #solution-btn-light{font-size:1.1em;font-weight:bold}
     </style>
 </head>
 
@@ -53184,9 +53203,8 @@
         
         <div id="vocab-container-light">
             <button id="vokabelpool-btn-light" title="Vokabelpool: 20 neue Vokabeln pro Woche" onclick="openVokabelpool()">📚</button>
-            <button id="closeLightModeBtn" style="height: 34px;">&gt;</button>
             <div>
-                <p id="prompt-word-light" style="padding-right: 90px;"></p>
+                <p id="prompt-word-light" style="padding-right: 50px;"></p>
                 <p id="solution-word-light"></p>
             </div>
             <div class="buttons-min">
