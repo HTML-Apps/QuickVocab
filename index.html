@@ -50804,18 +50804,32 @@
             return (vokabellisten[POOL_SPRACHE] || []).find(l => l.name === POOL_LISTE);
         }
 
+        function poolHendrikAktiv() {
+            const sel = document.getElementById('listeAuswahl');
+            const opt = sel && sel.options[sel.selectedIndex];
+            return document.getElementById('sprache').value === POOL_SPRACHE && opt && opt.text.startsWith(POOL_LISTE);
+        }
+
+        // Übernommene Pool-Vokabeln stehen immer am Anfang von "Wortschatz Hendrik"
+        // (in Übernahme-Reihenfolge), damit sie in der Auflistung (📋) zuerst kommen.
         function poolInHendrikListe(vok) {
             const liste = getHendrikListe();
             if (!liste) return;
             if (liste.vokabeln.some(v => v.fremdsprache === vok.fremdsprache)) return;
-            liste.vokabeln.push({ fremdsprache: vok.fremdsprache, deutsch: vok.deutsch, beispiel: vok.beispiel || '', _pool: true });
+            let pos = 0;
+            while (pos < liste.vokabeln.length && liste.vokabeln[pos]._pool) pos++;
+            liste.vokabeln.splice(pos, 0, { fremdsprache: vok.fremdsprache, deutsch: vok.deutsch, beispiel: vok.beispiel || '', _pool: true });
+            // laufende Auflistung nicht verschieben
+            if (poolHendrikAktiv() && !isRandomMode && currentIndex >= pos) currentIndex++;
         }
 
         // Beim Start: übernommene Pool-Vokabeln an "Wortschatz Hendrik" anhängen
         async function ladeAktivePoolVokabeln() {
             try {
                 const snap = await firestoreDB.collection(POOL_COLL).where('status', '==', 'aktiv').get();
-                const docs = snap.docs.map(d => d.data()).sort((a, b) => (a.rang || 0) - (b.rang || 0));
+                const ms = t => (t && t.toMillis) ? t.toMillis() : 0;
+                const docs = snap.docs.map(d => d.data())
+                    .sort((a, b) => (ms(a.uebernommenAm) - ms(b.uebernommenAm)) || ((a.rang || 0) - (b.rang || 0)));
                 docs.forEach(poolInHendrikListe);
                 console.log('[Pool] ' + docs.length + ' aktive Pool-Vokabeln geprüft/angehängt');
             } catch (e) {
@@ -50990,7 +51004,10 @@
                     const liste = getHendrikListe();
                     if (liste) {
                         const i = liste.vokabeln.findIndex(x => x._pool && x.fremdsprache === vok.fremdsprache);
-                        if (i >= 0) liste.vokabeln.splice(i, 1);
+                        if (i >= 0) {
+                            liste.vokabeln.splice(i, 1);
+                            if (poolHendrikAktiv() && !isRandomMode && currentIndex >= i) currentIndex--;
+                        }
                     }
                     poolMeta.rundeAnzahl = Math.max(0, poolMeta.rundeAnzahl - 1);
                     await POOL_META_REF().set({ rundeAnzahl: poolMeta.rundeAnzahl }, { merge: true });
@@ -52988,8 +53005,13 @@
         #vokabelpool-body input{width:100%;box-sizing:border-box;padding:10px;margin:0 0 8px;border-radius:6px;border:1px solid #555;background:#1f1f1f;color:#fff;font-size:1em}
         #vokabelpool-body textarea{width:100%;height:220px;box-sizing:border-box;background:#1f1f1f;color:#ddd;border:1px solid #555;border-radius:6px;font-family:monospace;font-size:.75em;margin-bottom:10px}
         .beispiel-light{font-size:.8em;color:#bdbdbd;font-style:italic;margin-top:6px}
-        /* etwas schmalere Buttons, damit 📚 auch auf kleinen Handys in die Leiste passt */
+        /* 📚 oben rechts, links neben dem Schließen-Button */
+        #vocab-container-light #vokabelpool-btn-light{position:absolute;top:10px;right:56px;height:34px;padding:0 10px}
+        /* Modus-Buttons kompakt, dafür < L > größer */
         #vocab-container-light .buttons-min button{padding-left:8px;padding-right:8px}
+        #vocab-container-light .buttons-min #prev-btn-light,
+        #vocab-container-light .buttons-min #solution-btn-light,
+        #vocab-container-light .buttons-min #next-btn-light{padding:9px 13px;font-size:1.15em;font-weight:bold}
     </style>
 </head>
 
@@ -53161,9 +53183,10 @@
     <div id="lightModeOverlay">
         
         <div id="vocab-container-light">
+            <button id="vokabelpool-btn-light" title="Vokabelpool: 20 neue Vokabeln pro Woche" onclick="openVokabelpool()">📚</button>
             <button id="closeLightModeBtn" style="height: 34px;">&gt;</button>
             <div>
-                <p id="prompt-word-light" style="padding-right: 40px;"></p>
+                <p id="prompt-word-light" style="padding-right: 90px;"></p>
                 <p id="solution-word-light"></p>
             </div>
             <div class="buttons-min">
@@ -53171,7 +53194,6 @@
                 <button id="list-mode-btn-light" class="mode-btn active">📋</button>
                 <button id="button-eule-light" style="display: none;" onclick="saveCurrentVokabelAsSchwierig()">🦉</button>
                 <button id="schwierig-spanisch-btn-light" title="Lange drücken zum Umschalten: Schwierige Vokabeln / Wortschatz Hendrik">⚡</button>
-                <button id="vokabelpool-btn-light" title="Vokabelpool: 20 neue Vokabeln pro Woche" onclick="openVokabelpool()">📚</button>
                 <span id="vocab-counter-light"></span>
                 <div style="flex-grow: 1;"></div>
                 <button id="prev-btn-light" class="nav-btn">&lt;</button>
