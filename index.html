@@ -50823,19 +50823,92 @@
             liste.vokabeln.splice(pos, 0, { fremdsprache: vok.fremdsprache, deutsch: vok.deutsch, beispiel: vok.beispiel || '', _pool: true, _eigene: !!vok.eigene });
             // laufende Auflistung nicht verschieben
             if (poolHendrikAktiv() && !isRandomMode && currentIndex >= pos) currentIndex++;
+            poolCacheSchreiben();
         }
 
-        // Beim Start: übernommene Pool-Vokabeln an "Wortschatz Hendrik" anhängen
+        // ---------- Pool-/eigene Vokabeln in "Wortschatz Hendrik" ----------
+        // Lokale Kopie, damit die Vokabeln beim Start sofort (auch offline) vorne stehen,
+        // bevor der Lernstand wiederhergestellt wird. Firestore gleicht danach im Hintergrund ab.
+        const POOL_CACHE_KEY = 'vokabelpool-aktiv-cache';
+
+        function poolDropdownZaehler() {
+            try {
+                if (document.getElementById('sprache').value !== POOL_SPRACHE) return;
+                const liste = getHendrikListe();
+                const opt = Array.from(document.getElementById('listeAuswahl').options).find(o => o.text.startsWith(POOL_LISTE + ' ('));
+                if (liste && opt) opt.textContent = `${POOL_LISTE} (${liste.vokabeln.length})`;
+            } catch (e) { /* egal */ }
+        }
+
+        function poolCacheSchreiben() {
+            try {
+                const liste = getHendrikListe();
+                if (!liste) return;
+                const block = liste.vokabeln.filter(v => v._pool)
+                    .map(v => ({ fremdsprache: v.fremdsprache, deutsch: v.deutsch, beispiel: v.beispiel || '', eigene: !!v._eigene }));
+                localStorage.setItem(POOL_CACHE_KEY, JSON.stringify(block));
+            } catch (e) { /* Speicher nicht verfügbar */ }
+            poolDropdownZaehler();
+        }
+
+        // Synchron beim Start, VOR dem Wiederherstellen des Lernstands
+        function poolCacheLaden() {
+            try {
+                const liste = getHendrikListe();
+                const block = JSON.parse(localStorage.getItem(POOL_CACHE_KEY) || '[]');
+                if (!liste || !Array.isArray(block) || !block.length) return;
+                const vorhanden = new Set(liste.vokabeln.map(v => v.fremdsprache));
+                const neu = block.filter(v => v && v.fremdsprache && !vorhanden.has(v.fremdsprache))
+                    .map(v => ({ fremdsprache: v.fremdsprache, deutsch: v.deutsch, beispiel: v.beispiel || '', _pool: true, _eigene: !!v.eigene }));
+                liste.vokabeln.unshift(...neu);
+                console.log('[Pool] ' + neu.length + ' Vokabeln aus lokaler Kopie vorne eingefügt');
+            } catch (e) {
+                console.warn('[Pool] lokale Kopie unlesbar:', e);
+            }
+        }
+
+        // Abgleich mit Firestore: vorderen Block neu aufbauen
+        // (1. eigene, neueste zuerst  2. übernommene Pool-Vokabeln in Übernahme-Reihenfolge)
         async function ladeAktivePoolVokabeln() {
             try {
                 const snap = await firestoreDB.collection(POOL_COLL).where('status', '==', 'aktiv').get();
+                const liste = getHendrikListe();
+                if (!liste) return;
                 const ms = t => (t && t.toMillis) ? t.toMillis() : 0;
-                const docs = snap.docs.map(d => d.data())
+                const docs = snap.docs.map(d => d.data());
+                const eigene = docs.filter(d => d.eigene).sort((a, b) => ms(b.uebernommenAm) - ms(a.uebernommenAm));
+                const pool = docs.filter(d => !d.eigene)
                     .sort((a, b) => (ms(a.uebernommenAm) - ms(b.uebernommenAm)) || ((a.rang || 0) - (b.rang || 0)));
-                docs.forEach(poolInHendrikListe);
-                console.log('[Pool] ' + docs.length + ' aktive Pool-Vokabeln geprüft/angehängt');
+
+                const altBlock = liste.vokabeln.filter(v => v._pool);
+                const rest = liste.vokabeln.filter(v => !v._pool);
+                const imCode = new Set(rest.map(v => v.fremdsprache));
+                const gesehen = new Set();
+                const neuBlock = [];
+                [...eigene, ...pool].forEach(d => {
+                    if (!d.fremdsprache || imCode.has(d.fremdsprache) || gesehen.has(d.fremdsprache)) return;
+                    gesehen.add(d.fremdsprache);
+                    neuBlock.push({ fremdsprache: d.fremdsprache, deutsch: d.deutsch, beispiel: d.beispiel || '', _pool: true, _eigene: !!d.eigene });
+                });
+
+                const gleich = altBlock.length === neuBlock.length &&
+                    altBlock.every((v, i) => v.fremdsprache === neuBlock[i].fremdsprache && v.deutsch === neuBlock[i].deutsch && (v.beispiel || '') === neuBlock[i].beispiel);
+                if (!gleich) {
+                    liste.vokabeln.splice(0, liste.vokabeln.length, ...neuBlock, ...rest);
+                    // Auflistung: am Listenanfang wieder ganz vorne beginnen, sonst beim aktuellen Wort bleiben
+                    if (poolHendrikAktiv() && !isRandomMode) {
+                        if (currentIndex <= 0) {
+                            currentIndex = -1;
+                        } else if (currentVokabel) {
+                            const i = liste.vokabeln.findIndex(v => v.fremdsprache === currentVokabel.fremdsprache);
+                            if (i >= 0) currentIndex = i;
+                        }
+                    }
+                }
+                poolCacheSchreiben();
+                console.log('[Pool] Abgleich: ' + neuBlock.length + ' Vokabeln vorne' + (gleich ? ' (unverändert)' : ' (aktualisiert)'));
             } catch (e) {
-                console.warn('[Pool] Laden der aktiven Pool-Vokabeln fehlgeschlagen:', e);
+                console.warn('[Pool] Abgleich mit Firestore fehlgeschlagen:', e);
             }
         }
 
@@ -51012,6 +51085,7 @@
                         if (i >= 0) {
                             liste.vokabeln.splice(i, 1);
                             if (poolHendrikAktiv() && !isRandomMode && currentIndex >= i) currentIndex--;
+                            poolCacheSchreiben();
                         }
                     }
                     poolMeta.rundeAnzahl = Math.max(0, poolMeta.rundeAnzahl - 1);
@@ -51301,7 +51375,7 @@
                     }
                     await firestoreDB.collection(POOL_COLL).doc(alt.id).update({ fremdsprache: werte.es, deutsch: werte.de, beispiel: werte.bsp });
                     const e = liste && liste.vokabeln.find(x => x._eigene && x.fremdsprache === alt.fremdsprache);
-                    if (e) { e.fremdsprache = werte.es; e.deutsch = werte.de; e.beispiel = werte.bsp; }
+                    if (e) { e.fremdsprache = werte.es; e.deutsch = werte.de; e.beispiel = werte.bsp; poolCacheSchreiben(); }
                     poolEditId = null;
                     await poolRenderEigene({ text: '✓ Änderung gespeichert' + (alt.imCode ? ' – im Code bitte ebenfalls anpassen.' : '.') });
                     return;
@@ -51358,6 +51432,7 @@
                     if (i >= 0) {
                         liste.vokabeln.splice(i, 1);
                         if (poolHendrikAktiv() && !isRandomMode && currentIndex >= i) currentIndex--;
+                        poolCacheSchreiben();
                     }
                 }
                 if (poolEditId === id) poolEditId = null;
@@ -51956,8 +52031,9 @@
             openNav();
             initializeApp();
             resetTimer();
-            // max. 2,5 s warten, damit die App offline nicht hängt
-            await Promise.race([ladeAktivePoolVokabeln(), new Promise(r => setTimeout(r, 2500))]);
+            // Pool-/eigene Vokabeln sofort aus der lokalen Kopie, Abgleich mit Firestore im Hintergrund
+            poolCacheLaden();
+            const poolAbgleich = ladeAktivePoolVokabeln();
 
             // Zustand wiederherstellen (Index, Sprache, Liste, Modus, LightMode)
             const stateRestored = await restoreState();
