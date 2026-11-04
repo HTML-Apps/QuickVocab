@@ -50786,7 +50786,7 @@
 
         const poolAuth = firebase.auth();
         let poolQueue = [];          // offene Pool-Vokabeln, nach Rang sortiert
-        let poolStats = { pool: 0, aktiv: 0, bekannt: 0 };
+        let poolStats = { pool: 0, aktiv: 0, bekannt: 0, eigene: 0 };
         let poolMeta = { rundeAnzahl: 0, letzteUebernahme: null };
         let poolLetzteAktion = null; // für "Rückgängig"
         let poolBusy = false;
@@ -50810,15 +50810,17 @@
             return document.getElementById('sprache').value === POOL_SPRACHE && opt && opt.text.startsWith(POOL_LISTE);
         }
 
-        // Übernommene Pool-Vokabeln stehen immer am Anfang von "Wortschatz Hendrik"
-        // (in Übernahme-Reihenfolge), damit sie in der Auflistung (📋) zuerst kommen.
+        // Reihenfolge am Anfang von "Wortschatz Hendrik", damit sie in der Auflistung (📋) zuerst kommen:
+        //   1. eigene Vokabeln (neueste ganz vorne)  2. übernommene Pool-Vokabeln (Übernahme-Reihenfolge)
         function poolInHendrikListe(vok) {
             const liste = getHendrikListe();
             if (!liste) return;
             if (liste.vokabeln.some(v => v.fremdsprache === vok.fremdsprache)) return;
             let pos = 0;
-            while (pos < liste.vokabeln.length && liste.vokabeln[pos]._pool) pos++;
-            liste.vokabeln.splice(pos, 0, { fremdsprache: vok.fremdsprache, deutsch: vok.deutsch, beispiel: vok.beispiel || '', _pool: true });
+            if (!vok.eigene) {
+                while (pos < liste.vokabeln.length && liste.vokabeln[pos]._pool) pos++;
+            }
+            liste.vokabeln.splice(pos, 0, { fremdsprache: vok.fremdsprache, deutsch: vok.deutsch, beispiel: vok.beispiel || '', _pool: true, _eigene: !!vok.eigene });
             // laufende Auflistung nicht verschieben
             if (poolHendrikAktiv() && !isRandomMode && currentIndex >= pos) currentIndex++;
         }
@@ -50844,14 +50846,14 @@
 
         // ---------- Modal ----------
         function poolModal() { return document.getElementById('vokabelpool-modal'); }
-        function poolBody() { return document.getElementById('vokabelpool-body'); }
+        function poolBody() { return document.getElementById('vp-inhalt'); }
 
         function closeVokabelpool() {
             poolModal().style.display = 'none';
         }
 
         function poolStatsHtml() {
-            return `<div class="vp-stats">Pool: <b>${poolStats.pool}</b> offen · <b>${poolStats.aktiv}</b> übernommen · <b>${poolStats.bekannt}</b> bekannt</div>`;
+            return `<div class="vp-stats">Pool: <b>${poolStats.pool}</b> offen · <b>${poolStats.aktiv}</b> übernommen · <b>${poolStats.eigene || 0}</b> eigene · <b>${poolStats.bekannt}</b> bekannt</div>`;
         }
 
         function poolFooterHtml() {
@@ -50866,6 +50868,8 @@
             poolModal().style.display = 'flex';
             const user = poolAuth.currentUser;
             if (!user) { poolRenderLogin(); return; }
+            poolRenderTabs();
+            if (poolTab === 'eigene') { poolRenderEigene(); return; }
             poolBody().innerHTML = '<p class="vp-info">Lade Vokabelpool …</p>';
             try {
                 await poolDatenLaden();
@@ -50882,10 +50886,11 @@
                 firestoreDB.collection(POOL_COLL).get(),
                 POOL_META_REF().get()
             ]);
-            poolStats = { pool: 0, aktiv: 0, bekannt: 0 };
+            poolStats = { pool: 0, aktiv: 0, bekannt: 0, eigene: 0 };
             poolQueue = [];
             snap.forEach(doc => {
                 const d = doc.data();
+                if (d.eigene) { if (d.status === 'aktiv') poolStats.eigene++; return; }
                 if (poolStats[d.status] != null) poolStats[d.status]++;
                 if (d.status === 'pool') poolQueue.push({ id: doc.id, ...d });
             });
@@ -51023,6 +51028,7 @@
 
         // ---------- Login (nur zum Schreiben nötig) ----------
         function poolRenderLogin(fehler) {
+            document.getElementById('vp-tabs').innerHTML = '';
             poolBody().innerHTML = `
                 <h3>📚 Vokabelpool – Anmeldung</h3>
                 <p class="vp-info">Zum Übernehmen von Vokabeln bitte einmalig anmelden. Die Anmeldung bleibt auf diesem Gerät gespeichert.</p>
@@ -51176,6 +51182,192 @@
             const m = poolModal();
             if (m && m.style.display === 'flex') openVokabelpool();
         });
+
+        // ---------- Eigene Vokabeln (Tab "Eigene Vokabel") ----------
+        // Gespeichert in "vokabelpool" mit eigene: true, status: 'aktiv';
+        // stehen ganz vorne in "Wortschatz Hendrik" (neueste zuerst).
+        let poolTab = 'sortieren';
+        let poolEigeneListe = [];
+        let poolEditId = null;
+
+        function poolRenderTabs() {
+            const on = t => poolTab === t;
+            document.getElementById('vp-tabs').innerHTML = `
+                <div class="vp-tabbar">
+                    <div class="vp-tabs" role="tablist">
+                        <button role="tab" aria-selected="${on('sortieren')}" class="${on('sortieren') ? 'vp-tab-on' : ''}" onclick="poolTabWechseln('sortieren')">Pool sortieren</button>
+                        <button role="tab" aria-selected="${on('eigene')}" class="${on('eigene') ? 'vp-tab-on' : ''}" onclick="poolTabWechseln('eigene')">Eigene Vokabel</button>
+                    </div>
+                    <button class="vp-close" aria-label="Schließen" onclick="closeVokabelpool()">✕</button>
+                </div>`;
+        }
+
+        function poolTabWechseln(tab) {
+            if (poolBusy || poolTab === tab) return;
+            poolTab = tab;
+            poolEditId = null;
+            openVokabelpool();
+        }
+
+        function poolNorm(s) {
+            return String(s || '').toLowerCase().trim().replace(/\s+/g, ' ').replace(/^(el|la|los|las|el\/la)\s+/, '');
+        }
+
+        // Steht die Vokabel schon in einer Spanisch-Liste? → Name der Liste
+        function poolSucheInListen(es) {
+            const n = poolNorm(es);
+            for (const l of (vokabellisten[POOL_SPRACHE] || [])) {
+                if (l.vokabeln.some(v => poolNorm(v.fremdsprache) === n)) return l.name;
+            }
+            return null;
+        }
+
+        async function poolRenderEigene(meldung) {
+            poolBody().innerHTML = '<p class="vp-info">Lade eigene Vokabeln …</p>';
+            try {
+                const snap = await firestoreDB.collection(POOL_COLL).where('eigene', '==', true).get();
+                const ms = t => (t && t.toMillis) ? t.toMillis() : Date.now();
+                poolEigeneListe = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+                    .sort((a, b) => ms(b.uebernommenAm) - ms(a.uebernommenAm));
+            } catch (e) {
+                poolBody().innerHTML = `<p class="vp-error">Eigene Vokabeln konnten nicht geladen werden: ${poolEsc(e.message)}</p>` + poolFooterHtml();
+                return;
+            }
+            poolZeichneEigene(meldung);
+        }
+
+        function poolZeichneEigene(meldung, werte) {
+            const edit = poolEditId ? poolEigeneListe.find(v => v.id === poolEditId) : null;
+            const w = werte || (edit ? { es: edit.fremdsprache, de: edit.deutsch, bsp: edit.beispiel || '' } : { es: '', de: '', bsp: '' });
+            const enter = `onkeydown="if(event.key==='Enter'){event.preventDefault();poolEigeneSpeichern();}"`;
+            const max = 30;
+            const items = poolEigeneListe.slice(0, max).map(v => `
+                <div class="vp-item">
+                    <div class="vp-item-text">
+                        <div class="vp-item-es">${poolEsc(v.fremdsprache)}</div>
+                        <div class="vp-item-de">${poolEsc(v.deutsch)}</div>
+                    </div>
+                    <button class="vp-icon" aria-label="Bearbeiten" onclick="poolEigeneBearbeiten('${v.id}')">✎</button>
+                    <button class="vp-icon" aria-label="Löschen" onclick="poolEigeneLoeschen('${v.id}')">🗑</button>
+                </div>`).join('');
+            poolBody().innerHTML = `
+                <h3>${edit ? '✏️ Vokabel bearbeiten' : '✏️ Eigene Vokabel'}</h3>
+                ${meldung ? `<p class="${meldung.fehler ? 'vp-error' : 'vp-ok'}">${poolEsc(meldung.text)}</p>` : ''}
+                <label class="vp-label" for="vp-es">Spanisch</label>
+                <input id="vp-es" value="${poolEsc(w.es)}" autocomplete="off" autocapitalize="none" spellcheck="false" ${enter}>
+                <label class="vp-label" for="vp-de">Deutsch</label>
+                <input id="vp-de" value="${poolEsc(w.de)}" autocomplete="off" ${enter}>
+                <label class="vp-label" for="vp-bsp">Beispielsatz <span class="vp-opt">(optional)</span></label>
+                <input id="vp-bsp" value="${poolEsc(w.bsp)}" autocomplete="off" ${enter}>
+                <button class="vp-btn-take vp-full" onclick="poolEigeneSpeichern()">${edit ? 'Änderung speichern' : 'Zu „' + POOL_LISTE + '“ hinzufügen'}</button>
+                ${edit ? '<div class="vp-sub"><button class="vp-btn-link" onclick="poolEditAbbrechen()">Abbrechen</button></div>' : ''}
+                <div class="vp-eigene-kopf">Zuletzt eingetragen · stehen ganz vorne in der Liste</div>
+                ${items || '<p class="vp-info vp-leer">Noch keine eigenen Vokabeln.</p>'}
+                ${poolEigeneListe.length > max ? `<p class="vp-leer">… und ${poolEigeneListe.length - max} weitere</p>` : ''}
+            ` + poolFooterHtml();
+        }
+
+        function poolEigeneBearbeiten(id) {
+            if (poolBusy) return;
+            poolEditId = id;
+            poolZeichneEigene();
+            const f = document.getElementById('vp-es');
+            if (f) f.focus();
+        }
+
+        function poolEditAbbrechen() {
+            poolEditId = null;
+            poolZeichneEigene();
+        }
+
+        async function poolEigeneSpeichern() {
+            if (poolBusy) return;
+            const val = id => document.getElementById(id).value.trim();
+            const werte = { es: val('vp-es'), de: val('vp-de'), bsp: val('vp-bsp') };
+            if (!werte.es || !werte.de) {
+                poolZeichneEigene({ fehler: true, text: 'Bitte Spanisch und Deutsch ausfüllen.' }, werte);
+                return;
+            }
+            poolBusy = true;
+            try {
+                const liste = getHendrikListe();
+                // --- Bearbeiten ---
+                if (poolEditId) {
+                    const alt = poolEigeneListe.find(v => v.id === poolEditId);
+                    if (!alt) { poolEditId = null; poolZeichneEigene(null, werte); return; }
+                    if (poolNorm(werte.es) !== poolNorm(alt.fremdsprache)) {
+                        const treffer = poolSucheInListen(werte.es);
+                        if (treffer && !confirm(`„${werte.es}“ steht schon in „${treffer}“.\nTrotzdem so speichern?`)) { poolZeichneEigene(null, werte); return; }
+                    }
+                    await firestoreDB.collection(POOL_COLL).doc(alt.id).update({ fremdsprache: werte.es, deutsch: werte.de, beispiel: werte.bsp });
+                    const e = liste && liste.vokabeln.find(x => x._eigene && x.fremdsprache === alt.fremdsprache);
+                    if (e) { e.fremdsprache = werte.es; e.deutsch = werte.de; e.beispiel = werte.bsp; }
+                    poolEditId = null;
+                    await poolRenderEigene({ text: '✓ Änderung gespeichert' + (alt.imCode ? ' – im Code bitte ebenfalls anpassen.' : '.') });
+                    return;
+                }
+                // --- Neu ---
+                const treffer = poolSucheInListen(werte.es);
+                if (treffer === POOL_LISTE) {
+                    poolZeichneEigene({ fehler: true, text: `„${werte.es}“ steht bereits in „${POOL_LISTE}“.` }, werte);
+                    return;
+                }
+                if (treffer && !confirm(`„${werte.es}“ steht schon in „${treffer}“.\nTrotzdem hinzufügen?`)) { poolZeichneEigene(null, werte); return; }
+                const ref = firestoreDB.collection(POOL_COLL).doc(poolDocId(werte.es));
+                const snap = await ref.get();
+                if (snap.exists && snap.data().status === 'aktiv') {
+                    poolZeichneEigene({ fehler: true, text: `„${snap.data().fremdsprache}“ ist bereits in „${POOL_LISTE}“.` }, werte);
+                    return;
+                }
+                // auch wenn das Wort noch offen im Pool lag: wird jetzt zur eigenen Vokabel
+                await ref.set({
+                    fremdsprache: werte.es,
+                    deutsch: werte.de,
+                    beispiel: werte.bsp,
+                    sprache: POOL_SPRACHE,
+                    status: 'aktiv',
+                    eigene: true,
+                    rang: 0,
+                    uebernommenAm: firebase.firestore.FieldValue.serverTimestamp()
+                }, { merge: true });
+                poolInHendrikListe({ fremdsprache: werte.es, deutsch: werte.de, beispiel: werte.bsp, eigene: true });
+                showSubtleToast(`✏️ ${werte.es} hinzugefügt`);
+                await poolRenderEigene({ text: `✓ „${werte.es}“ steht jetzt ganz vorne in „${POOL_LISTE}“.` });
+                const f = document.getElementById('vp-es');
+                if (f) f.focus();
+            } catch (e) {
+                console.error(e);
+                poolZeichneEigene({ fehler: true, text: 'Speichern fehlgeschlagen: ' + e.message }, werte);
+            } finally {
+                poolBusy = false;
+            }
+        }
+
+        async function poolEigeneLoeschen(id) {
+            if (poolBusy) return;
+            const v = poolEigeneListe.find(x => x.id === id);
+            if (!v) return;
+            const hinweis = v.imCode ? '\n\nSie steht bereits im Code – dort bitte von Hand entfernen.' : '';
+            if (!confirm(`„${v.fremdsprache}“ löschen?${hinweis}`)) return;
+            poolBusy = true;
+            try {
+                await firestoreDB.collection(POOL_COLL).doc(id).delete();
+                const liste = getHendrikListe();
+                if (liste) {
+                    const i = liste.vokabeln.findIndex(x => x._eigene && x.fremdsprache === v.fremdsprache);
+                    if (i >= 0) {
+                        liste.vokabeln.splice(i, 1);
+                        if (poolHendrikAktiv() && !isRandomMode && currentIndex >= i) currentIndex--;
+                    }
+                }
+                if (poolEditId === id) poolEditId = null;
+                await poolRenderEigene({ text: `„${v.fremdsprache}“ gelöscht.` });
+            } catch (e) {
+                alert('⚠️ Löschen fehlgeschlagen: ' + e.message);
+            } finally {
+                poolBusy = false;
+            }
+        }
         // =================== ENDE VOKABELPOOL ===================
 
 
@@ -53021,6 +53213,21 @@
         #vokabelpool-body .vp-btn-sec{background:#333;color:#ccc;padding:6px 10px;font-size:.8em;width:auto}
         #vokabelpool-body .vp-info{line-height:1.5;margin:0 0 12px}
         #vokabelpool-body .vp-error{color:#ff8a80;margin:0 0 12px}
+        #vokabelpool-body .vp-tabbar{display:flex;gap:8px;align-items:center;margin-bottom:14px}
+        #vokabelpool-body .vp-tabs{flex:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:4px;background:#1f1f1f;border-radius:8px}
+        #vokabelpool-body .vp-tabs button{height:40px;border:none;background:transparent;color:#c8c8c8;font-size:.9em;width:100%}
+        #vokabelpool-body .vp-tabs .vp-tab-on{background:#1e6fb8;color:#fff;font-weight:bold}
+        #vokabelpool-body .vp-close{width:40px;height:40px;flex-shrink:0;background:none;border:none;color:#a0a0a0;font-size:1.1em}
+        #vokabelpool-body .vp-label{display:block;font-size:.8em;color:#c8c8c8;margin:0 0 4px}
+        #vokabelpool-body .vp-opt{color:#a0a0a0}
+        #vokabelpool-body .vp-ok{color:#a5d6a7;margin:0 0 12px}
+        #vokabelpool-body .vp-eigene-kopf{font-size:.8em;color:#a0a0a0;border-top:1px solid #444;padding-top:12px;margin:6px 0 8px}
+        #vokabelpool-body .vp-item{display:flex;align-items:center;gap:2px;background:#1f1f1f;border-radius:8px;padding:4px 4px 4px 12px;margin-bottom:6px}
+        #vokabelpool-body .vp-item-text{flex:1;min-width:0;overflow-wrap:anywhere}
+        #vokabelpool-body .vp-item-es{font-weight:bold}
+        #vokabelpool-body .vp-item-de{font-size:.85em;color:#64b5f6}
+        #vokabelpool-body .vp-icon{width:44px;height:44px;flex-shrink:0;background:none;border:none;color:#a0a0a0;font-size:1.05em}
+        #vokabelpool-body .vp-leer{font-size:.85em;color:#a0a0a0}
         #vokabelpool-body .vp-or{text-align:center;font-size:.85em;color:#a0a0a0;margin:4px 0 8px}
         #vokabelpool-body input{width:100%;box-sizing:border-box;padding:10px;margin:0 0 8px;border-radius:6px;border:1px solid #555;background:#1f1f1f;color:#fff;font-size:1em}
         #vokabelpool-body textarea{width:100%;height:220px;box-sizing:border-box;background:#1f1f1f;color:#ddd;border:1px solid #555;border-radius:6px;font-family:monospace;font-size:.75em;margin-bottom:10px}
@@ -53194,7 +53401,7 @@
 
     <!-- Vokabelpool Modal -->
     <div id="vokabelpool-modal" onclick="if(event.target===this) closeVokabelpool()">
-        <div id="vokabelpool-body"></div>
+        <div id="vokabelpool-body"><div id="vp-tabs"></div><div id="vp-inhalt"></div></div>
     </div>
     <input type="file" id="vokabelpool-file" accept=".json,application/json" style="display:none" onchange="poolImportDatei(this)">
 
